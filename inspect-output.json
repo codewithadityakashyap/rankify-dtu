@@ -1,0 +1,50 @@
+{
+  "columns": [
+    "Univ Rank",
+    "Name",
+    "Roll",
+    "Dept.",
+    "Sem 1",
+    "Sem 2",
+    "Sem 3",
+    "Sem 4",
+    "Sem 5",
+    "Aggregate CGPA"
+  ],
+  "firstRow": [
+    1,
+    "ASHMIT JAKHWAL",
+    "23/ME/323",
+    "ME",
+    9.9,
+    10,
+    9.83,
+    10,
+    10,
+    9.946
+  ],
+  "secondRow": [
+    2,
+    "NEAL SAXENA",
+    "23/CS/275",
+    "CS",
+    10,
+    9.7,
+    10,
+    9.82,
+    10,
+    9.912
+  ],
+  "thirdRow": [
+    3,
+    "KANAK MAHESHWARI",
+    "23/CS/200",
+    "CS",
+    10,
+    9.6,
+    9.75,
+    10,
+    10,
+    9.876
+  ]
+}

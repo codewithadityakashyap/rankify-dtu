@@ -1,0 +1,19 @@
+[build]
+  command = "npm run build"
+  publish = ".next"
+
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
+
+# Optional: Add any generic headers for security or caching
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+
+# If you have custom routing or external APIs, you can add redirect rules below:
+# [[redirects]]
+#   from = "/api/*"
+#   to = "https://your-backend.com/api/:splat"
+#   status = 200
