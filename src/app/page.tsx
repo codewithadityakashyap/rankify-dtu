@@ -8,6 +8,8 @@ import { StudentModal } from '@/components/dashboard/StudentModal';
 import { Analytics } from '@/components/dashboard/Analytics';
 import { ModeToggle } from '@/components/ModeToggle';
 import { Footer } from '@/components/Footer';
+import { useRouter } from 'next/navigation';
+import { BranchSelector, STRICT_BRANCHES } from '@/components/BranchSelector';
 
 // Debounce hook
 function useDebounce<T>(value: T, delay: number): T {
@@ -22,6 +24,8 @@ function useDebounce<T>(value: T, delay: number): T {
 }
 
 export default function Dashboard() {
+  const router = useRouter();
+  
   const [kpiData, setKpiData] = useState<any>({
     overallTopper: null,
     branchTopper: null,
@@ -85,6 +89,14 @@ export default function Dashboard() {
     setPage(1);
   };
 
+  const handleBranchSelect = (selected: string) => {
+    if (selected === 'All') {
+      setBranch('All');
+    } else {
+      router.push(`/branch/${selected}`);
+    }
+  };
+
   const branches = Object.keys(kpiData.stats?.branchDistribution || {}).sort();
 
   return (
@@ -127,13 +139,23 @@ export default function Dashboard() {
           </p>
         </div>
 
+        <BranchSelector 
+          selectedBranch={branch}
+          onSelect={handleBranchSelect}
+          className="mb-8"
+          branches={STRICT_BRANCHES}
+        />
+
         <KPICards 
           overallTopper={kpiData.overallTopper} 
           branchTopper={kpiData.branchTopper}
           mostImproved={kpiData.mostImproved}
         />
 
-        <Analytics branchDistribution={kpiData.stats?.branchDistribution || {}} />
+        <Analytics 
+          branchDistribution={kpiData.stats?.branchDistribution || {}} 
+          branchAverages={kpiData.stats?.branchAverages || []} 
+        />
 
         <SearchAndFilter 
           searchQuery={searchQuery}

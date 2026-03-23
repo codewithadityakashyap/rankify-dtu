@@ -32,11 +32,36 @@ export async function GET(request: Request) {
       mostImproved = validImprovements.reduce((max: any, s: any) => (s.improvement > max.improvement ? s : max), validImprovements[0]);
     }
 
-    // Analytics stats
+    // Analytics stats: Distribution
     const branchGroups = data.reduce((acc: any, s: any) => {
       acc[s.branch] = (acc[s.branch] || 0) + 1;
       return acc;
     }, {});
+
+    // Analytics stats: Branch-Wise Average CGPA
+    const branchStats: Record<string, { total: number, count: number }> = {};
+    const STRICT_BRANCHES = ["AE", "BT", "CE", "CH", "CS", "EC", "EE", "EP", "EN", "IT", "MC", "ME", "PE", "SE"];
+    
+    STRICT_BRANCHES.forEach(b => {
+      branchStats[b] = { total: 0, count: 0 };
+    });
+
+    data.forEach((student: any) => {
+      const b = student.branch?.toUpperCase();
+      const cgpa = parseFloat(student.cgpa);
+      if (b && branchStats[b] && !isNaN(cgpa) && cgpa > 0) {
+        branchStats[b].total += cgpa;
+        branchStats[b].count += 1;
+      }
+    });
+
+    const branchAverages = Object.entries(branchStats)
+      .filter(([_, stats]) => stats.count > 0)
+      .map(([branch, stats]) => ({
+        branch: branch,
+        averageCgpa: parseFloat((stats.total / stats.count).toFixed(2))
+      }))
+      .sort((a, b) => b.averageCgpa - a.averageCgpa);
 
     return NextResponse.json({
       overallTopper,
@@ -44,7 +69,8 @@ export async function GET(request: Request) {
       mostImproved,
       stats: {
         totalStudents: data.length,
-        branchDistribution: branchGroups
+        branchDistribution: branchGroups,
+        branchAverages: branchAverages
       }
     });
 
