@@ -2,7 +2,7 @@ const xlsx = require('xlsx');
 const path = require('path');
 const fs = require('fs');
 
-const excelFilePath = path.join(__dirname, '../../Results - 2027.xlsx');
+const excelFilePath = path.join(__dirname, '../data/Results - 2027.xlsx');
 console.log('Reading file:', excelFilePath);
 
 const workbook = xlsx.readFile(excelFilePath);

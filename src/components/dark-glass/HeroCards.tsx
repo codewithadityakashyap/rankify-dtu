@@ -11,62 +11,84 @@ interface HeroCardsProps {
 }
 
 export function HeroCards({ topper, mostImproved, mostConsistent, atRiskCount }: HeroCardsProps) {
+  const improvementValue = mostImproved?.computedDrop
+    ? `+${Math.abs(mostImproved.computedDrop).toFixed(2)} SGPA`
+    : "N/A";
+
   const cards = [
     {
       title: "Top Performer",
-      value: topper?.cgpa ? `${topper.cgpa.toFixed(2)} CGPA` : "N/A",
+      value: topper?.cgpa ? `${parseFloat(topper.cgpa).toFixed(2)} CGPA` : "N/A",
       subtitle: topper?.name || "Computing...",
-      icon: <Trophy className="w-6 h-6 text-indigo-400" />,
-      glow: "shadow-[0_0_20px_rgba(99,102,241,0.2)]",
-      border: "border-indigo-500/30"
+      valueColor: "text-slate-900 dark:text-slate-100",
+      bg: "bg-white dark:bg-[#1E293B]/80",
+      border: "border-indigo-200 dark:border-indigo-500/30",
+      glow: "shadow-md dark:shadow-[0_0_18px_rgba(99,102,241,0.15)]",
+      icon: <Trophy className="w-5 h-5 text-indigo-500 dark:text-indigo-400" />,
+      iconBg: "bg-indigo-50 dark:bg-slate-900/50 border-indigo-100 dark:border-slate-700/50",
     },
     {
       title: "Most Improved",
-      value: mostImproved?.computedDrop ? `+${(-mostImproved.computedDrop).toFixed(2)} SGPA` : "N/A",
+      value: improvementValue,
       subtitle: mostImproved?.name || "Computing...",
-      icon: <TrendingUp className="w-6 h-6 text-cyan-400" />,
-      glow: "shadow-[0_0_20px_rgba(34,211,238,0.2)]",
-      border: "border-cyan-500/30"
+      valueColor: "text-green-600 dark:text-green-400",
+      bg: "bg-white dark:bg-[#1E293B]/80",
+      border: "border-green-200 dark:border-green-500/30",
+      glow: "shadow-md dark:shadow-[0_0_18px_rgba(34,197,94,0.15)]",
+      icon: <TrendingUp className="w-5 h-5 text-green-500 dark:text-green-400" />,
+      iconBg: "bg-green-50 dark:bg-slate-900/50 border-green-100 dark:border-slate-700/50",
     },
     {
       title: "Most Consistent",
-      value: mostConsistent?.cgpa ? `${mostConsistent.cgpa.toFixed(2)} CGPA` : "N/A",
+      value: mostConsistent?.cgpa ? `${parseFloat(mostConsistent.cgpa).toFixed(2)} CGPA` : "N/A",
       subtitle: mostConsistent?.name || "Computing...",
-      icon: <Target className="w-6 h-6 text-green-400" />,
-      glow: "shadow-[0_0_20px_rgba(34,197,94,0.2)]",
-      border: "border-green-500/30"
+      valueColor: "text-slate-900 dark:text-slate-100",
+      bg: "bg-white dark:bg-[#1E293B]/80",
+      border: "border-cyan-200 dark:border-cyan-500/30",
+      glow: "shadow-md dark:shadow-[0_0_18px_rgba(34,211,238,0.15)]",
+      icon: <Target className="w-5 h-5 text-cyan-500 dark:text-cyan-400" />,
+      iconBg: "bg-cyan-50 dark:bg-slate-900/50 border-cyan-100 dark:border-slate-700/50",
     },
     {
       title: "Critical Alert",
       value: `${atRiskCount} Students`,
       subtitle: "CGPA < 7.0 (At Risk)",
-      icon: <AlertTriangle className="w-6 h-6 text-red-500" />,
-      glow: "shadow-[0_0_20px_rgba(239,68,68,0.2)]",
-      border: "border-red-500/30"
+      valueColor: "text-slate-900 dark:text-slate-100",
+      bg: "bg-white dark:bg-[#1E293B]/80",
+      border: "border-red-200 dark:border-red-500/30",
+      glow: "shadow-md dark:shadow-[0_0_18px_rgba(239,68,68,0.15)]",
+      icon: <AlertTriangle className="w-5 h-5 text-red-500" />,
+      iconBg: "bg-red-50 dark:bg-slate-900/50 border-red-100 dark:border-slate-700/50",
     }
   ];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
       {cards.map((card, idx) => (
         <motion.div
           key={card.title}
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: idx * 0.1, duration: 0.5, ease: "easeOut" }}
-          whileHover={{ y: -5, scale: 1.02 }}
-          className={`relative p-6 rounded-2xl bg-[#1E293B]/80 backdrop-blur-xl border ${card.border} ${card.glow} overflow-hidden`}
+          transition={{ delay: idx * 0.06, duration: 0.25, ease: "easeOut" }}
+          whileHover={{ y: -3, scale: 1.03 }}
+          whileTap={{ scale: 0.98 }}
+          style={{ willChange: "transform" }}
+          className={`relative p-4 sm:p-5 rounded-2xl border backdrop-blur-xl overflow-hidden cursor-default transition-colors duration-300 ${card.bg} ${card.border} ${card.glow}`}
         >
-          {/* Glass Overlay Highlight */}
-          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
-          
-          <div className="flex items-start justify-between">
-            <div>
-              <p className="text-sm font-medium text-slate-400 mb-1">{card.title}</p>
-              <h3 className="text-2xl font-bold text-slate-100">{card.value}</h3>
-              <p className="text-sm text-cyan-400/80 mt-1 break-words leading-snug">{card.subtitle}</p>
+          <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-white/40 dark:via-white/20 to-transparent" />
+          <div className="flex items-start justify-between gap-3">
+            <div className="min-w-0">
+              <p className="text-xs font-semibold text-slate-400 dark:text-slate-400 mb-1 uppercase tracking-wider">
+                {card.title}
+              </p>
+              <h3 className={`text-xl sm:text-2xl font-bold ${card.valueColor}`}>
+                {card.value}
+              </h3>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 break-words leading-snug">
+                {card.subtitle}
+              </p>
             </div>
-            <div className={`p-3 rounded-xl bg-slate-900/50 backdrop-blur-md border border-slate-700`}>
+            <div className={`shrink-0 p-2.5 rounded-xl border ${card.iconBg}`}>
               {card.icon}
             </div>
           </div>

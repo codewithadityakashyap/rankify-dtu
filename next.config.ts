@@ -59,33 +59,30 @@ const nextConfig: NextConfig = {
           },
 
           // ── Content Security Policy ───────────────────────────────────────
-          // Locks down exactly which external sources are trusted.
-          // Google Analytics & Google Tag Manager are explicitly whitelisted.
-          {
-            key: 'Content-Security-Policy',
-            value: [
-              // Only allow content from own origin by default
-              "default-src 'self'",
-              // Scripts: self + GA/GTM (Next.js inline scripts need unsafe-inline in dev)
-              "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com",
-              // Styles: self + Google Fonts + inline (Tailwind generates inline styles)
-              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-              // Fonts from Google Fonts
-              "font-src 'self' https://fonts.gstatic.com",
-              // Images: self + GA beacon + data URIs + hits.seeyoufarm.com
-              "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com https://hits.seeyoufarm.com",
-              // API/fetch calls: self + GA
-              "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com",
-              // Block all object/embed/frame embeds
-              "object-src 'none'",
-              "frame-src 'none'",
-              "frame-ancestors 'none'",
-              // Only allow form submissions to self
-              "form-action 'self'",
-              // Upgrade any HTTP sub-requests to HTTPS
-              "upgrade-insecure-requests",
-            ].join('; '),
-          },
+          // Conditionally adds 'unsafe-eval' for dev mode (React needs it for
+          // sourcemaps/fast-refresh). Production stays strict — no eval ever.
+          (() => {
+            const isDev = process.env.NODE_ENV !== 'production';
+            const scriptSrc = isDev
+              ? "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com"
+              : "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com";
+            return {
+              key: 'Content-Security-Policy',
+              value: [
+                "default-src 'self'",
+                scriptSrc,
+                "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+                "font-src 'self' https://fonts.gstatic.com",
+                "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com https://hits.seeyoufarm.com",
+                "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com",
+                "object-src 'none'",
+                "frame-src 'none'",
+                "frame-ancestors 'none'",
+                "form-action 'self'",
+                "upgrade-insecure-requests",
+              ].join('; '),
+            };
+          })(),
 
           // ── Prevent caching of sensitive API responses ────────────────────
           // (Applied broadly; override per-route if needed)

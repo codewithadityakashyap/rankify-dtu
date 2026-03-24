@@ -1,14 +1,25 @@
 "use client";
 
+import { useTheme } from "next-themes";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid, Cell } from 'recharts';
 
 export function DistributionChart({ data }: { data: any[] }) {
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === 'dark';
+
+  const gridColor = isDark ? '#334155' : '#E2E8F0';
+  const tickColor = isDark ? '#94A3B8' : '#64748B';
+  const tooltipBg = isDark ? '#0F172A' : '#FFFFFF';
+  const tooltipBorder = isDark ? '#334155' : '#E2E8F0';
+  const tooltipText = isDark ? '#E2E8F0' : '#0F172A';
+  const tooltipItem = isDark ? '#22D3EE' : '#2563EB';
+
   if (!data?.length) return null;
 
   return (
-    <div className="bg-[#1E293B]/80 backdrop-blur-xl border border-slate-700/50 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-6">
-      <h3 className="text-xl font-bold text-slate-100 mb-6 flex items-center gap-2">
-        <span className="w-2 h-6 bg-indigo-500 rounded-full"></span>
+    <div className="bg-white dark:bg-[#1E293B]/80 backdrop-blur-xl border border-slate-200 dark:border-slate-700/50 rounded-2xl shadow-md dark:shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-6 transition-colors duration-300">
+      <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-6 flex items-center gap-2">
+        <span className="w-2 h-6 bg-indigo-500 rounded-full" />
         CGPA Distribution
       </h3>
       <div className="h-[300px] w-full">
@@ -20,22 +31,22 @@ export function DistributionChart({ data }: { data: any[] }) {
                 <stop offset="100%" stopColor="#22D3EE" stopOpacity={0.5} />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#334155" />
-            <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fill: '#94A3B8', fontSize: 12}} dy={10} />
-            <YAxis axisLine={false} tickLine={false} tick={{fill: '#94A3B8', fontSize: 12}} />
-            <Tooltip 
-              cursor={{fill: 'rgba(99, 102, 241, 0.1)'}}
-              contentStyle={{ 
-                backgroundColor: '#0F172A', 
-                border: '1px solid #334155',
+            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={gridColor} />
+            <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fill: tickColor, fontSize: 12 }} dy={10} />
+            <YAxis axisLine={false} tickLine={false} tick={{ fill: tickColor, fontSize: 12 }} />
+            <Tooltip
+              cursor={{ fill: 'rgba(99, 102, 241, 0.08)' }}
+              contentStyle={{
+                backgroundColor: tooltipBg,
+                border: `1px solid ${tooltipBorder}`,
                 borderRadius: '12px',
-                color: '#E2E8F0',
-                boxShadow: '0 0 20px rgba(34, 211, 238, 0.15)'
+                color: tooltipText,
+                boxShadow: isDark ? '0 0 20px rgba(34,211,238,0.15)' : '0 4px 20px rgba(0,0,0,0.08)',
               }}
-              itemStyle={{ color: '#22D3EE', fontWeight: 'bold' }}
+              itemStyle={{ color: tooltipItem, fontWeight: 'bold' }}
             />
             <Bar dataKey="count" radius={[6, 6, 0, 0]} animationDuration={1500}>
-              {data.map((entry, index) => (
+              {data.map((_, index) => (
                 <Cell key={`cell-${index}`} fill="url(#distGradient)" />
               ))}
             </Bar>

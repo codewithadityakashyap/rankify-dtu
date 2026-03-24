@@ -1,14 +1,26 @@
 "use client";
 
+import { useTheme } from "next-themes";
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 
 export function SemesterTrendChart({ data }: { data: any[] }) {
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === 'dark';
+
+  const gridColor = isDark ? '#334155' : '#E2E8F0';
+  const tickColor = isDark ? '#94A3B8' : '#64748B';
+  const tooltipBg = isDark ? '#0F172A' : '#FFFFFF';
+  const tooltipBorder = isDark ? '#334155' : '#E2E8F0';
+  const tooltipText = isDark ? '#E2E8F0' : '#0F172A';
+  const dotFill = isDark ? '#0F172A' : '#FFFFFF';
+  const dotStroke = isDark ? '#22D3EE' : '#6366F1';
+
   if (!data?.length) return null;
 
   return (
-    <div className="bg-[#1E293B]/80 backdrop-blur-xl border border-slate-700/50 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-6">
-      <h3 className="text-xl font-bold text-slate-100 mb-6 flex items-center gap-2">
-        <span className="w-2 h-6 bg-cyan-400 rounded-full"></span>
+    <div className="bg-white dark:bg-[#1E293B]/80 backdrop-blur-xl border border-slate-200 dark:border-slate-700/50 rounded-2xl shadow-md dark:shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-6 transition-colors duration-300">
+      <h3 className="text-xl font-bold text-slate-900 dark:text-slate-100 mb-6 flex items-center gap-2">
+        <span className="w-2 h-6 bg-cyan-500 dark:bg-cyan-400 rounded-full" />
         Semester Trend (Average CGPA)
       </h3>
       <div className="h-[300px] w-full">
@@ -20,30 +32,30 @@ export function SemesterTrendChart({ data }: { data: any[] }) {
                 <stop offset="100%" stopColor="#22D3EE" />
               </linearGradient>
             </defs>
-            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#334155" />
-            <XAxis dataKey="semester" axisLine={false} tickLine={false} tick={{fill: '#94A3B8', fontSize: 12}} dy={10} />
-            <YAxis domain={['auto', 'auto']} axisLine={false} tickLine={false} tick={{fill: '#94A3B8', fontSize: 12}} />
-            <Tooltip 
-              contentStyle={{ 
-                backgroundColor: '#0F172A', 
-                border: '1px solid #334155',
+            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={gridColor} />
+            <XAxis dataKey="semester" axisLine={false} tickLine={false} tick={{ fill: tickColor, fontSize: 12 }} dy={10} />
+            <YAxis domain={['auto', 'auto']} axisLine={false} tickLine={false} tick={{ fill: tickColor, fontSize: 12 }} />
+            <Tooltip
+              contentStyle={{
+                backgroundColor: tooltipBg,
+                border: `1px solid ${tooltipBorder}`,
                 borderRadius: '12px',
-                color: '#E2E8F0',
-                boxShadow: '0 0 20px rgba(99, 102, 241, 0.15)'
+                color: tooltipText,
+                boxShadow: isDark ? '0 0 20px rgba(99,102,241,0.15)' : '0 4px 20px rgba(0,0,0,0.08)',
               }}
-              itemStyle={{ color: '#E2E8F0', fontWeight: 'bold' }}
+              itemStyle={{ color: tooltipText, fontWeight: 'bold' }}
               formatter={(val: any) => {
                 if (typeof val === 'number') return [val.toFixed(2), "Avg CGPA"];
                 return [val, "Avg CGPA"];
               }}
             />
-            <Line 
-              type="monotone" 
-              dataKey="average" 
-              stroke="url(#lineGrad)" 
+            <Line
+              type="monotone"
+              dataKey="average"
+              stroke="url(#lineGrad)"
               strokeWidth={4}
-              dot={{ r: 4, strokeWidth: 2, fill: '#0F172A', stroke: '#22D3EE' }}
-              activeDot={{ r: 6, fill: '#22D3EE', stroke: '#0F172A', strokeWidth: 2 }}
+              dot={{ r: 4, strokeWidth: 2, fill: dotFill, stroke: dotStroke }}
+              activeDot={{ r: 6, fill: dotStroke, stroke: dotFill, strokeWidth: 2 }}
               animationDuration={2000}
             />
           </LineChart>

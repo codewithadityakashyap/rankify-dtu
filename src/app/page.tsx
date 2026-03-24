@@ -109,24 +109,28 @@ export default function Dashboard() {
               alt="Rankify DTU Logo" 
               className="w-10 h-10 object-contain rounded-md"
               onError={(e) => {
-                // Fallback if logo not yet placed by user
                 e.currentTarget.style.display = 'none';
                 e.currentTarget.nextElementSibling?.classList.remove('hidden');
               }}
             />
-            {/* Fallback avatar if image isn't saved yet */}
             <div className="hidden w-10 h-10 rounded-md bg-primary text-white flex items-center justify-center font-bold text-xl">
               R
             </div>
-            <div className="flex flex-col sm:flex-row sm:items-center gap-2">
-              <h1 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white mt-1">
-                Rankify <span className="text-primary font-light">DTU</span>
-              </h1>
-              <ModeToggle />
-            </div>
+            <h1 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
+              Rankify <span className="text-primary font-light">DTU</span>
+            </h1>
           </div>
-          <div className="text-sm text-slate-500 font-medium">
-            2027 Batch Results
+
+          {/* Right side — premium batch badge + theme toggle */}
+          <div className="flex items-center gap-3">
+            {/* Premium "2027 Batch Results" badge */}
+            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 dark:bg-primary/10 dark:border-primary/40 shadow-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+              <span className="text-xs font-semibold tracking-wide text-primary/90 dark:text-primary whitespace-nowrap">
+                2027 Batch Results
+              </span>
+            </div>
+            <ModeToggle />
           </div>
         </div>
       </header>

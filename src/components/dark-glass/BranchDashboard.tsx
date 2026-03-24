@@ -11,6 +11,7 @@ import { DropAnalysis } from '@/components/dark-glass/DropAnalysis';
 import { InsightPanel } from '@/components/dark-glass/InsightPanel';
 import { BackButton } from '@/components/dark-glass/BackButton';
 import { Footer } from '@/components/Footer';
+import { ModeToggle } from '@/components/ModeToggle';
 
 type TabType = 'overview' | 'risk' | 'leaderboard';
 
@@ -29,16 +30,16 @@ export function BranchDashboard({ branch }: { branch: string }) {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen bg-[#0F172A] flex items-center justify-center">
-        <div className="w-16 h-16 border-4 border-slate-800 border-t-cyan-400 rounded-full animate-spin" />
+      <div className="min-h-screen bg-slate-50 dark:bg-[#0F172A] flex items-center justify-center transition-colors duration-300">
+        <div className="w-16 h-16 border-4 border-slate-300 dark:border-slate-800 border-t-blue-500 dark:border-t-cyan-400 rounded-full animate-spin" />
       </div>
     );
   }
 
   if (data?.error) {
     return (
-      <div className="min-h-screen bg-[#0F172A] text-white flex flex-col items-center justify-center gap-4">
-        <h2 className="text-2xl font-bold text-red-400">Error: {data.error}</h2>
+      <div className="min-h-screen bg-slate-50 dark:bg-[#0F172A] text-slate-900 dark:text-white flex flex-col items-center justify-center gap-4 transition-colors duration-300">
+        <h2 className="text-2xl font-bold text-red-500 dark:text-red-400">Error: {data.error}</h2>
         <BackButton />
       </div>
     );
@@ -55,49 +56,70 @@ export function BranchDashboard({ branch }: { branch: string }) {
   const showCharts = activeTab !== 'risk';
 
   return (
-    <div className="min-h-screen bg-[#0F172A] text-[#E2E8F0] selection:bg-cyan-500/30 font-sans">
-      {/* Ambient glow orbs */}
-      <div className="fixed top-0 left-0 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[140px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
-      <div className="fixed bottom-0 right-0 w-[600px] h-[600px] bg-cyan-600/10 rounded-full blur-[140px] translate-x-1/2 translate-y-1/2 pointer-events-none" />
+    <div className="min-h-screen bg-slate-50 dark:bg-[#0F172A] text-slate-900 dark:text-[#E2E8F0] selection:bg-cyan-500/30 font-sans transition-colors duration-300">
+      {/* Ambient glow orbs — visible in dark only */}
+      <div className="fixed top-0 left-0 w-[600px] h-[600px] bg-indigo-600/10 rounded-full blur-[140px] -translate-x-1/2 -translate-y-1/2 pointer-events-none dark:opacity-100 opacity-0 transition-opacity duration-300" />
+      <div className="fixed bottom-0 right-0 w-[600px] h-[600px] bg-cyan-600/10 rounded-full blur-[140px] translate-x-1/2 translate-y-1/2 pointer-events-none dark:opacity-100 opacity-0 transition-opacity duration-300" />
 
       {/* ── Sticky Header ── */}
-      <header className="sticky top-0 z-50 bg-[#0F172A]/80 backdrop-blur-xl border-b border-slate-800/50 shadow-[0_4px_30px_rgb(0,0,0,0.5)]">
-        <div className="w-full px-6 h-20 flex items-center justify-between max-w-[1800px] mx-auto">
-          <div className="flex items-center gap-5">
+      <header className="sticky top-0 z-50 bg-white/80 dark:bg-[#0F172A]/80 backdrop-blur-xl border-b border-slate-200/80 dark:border-slate-800/50 shadow-sm dark:shadow-[0_4px_30px_rgb(0,0,0,0.5)] transition-colors duration-300">
+        {/* Title row */}
+        <div className="w-full px-4 sm:px-6 h-16 flex items-center justify-between max-w-[1800px] mx-auto">
+          <div className="flex items-center gap-3 sm:gap-5 min-w-0">
             <BackButton />
-            <div>
-              <div className="flex items-center gap-1.5 text-xs text-slate-500 mb-1">
+            <div className="min-w-0">
+              <div className="hidden sm:flex items-center gap-1.5 text-xs text-slate-400 dark:text-slate-500 mb-0.5">
                 <span>Home</span>
-                <span className="text-slate-700">/</span>
-                <span className="text-cyan-400 font-medium">{branch}</span>
+                <span className="text-slate-300 dark:text-slate-700">/</span>
+                <span className="text-blue-600 dark:text-cyan-400 font-medium">{branch}</span>
               </div>
-              <h1 className="text-xl md:text-2xl font-bold tracking-tight text-white leading-tight">
-                {branch} <span className="text-cyan-400 font-light">Analytics Dashboard</span>
+              <h1 className="text-base sm:text-xl md:text-2xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight truncate">
+                {branch} <span className="text-blue-600 dark:text-cyan-400 font-light">Analytics</span>
               </h1>
             </div>
           </div>
 
-          {/* Tab switcher */}
-          <div className="hidden md:flex bg-slate-900/80 p-1.5 rounded-xl border border-slate-800 shadow-inner gap-1">
-            {tabs.map(tab => (
-              <button
-                key={tab.id}
-                onClick={() => setActiveTab(tab.id)}
-                className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-300 whitespace-nowrap ${
-                  activeTab === tab.id
-                    ? 'bg-indigo-600 text-white shadow-[0_0_18px_rgba(99,102,241,0.5)]'
-                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-800/60'
-                }`}
-              >
-                {tab.label}
-              </button>
-            ))}
+          {/* Desktop tab switcher + theme toggle */}
+          <div className="hidden md:flex items-center gap-3">
+            <div className="flex bg-slate-100 dark:bg-slate-900/80 p-1.5 rounded-xl border border-slate-200 dark:border-slate-800 shadow-inner gap-1">
+              {tabs.map(tab => (
+                <button
+                  key={tab.id}
+                  onClick={() => setActiveTab(tab.id)}
+                  className={`px-4 py-2 rounded-lg text-sm font-semibold transition-all duration-200 whitespace-nowrap ${
+                    activeTab === tab.id
+                      ? 'bg-indigo-600 text-white shadow-[0_0_18px_rgba(99,102,241,0.5)]'
+                      : 'text-slate-500 dark:text-slate-400 hover:text-slate-800 dark:hover:text-slate-200 hover:bg-slate-200/60 dark:hover:bg-slate-800/60'
+                  }`}
+                >
+                  {tab.label}
+                </button>
+              ))}
+            </div>
+            <ModeToggle />
           </div>
+        </div>
+
+        {/* Mobile tab switcher — scrollable pill row */}
+        <div className="md:hidden flex overflow-x-auto gap-2 px-4 pb-3 scrollbar-none">
+          {tabs.map(tab => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 whitespace-nowrap ${
+                activeTab === tab.id
+                  ? 'bg-indigo-600 text-white shadow-[0_0_12px_rgba(99,102,241,0.4)]'
+                  : 'bg-slate-200 dark:bg-slate-800/80 text-slate-600 dark:text-slate-400 border border-slate-300 dark:border-slate-700'
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
         </div>
       </header>
 
       {/* ── Main Content ── */}
-      <main className="w-full max-w-[1800px] mx-auto px-6 py-8 relative z-10">
+      <main className="w-full max-w-[1800px] mx-auto px-3 sm:px-6 py-5 sm:py-8 relative z-10">
 
         {/* Hero KPI cards */}
         <AnimatePresence>
@@ -119,17 +141,12 @@ export function BranchDashboard({ branch }: { branch: string }) {
           )}
         </AnimatePresence>
 
-        {/* ── 3-column grid: Leaderboard | Charts | Sidebar ── */}
+        {/* ── 3-column grid ── */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
-
-          {/* Left 2-column block */}
           <div className="lg:col-span-2 space-y-6">
-            {/* Leaderboard */}
             {(activeTab === 'overview' || activeTab === 'leaderboard') && (
               <Leaderboard data={data?.leaderboard} />
             )}
-
-            {/* Charts row */}
             {showCharts && (
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <DistributionChart data={data?.distribution} />
@@ -138,7 +155,6 @@ export function BranchDashboard({ branch }: { branch: string }) {
             )}
           </div>
 
-          {/* Right sidebar */}
           <div className="space-y-6">
             {activeTab !== 'leaderboard' && (
               <InsightPanel
@@ -152,7 +168,7 @@ export function BranchDashboard({ branch }: { branch: string }) {
           </div>
         </div>
 
-        {/* ── HEATMAP: FULL-WIDTH SECTION ── */}
+        {/* ── HEATMAP: FULL-WIDTH ── */}
         <AnimatePresence>
           {showHeatmap && data?.heatmapData?.length > 0 && (
             <motion.section
@@ -163,16 +179,13 @@ export function BranchDashboard({ branch }: { branch: string }) {
               transition={{ duration: 0.45, ease: 'easeOut' }}
               className="w-full"
             >
-              {/* Section label */}
               <div className="flex items-center gap-3 mb-4">
-                <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-slate-700 to-transparent" />
-                <span className="text-xs font-semibold tracking-widest text-slate-500 uppercase px-3">
+                <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-slate-300 dark:via-slate-700 to-transparent" />
+                <span className="text-xs font-semibold tracking-widest text-slate-400 dark:text-slate-500 uppercase px-3">
                   Intensity Matrix
                 </span>
-                <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-slate-700 to-transparent" />
+                <div className="h-[1px] flex-1 bg-gradient-to-r from-transparent via-slate-300 dark:via-slate-700 to-transparent" />
               </div>
-
-              {/* Full-width Heatmap — no container width limit here */}
               <Heatmap data={data.heatmapData} />
             </motion.section>
           )}
@@ -180,7 +193,6 @@ export function BranchDashboard({ branch }: { branch: string }) {
 
       </main>
 
-      {/* Footer — same as homepage */}
       <Footer />
     </div>
   );
