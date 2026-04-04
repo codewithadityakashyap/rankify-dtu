@@ -13,14 +13,14 @@ export function CGPACell({ value, isTop = false, rowIndex = 0 }: CGPACellProps) 
     if (value >= 9.0) return {
       bg: "bg-gradient-to-br from-cyan-100 dark:from-cyan-500/20 to-emerald-50 dark:to-emerald-500/10",
       border: "border-cyan-300 dark:border-cyan-400/60",
-      text: "text-cyan-700 dark:text-cyan-300",
+      text: "text-cyan-800 dark:text-cyan-100 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]",
       glow: "shadow-[0_2px_8px_rgba(34,211,238,0.2)] dark:shadow-[0_0_20px_rgba(34,211,238,0.35)]",
       pulse: isTop,
     };
     if (value >= 8.0) return {
       bg: "bg-gradient-to-br from-indigo-100 dark:from-indigo-500/20 to-purple-50 dark:to-purple-500/10",
       border: "border-indigo-300 dark:border-indigo-400/60",
-      text: "text-indigo-700 dark:text-indigo-300",
+      text: "text-indigo-800 dark:text-indigo-200 drop-shadow-[0_1px_1px_rgba(0,0,0,0.3)]",
       glow: "shadow-[0_2px_6px_rgba(99,102,241,0.15)] dark:shadow-[0_0_12px_rgba(99,102,241,0.25)]",
       pulse: false,
     };

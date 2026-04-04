@@ -2,11 +2,14 @@
 
 import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
+import { useTheme } from "next-themes";
 import { Search, X } from "lucide-react";
 import { CGPACell } from "./CGPACell";
 import { RankBadge } from "./RankBadge";
 
 export function Heatmap({ data }: { data: any[] }) {
+  const { resolvedTheme } = useTheme();
+  const isDark = resolvedTheme === 'dark';
   const [query, setQuery] = useState('');
 
   if (!data?.length) return null;
@@ -203,7 +206,7 @@ export function Heatmap({ data }: { data: any[] }) {
 
                     <td
                       className="sticky right-0 py-0.5 pl-3 rounded-r-lg"
-                      style={{ background: "linear-gradient(to right, transparent, var(--heatmap-fade, #F8FAFC) 18%)" }}
+                      style={{ background: `linear-gradient(to right, transparent, ${isDark ? '#0F172A' : '#F8FAFC'} 18%)` }}
                     >
                       <div className="absolute left-0 top-1 bottom-1 w-[1px] bg-gradient-to-b from-transparent via-blue-500/20 dark:via-cyan-500/30 to-transparent" />
                       <CGPACell value={student.cgpa} isTop={isTopByGlobal} rowIndex={idx} />

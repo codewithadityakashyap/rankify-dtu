@@ -10,6 +10,10 @@ import { ModeToggle } from '@/components/ModeToggle';
 import { Footer } from '@/components/Footer';
 import { useRouter } from 'next/navigation';
 import { BranchSelector, STRICT_BRANCHES } from '@/components/BranchSelector';
+import { LandingHero } from '@/components/landing/LandingHero';
+import { StatsStrip } from '@/components/landing/StatsStrip';
+import { FeaturesSection } from '@/components/landing/FeaturesSection';
+import { useRef } from 'react';
 
 // Debounce hook
 function useDebounce<T>(value: T, delay: number): T {
@@ -25,6 +29,8 @@ function useDebounce<T>(value: T, delay: number): T {
 
 export default function Dashboard() {
   const router = useRouter();
+  const dashboardRef = useRef<HTMLElement>(null);
+  const branchSelectorRef = useRef<HTMLDivElement>(null);
   
   const [kpiData, setKpiData] = useState<any>({
     overallTopper: null,
@@ -97,6 +103,21 @@ export default function Dashboard() {
     }
   };
 
+  const scrollToDashboard = () => {
+    dashboardRef.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const scrollToBranch = () => {
+    branchSelectorRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    if (branchSelectorRef.current) {
+      // Flash highlight class
+      branchSelectorRef.current.classList.add('ring-2', 'ring-blue-500', 'dark:ring-cyan-400', 'ring-offset-4', 'dark:ring-offset-slate-900', 'transition-all', 'duration-300');
+      setTimeout(() => {
+        branchSelectorRef.current?.classList.remove('ring-2', 'ring-blue-500', 'dark:ring-cyan-400', 'ring-offset-4', 'dark:ring-offset-slate-900');
+      }, 1500);
+    }
+  };
+
   const branches = Object.keys(kpiData.stats?.branchDistribution || {}).sort();
 
   return (
@@ -135,20 +156,30 @@ export default function Dashboard() {
         </div>
       </header>
 
-      <main className="container mx-auto px-4 sm:px-6 py-8">
-        <div className="mb-8">
-          <h2 className="text-3xl font-bold tracking-tight mb-2">Student Dashboard</h2>
-          <p className="text-slate-500 max-w-2xl">
-            Explore academic performance, search for specific students, and view ranking distributions across the university.
+      <LandingHero 
+        onScrollToDashboard={scrollToDashboard}
+        onScrollToBranch={scrollToBranch}
+        topper={kpiData.overallTopper}
+      />
+      <StatsStrip totalStudents={kpiData.stats?.totalStudents || 0} />
+      <FeaturesSection />
+
+      <main ref={dashboardRef} className="container mx-auto px-4 sm:px-6 py-16 scroll-mt-12" id="dashboard">
+        <div className="mb-10 text-center max-w-2xl mx-auto">
+          <h2 className="text-3xl font-extrabold tracking-tight mb-3 text-slate-900 dark:text-white">University Analytics Engine</h2>
+          <p className="text-slate-500 dark:text-slate-400">
+            Dive into the raw data. Search for specific students, analyze branch performance, and view ranking distributions across DTU.
           </p>
         </div>
 
-        <BranchSelector 
-          selectedBranch={branch}
-          onSelect={handleBranchSelect}
-          className="mb-8"
-          branches={STRICT_BRANCHES}
-        />
+        <div ref={branchSelectorRef} className="mb-8 rounded-xl transition-all duration-300">
+          <BranchSelector 
+            selectedBranch={branch}
+            onSelect={handleBranchSelect}
+            className=""
+            branches={STRICT_BRANCHES}
+          />
+        </div>
 
         <KPICards 
           overallTopper={kpiData.overallTopper} 

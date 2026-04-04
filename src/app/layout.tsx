@@ -19,7 +19,11 @@ export const metadata: Metadata = {
   title: 'Rankify DTU',
   description: 'Check your academic results effortlessly with Rankify DTU.',
   // Prevent indexing of API routes (important for data security)
-  robots: { index: true, follow: true }
+  robots: { index: true, follow: true },
+  icons: {
+    icon: '/logo.png',
+    apple: '/logo.png',
+  }
 };
 
 export default function RootLayout({

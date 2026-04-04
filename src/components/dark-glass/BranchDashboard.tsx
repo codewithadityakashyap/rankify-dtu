@@ -12,6 +12,7 @@ import { InsightPanel } from '@/components/dark-glass/InsightPanel';
 import { BackButton } from '@/components/dark-glass/BackButton';
 import { Footer } from '@/components/Footer';
 import { ModeToggle } from '@/components/ModeToggle';
+import { PlacementInsights } from '@/components/dark-glass/PlacementInsights';
 
 type TabType = 'overview' | 'risk' | 'leaderboard';
 
@@ -141,17 +142,11 @@ export function BranchDashboard({ branch }: { branch: string }) {
           )}
         </AnimatePresence>
 
-        {/* ── 3-column grid ── */}
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
+        {/* ── Top Section: Leaderboard + Insight/Drop Analysis ── */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
           <div className="lg:col-span-2 space-y-6">
             {(activeTab === 'overview' || activeTab === 'leaderboard') && (
               <Leaderboard data={data?.leaderboard} />
-            )}
-            {showCharts && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <DistributionChart data={data?.distribution} />
-                <SemesterTrendChart data={data?.semTrend} />
-              </div>
             )}
           </div>
 
@@ -167,6 +162,23 @@ export function BranchDashboard({ branch }: { branch: string }) {
             )}
           </div>
         </div>
+
+        {/* ── Charts Row (Distribution, Trend, Placement) ── */}
+        {showCharts && (
+          <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 mb-8 items-stretch">
+            <div className="w-full h-full">
+              <DistributionChart data={data?.distribution} />
+            </div>
+            <div className="w-full h-full">
+              <SemesterTrendChart data={data?.semTrend} />
+            </div>
+            {(activeTab === 'overview' || activeTab === 'leaderboard') && (
+              <div className="w-full h-full">
+                <PlacementInsights branch={branch} />
+              </div>
+            )}
+          </div>
+        )}
 
         {/* ── HEATMAP: FULL-WIDTH ── */}
         <AnimatePresence>
