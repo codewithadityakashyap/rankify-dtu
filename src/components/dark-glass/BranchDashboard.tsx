@@ -9,13 +9,18 @@ import { SemesterTrendChart } from '@/components/dark-glass/SemesterTrendChart';
 import { Heatmap } from '@/components/dark-glass/Heatmap';
 import { DropAnalysis } from '@/components/dark-glass/DropAnalysis';
 import { InsightPanel } from '@/components/dark-glass/InsightPanel';
+import { BackButton } from '@/components/dark-glass/BackButton';
 import { Footer } from '@/components/Footer';
-import { ModeToggle } from '@/components/ModeToggle';
 import { PlacementInsights } from '@/components/dark-glass/PlacementInsights';
+import { useRouter } from 'next/navigation';
+import { ChevronDown } from 'lucide-react';
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
+import { STRICT_BRANCHES } from '@/components/BranchSelector';
 
 type TabType = 'overview' | 'risk' | 'leaderboard';
 
 export function BranchDashboard({ branch }: { branch: string }) {
+  const router = useRouter();
   const [data, setData] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<TabType>('overview');
@@ -65,14 +70,24 @@ export function BranchDashboard({ branch }: { branch: string }) {
       <header className="sticky top-0 z-50 bg-white/80 dark:bg-[#0F172A]/80 backdrop-blur-xl border-b border-slate-200/80 dark:border-slate-800/50 shadow-sm dark:shadow-[0_4px_30px_rgb(0,0,0,0.5)] transition-colors duration-300">
         {/* Title row */}
         <div className="w-full px-4 sm:px-6 h-16 flex items-center justify-between max-w-[1800px] mx-auto">
-          <div className="flex items-center gap-4 min-w-0">
-            <div className="w-10 h-10 shrink-0 rounded-xl bg-gradient-to-br from-indigo-600 to-cyan-500 flex items-center justify-center shadow-lg shadow-indigo-500/25 text-white font-bold text-sm tracking-widest">
-              {branch.substring(0, 3)}
-            </div>
-            <h1 className="text-lg sm:text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight truncate">
-              {branch} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-cyan-400 dark:to-indigo-400 font-medium">Analytics</span>
-            </h1>
-          </div>
+          <DropdownMenu>
+            <DropdownMenuTrigger className="flex items-center gap-3 sm:gap-4 min-w-0 hover:opacity-80 transition-opacity outline-none text-left">
+              <div className="w-10 h-10 shrink-0 rounded-xl bg-gradient-to-br from-indigo-600 to-cyan-500 flex items-center justify-center shadow-lg shadow-indigo-500/25 text-white font-bold text-sm tracking-widest">
+                {branch.substring(0, 3)}
+              </div>
+              <h1 className="text-lg sm:text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight truncate flex items-center gap-2">
+                <span>{branch} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-cyan-400 dark:to-indigo-400 font-medium">Analytics</span></span>
+                <ChevronDown className="w-5 h-5 text-slate-400 shrink-0" />
+              </h1>
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="start" className="w-48 max-h-[300px] overflow-y-auto">
+              {STRICT_BRANCHES.filter(b => b !== 'All').map(b => (
+                <DropdownMenuItem key={b} onClick={() => router.push(`/branch/${b}`)} className="cursor-pointer font-medium">
+                  {b} Analytics
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
 
           {/* Desktop tab switcher + theme toggle */}
           <div className="hidden md:flex items-center gap-3">
