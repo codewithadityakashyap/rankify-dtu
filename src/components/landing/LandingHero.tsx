@@ -166,8 +166,8 @@ export function LandingHero({ onScrollToDashboard, onScrollToBranch, topper }: L
                     CO Branch • 2K22/CO/145
                   </div>
                 </div>
-                <div className="flex shrink-0 w-12 h-12 rounded-2xl bg-white/10 items-center justify-center border border-white/20 shadow-sm overflow-hidden">
-                  <img src="https://cdn.iconscout.com/icon/free/png-256/free-meesho-3627581-3031024.png" alt="Meesho" className="w-full h-full object-cover scale-[1.2]" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                <div className="absolute top-6 right-6 flex shrink-0 w-16 h-16 rounded-2xl bg-white/5 items-center justify-center border border-white/10 shadow-sm overflow-hidden">
+                  <img src="/meesho-logo.png" alt="Meesho" className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
                 </div>
               </div>
 
