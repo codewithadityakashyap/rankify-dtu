@@ -62,7 +62,7 @@ function StatCard({ icon: Icon, label, value, sub, color = ACCENT }:
       <div className="flex items-start justify-between gap-3">
         <div className="flex-1 min-w-0">
           <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1">{label}</p>
-          <p className="text-2xl font-extrabold text-slate-900 dark:text-white truncate">{value}</p>
+          <p className="text-lg sm:text-2xl font-extrabold text-slate-900 dark:text-white truncate">{value}</p>
           {sub && <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{sub}</p>}
         </div>
         <div className="shrink-0 w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${color}18` }}>

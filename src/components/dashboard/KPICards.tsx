@@ -23,7 +23,7 @@ export function KPICards({ overallTopper, branchTopper, mostImproved }: KPICards
           <Trophy className="w-4 h-4 text-primary" />
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{overallTopper?.name || '---'}</div>
+          <div className="text-lg sm:text-2xl font-bold truncate">{overallTopper?.name || '---'}</div>
           <p className="text-xs text-muted-foreground mt-1">
             CGPA: <span className="font-semibold text-foreground">{overallTopper?.cgpa || '-'}</span> • {overallTopper?.branch || '-'}
           </p>
@@ -36,7 +36,7 @@ export function KPICards({ overallTopper, branchTopper, mostImproved }: KPICards
           <Medal className="w-4 h-4 text-accent-foreground" />
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{branchTopper?.name || '---'}</div>
+          <div className="text-lg sm:text-2xl font-bold truncate">{branchTopper?.name || '---'}</div>
           <p className="text-xs text-muted-foreground mt-1">
             CGPA: <span className="font-semibold text-foreground">{branchTopper?.cgpa || '-'}</span> • {branchTopper?.branch || '-'}
           </p>
@@ -49,7 +49,7 @@ export function KPICards({ overallTopper, branchTopper, mostImproved }: KPICards
           <TrendingUp className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
         </CardHeader>
         <CardContent>
-          <div className="text-2xl font-bold">{mostImproved?.name || '---'}</div>
+          <div className="text-lg sm:text-2xl font-bold truncate">{mostImproved?.name || '---'}</div>
           <p className="text-xs text-muted-foreground mt-1">
             +{mostImproved?.improvement?.toFixed(2) || '0.00'} SGPA Bump • {mostImproved?.branch || '-'}
           </p>
