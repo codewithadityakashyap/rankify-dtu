@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  Cell, PieChart, Pie, Legend,
+  Cell, PieChart, Pie, Legend, AreaChart, Area
 } from 'recharts';
 import { Search, X, Building2, Users, TrendingUp, Award, ChevronRight, ArrowLeft, Filter } from 'lucide-react';
 import logosMap from '@/data/logos.json';
@@ -317,16 +317,32 @@ function CompanyDetailPanel({ co, onBack }: { co: Company; onBack: () => void })
         <p className="text-xs text-slate-400 mb-4">How CGPA segments break down across branches hired</p>
         {uniqueBranches.length > 0 ? (
           <ResponsiveContainer width="100%" height={260}>
-            <BarChart data={clusterData} margin={{ top: 0, right: 0, left: -20, bottom: 0 }}>
+            <AreaChart data={clusterData} margin={{ top: 10, right: 0, left: -20, bottom: 0 }}>
+              <defs>
+                {uniqueBranches.map((br, i) => (
+                  <linearGradient key={`grad-${br}`} id={`color-${br}`} x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="5%" stopColor={PALETTE[i % PALETTE.length]} stopOpacity={0.8}/>
+                    <stop offset="95%" stopColor={PALETTE[i % PALETTE.length]} stopOpacity={0.1}/>
+                  </linearGradient>
+                ))}
+              </defs>
               <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f015" />
               <XAxis dataKey="bracket" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 11 }} />
               <Tooltip content={<CustomTooltip />} />
               <Legend iconSize={10} wrapperStyle={{ fontSize: 11 }} />
               {uniqueBranches.map((br, i) => (
-                <Bar key={br} dataKey={br} stackId="a" fill={PALETTE[i % PALETTE.length]} radius={i === uniqueBranches.length - 1 ? [4, 4, 0, 0] : [0, 0, 0, 0]} />
+                <Area 
+                  key={br} 
+                  type="monotone" 
+                  dataKey={br} 
+                  stackId="1" 
+                  stroke={PALETTE[i % PALETTE.length]} 
+                  strokeWidth={2}
+                  fill={`url(#color-${br})`} 
+                />
               ))}
-            </BarChart>
+            </AreaChart>
           </ResponsiveContainer>
         ) : (
           <p className="text-sm text-slate-400 text-center py-8">No data</p>
