@@ -3,6 +3,10 @@
 import { motion } from "framer-motion";
 import { ChevronDown, Trophy, ArrowRight, BarChart3 } from "lucide-react";
 import { ResponsiveContainer, LineChart, Line, YAxis } from "recharts";
+import { Playfair_Display } from "next/font/google";
+
+const playfair = Playfair_Display({ subsets: ["latin"], weight: ["600", "700"] });
+
 
 interface LandingHeroProps {
   onScrollToDashboard: () => void;
@@ -88,10 +92,10 @@ export function LandingHero({ onScrollToDashboard, onScrollToBranch, topper }: L
               <div className="flex items-start justify-between mb-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
-                    <span className="text-xl leading-none" style={{ animation: "float 3s ease-in-out infinite" }}>👑</span>
+                    <span className="text-xl leading-none">👑</span>
                     <span className="text-xs font-bold text-yellow-600 dark:text-yellow-400 uppercase tracking-widest pl-0.5">Top Performer</span>
                   </div>
-                  <h3 className="text-2xl font-extrabold text-slate-900 dark:text-white truncate max-w-[200px]" title={topper?.name || "Loading..."}>
+                  <h3 className={`${playfair.className} text-2xl font-bold text-slate-900 dark:text-white tracking-tight truncate max-w-[200px]`} title={topper?.name || "Loading..."}>
                     {topper?.name ? topper.name.toLowerCase().replace(/\b\w/g, (c: string) => c.toUpperCase()) : "University Topper"}
                   </h3>
                   <div className="text-sm font-medium text-slate-500 dark:text-slate-400 mt-0.5">

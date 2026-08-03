@@ -6,13 +6,14 @@ import { SearchAndFilter } from '@/components/dashboard/SearchAndFilter';
 import { ResultsTable } from '@/components/dashboard/ResultsTable';
 import { StudentModal } from '@/components/dashboard/StudentModal';
 import { Analytics } from '@/components/dashboard/Analytics';
-import { ModeToggle } from '@/components/ModeToggle';
+
 import { Footer } from '@/components/Footer';
 import { useRouter } from 'next/navigation';
 import { BranchSelector, STRICT_BRANCHES } from '@/components/BranchSelector';
 import { LandingHero } from '@/components/landing/LandingHero';
 import { StatsStrip } from '@/components/landing/StatsStrip';
 import { FeaturesSection } from '@/components/landing/FeaturesSection';
+import { TopRecruiters } from '@/components/landing/TopRecruiters';
 import { useRef } from 'react';
 
 // Debounce hook
@@ -122,39 +123,7 @@ export default function Dashboard() {
 
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
-      <header className="bg-white dark:bg-slate-900 border-b shadow-sm sticky top-0 z-30">
-        <div className="container mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <img 
-              src="/logo.png" 
-              alt="Rankify DTU Logo" 
-              className="w-10 h-10 object-contain rounded-md"
-              onError={(e) => {
-                e.currentTarget.style.display = 'none';
-                e.currentTarget.nextElementSibling?.classList.remove('hidden');
-              }}
-            />
-            <div className="hidden w-10 h-10 rounded-md bg-primary text-white flex items-center justify-center font-bold text-xl">
-              R
-            </div>
-            <h1 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
-              Rankify <span className="text-primary font-light">DTU</span>
-            </h1>
-          </div>
 
-          {/* Right side — premium batch badge + theme toggle */}
-          <div className="flex items-center gap-3">
-            {/* Premium "2027 Batch Results" badge */}
-            <div className="flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 dark:bg-primary/10 dark:border-primary/40 shadow-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-              <span className="text-xs font-semibold tracking-wide text-primary/90 dark:text-primary whitespace-nowrap">
-                2027 Batch Results
-              </span>
-            </div>
-            <ModeToggle />
-          </div>
-        </div>
-      </header>
 
       <LandingHero 
         onScrollToDashboard={scrollToDashboard}
@@ -163,6 +132,7 @@ export default function Dashboard() {
       />
       <StatsStrip totalStudents={kpiData.stats?.totalStudents || 0} />
       <FeaturesSection />
+
 
       <main ref={dashboardRef} className="container mx-auto px-4 sm:px-6 py-16 scroll-mt-12" id="dashboard">
         <div className="mb-10 text-center max-w-2xl mx-auto">
@@ -214,6 +184,8 @@ export default function Dashboard() {
           setSort={setSort}
         />
       </main>
+
+      <TopRecruiters />
 
       <Footer />
 

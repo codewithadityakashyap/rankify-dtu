@@ -2,9 +2,10 @@
 
 import { motion } from "framer-motion";
 import { Trophy, TrendingUp, Target, AlertTriangle } from "lucide-react";
-import { Ephesis } from "next/font/google";
+import { Playfair_Display } from "next/font/google";
 
-const ephesisFont = Ephesis({ subsets: ["latin"], weight: "400" });
+const playfair = Playfair_Display({ subsets: ["latin"], weight: ["600", "700"] });
+
 
 interface HeroCardsProps {
   topper: any;
@@ -128,13 +129,13 @@ export function HeroCards({ topper, mostImproved, mostConsistent, atRiskCount }:
                 </div>
                 <div className="relative z-10 flex flex-col items-start w-full">
                   <div className="flex items-center gap-2 mb-1.5">
-                    <span className="text-xl sm:text-2xl float-crown leading-none">👑</span>
+                    <span className="text-xl sm:text-2xl leading-none">👑</span>
                     <p className="text-[11px] sm:text-xs font-bold text-yellow-600 dark:text-yellow-400 uppercase tracking-widest pl-0.5">
                       Top Performer
                     </p>
                   </div>
                   <h3 
-                    className={`${ephesisFont.className} text-[32px] sm:text-[38px] gold-shimmer-text leading-tight sm:leading-none my-0 sm:-mt-1 pb-1 w-full truncate`}
+                    className={`${playfair.className} text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white tracking-tight leading-tight sm:leading-none my-0 sm:-mt-1 pb-1 w-full truncate`}
                   >
                     {card.name}
                   </h3>
