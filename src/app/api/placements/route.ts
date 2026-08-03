@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+export const dynamic = 'force-dynamic';
 import { NextResponse } from 'next/server';
 
 export async function GET() {

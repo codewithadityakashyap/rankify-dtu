@@ -29,13 +29,13 @@ export function Header() {
         <div className="flex items-center gap-4">
           <Link
             href="/"
-            className="hidden sm:inline-flex items-center gap-1.5 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors"
           >
             Home
           </Link>
           <Link
             href="/placement"
-            className="hidden sm:inline-flex items-center gap-1.5 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs sm:text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors"
           >
             Placement Statistics
           </Link>
