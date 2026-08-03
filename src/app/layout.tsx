@@ -17,14 +17,43 @@ const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID ?? 'G-XXXXXXXXXX';
 // ───────────────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: 'Rankify DTU',
-  description: 'Check your academic results effortlessly with Rankify DTU.',
-  // Prevent indexing of API routes (important for data security)
+  metadataBase: new URL('https://rankify-dtu.netlify.app'),
+  title: {
+    default: 'Rankify DTU | Delhi Technological University Results & Placements',
+    template: '%s | Rankify DTU'
+  },
+  description: 'Comprehensive academic and placement analytics dashboard for Delhi Technological University (DTU). Explore branch-wise CGPA trends, highest packages, and student rankings.',
+  keywords: ['DTU', 'Delhi Technological University', 'Rankify DTU', 'DTU Results', 'DTU Placements', 'DTU CGPA', 'DTU CSE Placements', 'DTU Highest Package', 'Delhi College of Engineering'],
+  authors: [{ name: 'Aditya Kashyap' }],
+  creator: 'Aditya Kashyap',
+  publisher: 'Rankify DTU',
   robots: { index: true, follow: true },
   icons: {
     icon: '/logo.png',
     apple: '/logo.png',
-  }
+  },
+  openGraph: {
+    type: 'website',
+    locale: 'en_IN',
+    url: 'https://rankify-dtu.netlify.app',
+    title: 'Rankify DTU | Next-Gen Placement & Result Analytics',
+    description: 'Explore DTU 2026 batch placement data, company-wise hiring trends, compensation insights, and student performance analytics.',
+    siteName: 'Rankify DTU',
+    images: [
+      {
+        url: '/logo.png',
+        width: 800,
+        height: 600,
+        alt: 'Rankify DTU Logo',
+      }
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Rankify DTU | Next-Gen Placement & Result Analytics',
+    description: 'Explore DTU 2026 batch placement data, company-wise hiring trends, compensation insights, and student performance analytics.',
+    images: ['/logo.png'],
+  },
 };
 
 export default function RootLayout({
