@@ -16,6 +16,7 @@ export function StudentModal({ student, open, onOpenChange }: { student: any, op
     { name: 'Sem 3', sgpa: student.sgpa.sem3 || null },
     { name: 'Sem 4', sgpa: student.sgpa.sem4 || null },
     { name: 'Sem 5', sgpa: student.sgpa.sem5 || null },
+    { name: 'Sem 6', sgpa: student.sgpa.sem6 || null },
   ].filter(d => d.sgpa !== null);
 
   const downloadReport = () => {
@@ -54,6 +55,7 @@ export function StudentModal({ student, open, onOpenChange }: { student: any, op
         ['Semester 3', student.sgpa.sem3?.toFixed(3) || 'N/A'],
         ['Semester 4', student.sgpa.sem4?.toFixed(3) || 'N/A'],
         ['Semester 5', student.sgpa.sem5?.toFixed(3) || 'N/A'],
+        ['Semester 6', student.sgpa.sem6?.toFixed(3) || 'N/A'],
       ],
       headStyles: { fillColor: [37, 99, 235] },
       theme: 'grid'

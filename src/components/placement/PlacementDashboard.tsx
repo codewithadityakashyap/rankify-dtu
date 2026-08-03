@@ -3,7 +3,7 @@
 import { useState, useMemo } from 'react';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
-  Cell, PieChart, Pie, Legend, AreaChart, Area
+  Cell, PieChart, Pie, Legend,
 } from 'recharts';
 import { Search, X, Building2, Users, TrendingUp, Award, ChevronRight, ArrowLeft, Filter } from 'lucide-react';
 import logosMap from '@/data/logos.json';
@@ -33,7 +33,7 @@ interface Props { companies: Company[]; stats: Stats; }
 // Palette
 // ─────────────────────────────────────────────────────────────────────────────
 const ACCENT = '#2563EB';
-const PALETTE = ['#2563EB','#38BDF8','#0EA5E9','#6366F1','#8B5CF6','#EC4899','#F59E0B','#10B981','#14B8A6'];
+const PALETTE = ['#2563EB', '#38BDF8', '#0EA5E9', '#6366F1', '#8B5CF6', '#EC4899', '#F59E0B', '#10B981', '#14B8A6'];
 const TYPE_COLOR: Record<string, string> = {
   Tech: '#2563EB', Core: '#10B981', 'Non-Tech': '#F59E0B', Unknown: '#94A3B8',
 };
@@ -80,14 +80,14 @@ function StatCard({ icon: Icon, label, value, sub, color = ACCENT }:
 function CompanyCard({ co, onClick }: { co: Company; onClick: () => void }) {
   const typeColor = TYPE_COLOR[co.type] ?? '#94A3B8';
   const [imgError, setImgError] = useState(false);
-  
+
   const getLogoBase = (name: string) => {
     const lower = name.toLowerCase();
     if (lower.includes("bain")) return "bain";
     if (lower.includes("zs")) return "zsassociates";
     return lower.replace(/[^a-z0-9]/g, '');
   };
-  
+
   const baseName = getLogoBase(co.name);
   const mappedFile = (logosMap as Record<string, string>)[baseName];
   const logoUrl = mappedFile ? `/logos/${mappedFile}` : `/logos/${baseName}.svg`;
@@ -102,8 +102,8 @@ function CompanyCard({ co, onClick }: { co: Company; onClick: () => void }) {
         {!imgError ? (
           <div className="shrink-0 w-10 h-10 rounded-lg flex items-center justify-center p-1"
             style={{ background: `${typeColor}08`, border: `1px solid ${typeColor}20` }}>
-            <img 
-              src={logoUrl} 
+            <img
+              src={logoUrl}
               alt={co.name}
               onError={() => setImgError(true)}
               className="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal"
@@ -169,14 +169,14 @@ function CustomTooltip({ active, payload, label }: any) {
 function CompanyDetailPanel({ co, onBack }: { co: Company; onBack: () => void }) {
   const typeColor = TYPE_COLOR[co.type] ?? '#94A3B8';
   const [imgError, setImgError] = useState(false);
-  
+
   const getLogoBase = (name: string) => {
     const lower = name.toLowerCase();
     if (lower.includes("bain")) return "bain";
     if (lower.includes("zs")) return "zsassociates";
     return lower.replace(/[^a-z0-9]/g, '');
   };
-  
+
   const baseName = getLogoBase(co.name);
   const mappedFile = (logosMap as Record<string, string>)[baseName];
   const logoUrl = mappedFile ? `/logos/${mappedFile}` : `/logos/${baseName}.svg`;
@@ -204,9 +204,9 @@ function CompanyDetailPanel({ co, onBack }: { co: Company; onBack: () => void })
 
   // Auto insight
   const topBranch = branchData[0];
-  const topRole   = roleData[0];
-  const cgpaHint  = co.avgCgpa >= 8.5 ? 'high (8.5+) CGPA' : co.avgCgpa >= 7.5 ? 'mid-range (7.5–8.5) CGPA' : 'diverse CGPA range';
-  const insight   = `${co.name} primarily hired from ${topBranch?.branch || '–'} (${topBranch?.count || 0} students), predominantly for ${topRole?.role || '–'} roles. The average CGPA of selected students is ${co.avgCgpa}, suggesting a preference for ${cgpaHint} candidates.`;
+  const topRole = roleData[0];
+  const cgpaHint = co.avgCgpa >= 8.5 ? 'high (8.5+) CGPA' : co.avgCgpa >= 7.5 ? 'mid-range (7.5–8.5) CGPA' : 'diverse CGPA range';
+  const insight = `${co.name} primarily hired from ${topBranch?.branch || '–'} (${topBranch?.count || 0} students), predominantly for ${topRole?.role || '–'} roles. The average CGPA of selected students is ${co.avgCgpa}, suggesting a preference for ${cgpaHint} candidates.`;
 
   return (
     <div className="space-y-6">
@@ -222,8 +222,8 @@ function CompanyDetailPanel({ co, onBack }: { co: Company; onBack: () => void })
           {!imgError ? (
             <div className="w-14 h-14 rounded-xl flex items-center justify-center p-1.5"
               style={{ background: `${typeColor}10`, border: `2px solid ${typeColor}30` }}>
-              <img 
-                src={logoUrl} 
+              <img
+                src={logoUrl}
                 alt={co.name}
                 onError={() => setImgError(true)}
                 className="w-full h-full object-contain mix-blend-multiply dark:mix-blend-normal"
@@ -317,32 +317,16 @@ function CompanyDetailPanel({ co, onBack }: { co: Company; onBack: () => void })
         <p className="text-xs text-slate-400 mb-4">How CGPA segments break down across branches hired</p>
         {uniqueBranches.length > 0 ? (
           <ResponsiveContainer width="100%" height={260}>
-            <AreaChart data={clusterData} margin={{ top: 10, right: 0, left: -20, bottom: 0 }}>
-              <defs>
-                {uniqueBranches.map((br, i) => (
-                  <linearGradient key={`grad-${br}`} id={`color-${br}`} x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor={PALETTE[i % PALETTE.length]} stopOpacity={0.8}/>
-                    <stop offset="95%" stopColor={PALETTE[i % PALETTE.length]} stopOpacity={0.1}/>
-                  </linearGradient>
-                ))}
-              </defs>
+            <BarChart data={clusterData} margin={{ top: 0, right: 0, left: -20, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f015" />
               <XAxis dataKey="bracket" tick={{ fontSize: 11 }} />
               <YAxis tick={{ fontSize: 11 }} />
               <Tooltip content={<CustomTooltip />} />
               <Legend iconSize={10} wrapperStyle={{ fontSize: 11 }} />
               {uniqueBranches.map((br, i) => (
-                <Area 
-                  key={br} 
-                  type="monotone" 
-                  dataKey={br} 
-                  stackId="1" 
-                  stroke={PALETTE[i % PALETTE.length]} 
-                  strokeWidth={2}
-                  fill={`url(#color-${br})`} 
-                />
+                <Bar key={br} dataKey={br} stackId="a" fill={PALETTE[i % PALETTE.length]} radius={i === uniqueBranches.length - 1 ? [4, 4, 0, 0] : [0, 0, 0, 0]} />
               ))}
-            </AreaChart>
+            </BarChart>
           </ResponsiveContainer>
         ) : (
           <p className="text-sm text-slate-400 text-center py-8">No data</p>
@@ -466,12 +450,12 @@ function GlobalAnalytics({ companies, stats }: Props) {
 // Insight Engine — Auto-generated key insights
 // ─────────────────────────────────────────────────────────────────────────────
 function InsightEngine({ companies, stats }: Props) {
-  const byCtc     = [...companies].filter((c) => c.avgCtc > 0).sort((a, b) => b.avgCtc - a.avgCtc);
-  const byHiring  = [...companies].sort((a, b) => b.hired - a.hired);
-  const topCtcCo  = byCtc[0];
+  const byCtc = [...companies].filter((c) => c.avgCtc > 0).sort((a, b) => b.avgCtc - a.avgCtc);
+  const byHiring = [...companies].sort((a, b) => b.hired - a.hired);
+  const topCtcCo = byCtc[0];
   const topHireCo = byHiring[0];
   const techCount = companies.filter((c) => c.type === 'Tech').length;
-  const highPay   = companies.filter((c) => c.avgCtc >= 20).length;
+  const highPay = companies.filter((c) => c.avgCtc >= 20).length;
   const topBranch = Object.entries(stats.branchCount).sort((a, b) => b[1] - a[1])[0];
 
   const insights = [
@@ -515,8 +499,8 @@ export function PlacementDashboard({ companies, stats }: Props) {
   const filtered = useMemo(() => {
     return companies.filter((co) => {
       const matchSearch = co.name.toLowerCase().includes(search.toLowerCase());
-      const matchType   = typeFilter === 'All' || co.type === typeFilter;
-      const matchPay    = !highPay || co.avgCtc >= 20;
+      const matchType = typeFilter === 'All' || co.type === typeFilter;
+      const matchPay = !highPay || co.avgCtc >= 20;
       return matchSearch && matchType && matchPay;
     });
   }, [companies, search, typeFilter, highPay]);

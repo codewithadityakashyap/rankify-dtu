@@ -65,6 +65,11 @@ export function ResultsTable({ data, isLoading, page, totalPages, setPage, onRow
                 </Button>
               </TableHead>
               <TableHead className="text-right">
+                <Button variant="ghost" size="sm" onClick={() => handleSort('sem6')} className="h-8 px-2 font-medium -mr-2">
+                  Sem 6 <ArrowUpDown className="ml-1 w-3 h-3" />
+                </Button>
+              </TableHead>
+              <TableHead className="text-right">
                 <Button variant="ghost" size="sm" onClick={() => handleSort('cgpa')} className="h-8 px-2 font-bold text-primary hover:text-primary -mr-2">
                   Aggregate CGPA <ArrowUpDown className="ml-1 w-3 h-3" />
                 </Button>
@@ -99,6 +104,7 @@ export function ResultsTable({ data, isLoading, page, totalPages, setPage, onRow
                   <TableCell className="text-right text-muted-foreground">{student.sgpa?.sem3 ? student.sgpa.sem3.toFixed(3) : '-'}</TableCell>
                   <TableCell className="text-right text-muted-foreground">{student.sgpa?.sem4 ? student.sgpa.sem4.toFixed(3) : '-'}</TableCell>
                   <TableCell className="text-right text-muted-foreground">{student.sgpa?.sem5 ? student.sgpa.sem5.toFixed(3) : '-'}</TableCell>
+                  <TableCell className="text-right font-medium text-slate-700 dark:text-slate-300">{student.sgpa?.sem6 ? student.sgpa.sem6.toFixed(3) : '-'}</TableCell>
 
                   <TableCell className="text-right font-bold text-primary">{student.cgpa.toFixed(3)}</TableCell>
                 </TableRow>

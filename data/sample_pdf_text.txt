@@ -1,0 +1,59 @@
+Delhi Technological University
+(Formerly Delhi College of Engineering)
+THE RESULT OF THE CANDIDATE WHO APPEARED IN THE FOLLOWING EXAMINATION HELD IN MAY 2026  IS DECLARED AS UNDER:-
+Bachelor of Technology(Computer Science and Engineering), VI-SEMESTER
+Result Declaration Date : 14-Jul-2026 Notiﬁcation No: 1957
+OIC (Results) Controller of Examination
+Note: Any discrepancy in the result in r/o name/roll no/registration/marks/grades/course code/title should be brought to the notice of Controller of Examination/OIC(Results) within 15 days of
+declaration of result, in the prescribed proforma.1 / 75AE310m : QUALITY MANAGEMENT & SIX SIGMA APPLICATIONS   CS302 : Parllel Computer Architecuture   CS304 : Data Warehousing and Data Mining   CS318 : Deep Learning   CS320 :
+Block Chain and Applications   MG302 : Fundamentals of Management   MOOC306 : MOOC COURSE   
+Sr.No Roll No. Name of StudentAE310m CS302 CS304 CS318 CS320 MG302 MOOC306SGPA TCFailed
+Courses 4.00 4.00 4.00 4.00 4.00 3.00 4.00
+1 23/CS/048 AMISHI GUPTA O A A+ A B+ O O 8.81 27
+2 23/CS/088 ARYAV GUPTA O O A+ A+ O A O 9.48 27
+3 23/CS/111 BHUMIKA A A A B A A+ O 8.11 27
+4 23/CS/141 DISHITA POKHARNA A+ A+ O A O A+ O 9.30 27
+5 23/CS/463 VISHVENDRA YADAV A B+ A+ F A A O 7.11 23 CS318
+6 23/CS/469 YASH GOYAL B+ B+ A F A B+ O 6.70 23 CS318
+7 23/CS/471 YASH KUMAR GOLA B+ A A F A A O 6.96 23 CS318
+8 23/CS/478 YOGESH KUMAR B+ B A B+ B+ A O 7.56 27
+9 23/CS/519 ANIKET SINGH KUSHWAHA A B+ A+ A B+ A+ O 8.26 27
+CS302 : Parllel Computer Architecuture   CS304 : Data Warehousing and Data Mining   CS326 : Advance Database Management Systems   HU404 : Public Finance and Policy   MG302 :
+Fundamentals of Management   MOOC306 : MOOC COURSE   SE204m : OBJECT-ORIENTED SOFTWARE ENGINEERING   
+Sr.No Roll No. Name of StudentCS302 CS304 CS326 HU404 MG302 MOOC306 SE204mSGPA TCFailed
+Courses 4.00 4.00 4.00 4.00 3.00 4.00 4.00
+10 23/CS/533 ABHISHEK KUMAR O A+ A+ O A+ O O 9.59 27
+CS302 : Parllel Computer Architecuture   CS304 : Data Warehousing and Data Mining   CS320 : Block Chain and Applications   CS326 : Advance Database Management Systems   MBA-108 :
+OPERATIONS AND SUPPLY CHAIN MANAGEMENT   MG302 : Fundamentals of Management   MOOC306 : MOOC COURSE   
+Sr.No Roll No. Name of StudentCS302 CS304 CS320 CS326 MBA-108 MG302 MOOC306SGPA TCFailed
+Courses 4.00 4.00 4.00 4.00 4.00 3.00 4.00
+Delhi Technological University
+(Formerly Delhi College of Engineering)
+THE RESULT OF THE CANDIDATE WHO APPEARED IN THE FOLLOWING EXAMINATION HELD IN MAY 2026  IS DECLARED AS UNDER:-
+Bachelor of Technology(Computer Science and Engineering), VI-SEMESTER
+Result Declaration Date : 14-Jul-2026 Notiﬁcation No: 1957
+OIC (Results) Controller of Examination
+Note: Any discrepancy in the result in r/o name/roll no/registration/marks/grades/course code/title should be brought to the notice of Controller of Examination/OIC(Results) within 15 days of
+declaration of result, in the prescribed proforma.2 / 7511 23/CS/157 GIRISH JAIN B+ B+ B+ A B+ B+ O 7.59 27
+12 23/CS/158 GOLDI A A+ B+ A A+ A+ O 8.56 27
+13 23/CS/171 HARSHIT SAINI A+ A B+ A A B+ O 8.19 27
+14 23/CS/196 JOYJEET SINGH B+ A B+ B+ A B+ O 7.74 27
+15 23/CS/201 KANISHK A A B+ A A A O 8.15 27
+16 23/CS/217 KARTIKEY MISHRA B+ A B+ A A B O 7.78 27
+17 23/CS/359 SAHIL SHRIVASTAVA A A+ A+ A A+ A O 8.74 27
+18 23/CS/383 SARTHAK VERMA A A B+ A A+ A+ O 8.41 27
+19 23/CS/384 SATVIK SAKSENA B+ B C B+ A+ A+ O 7.52 27
+20 23/CS/517 AAKASH CHAURASIA O A+ O O O O O 9.85 27
+21 23/CS/530 VIKESH ARORA A+ A+ O O O A+ O 9.59 27
+CS302 : Parllel Computer Architecuture   CS304 : Data Warehousing and Data Mining   CS326 : Advance Database Management Systems   HU308 : Mathematical Economics   HU312 :
+Microeconomics   MG302 : Fundamentals of Management   MOOC306 : MOOC COURSE   
+Sr.No Roll No.Name of
+StudentCS302 CS304 CS326 HU308 HU312 MG302 MOOC306SGPA TCFailed
+Courses 4.00 4.00 4.00 4.00 4.00 3.00 4.00
+22 23/CS/518 AMBAR SINHA A A A A+ O A+ O 8.85 27
+CS302 : Parllel Computer Architecuture   CS304 : Data Warehousing and Data Mining   CS320 : Block Chain and Applications   MBA-108 : OPERATIONS AND SUPPLY CHAIN
+MANAGEMENT   MBASC220 : INTERNATIONAL LOGISTICS MANAGEMENT   MG302 : Fundamentals of Management   MOOC306 : MOOC COURSE   
+Sr.No Roll No.Name of
+StudentCS302 CS304 CS320 MBA-108 MBASC220 MG302 MOOC306SGPA TCFailed
+Courses 4.00 4.00 4.00 4.00 4.00 3.00 4.00
+23 23/CS/529 VANSH GOEL A+ A A+ O A+ O O 9.26 27
