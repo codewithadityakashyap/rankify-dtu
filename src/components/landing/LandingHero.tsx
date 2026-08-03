@@ -148,7 +148,7 @@ export function LandingHero({ onScrollToDashboard, onScrollToBranch, topper }: L
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
-              className="relative bg-gradient-to-br from-indigo-600 to-blue-700 dark:from-indigo-900/90 dark:to-blue-900/80 backdrop-blur-xl border border-indigo-500/50 dark:border-indigo-500/30 rounded-[2rem] shadow-[0_8px_30px_rgba(79,70,229,0.25)] p-6 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(79,70,229,0.35)] transition-all duration-300 transform sm:rotate-[2deg] sm:hover:rotate-0 origin-top-left z-20 sm:-mt-12 overflow-hidden"
+              className="relative bg-gradient-to-br from-fuchsia-500 to-purple-600 dark:from-fuchsia-900/90 dark:to-purple-900/80 backdrop-blur-xl border border-fuchsia-500/50 dark:border-fuchsia-500/30 rounded-[2rem] shadow-[0_8px_30px_rgba(217,70,239,0.25)] p-6 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(217,70,239,0.35)] transition-all duration-300 transform sm:rotate-[2deg] sm:hover:rotate-0 origin-top-left z-20 sm:-mt-12 overflow-hidden"
             >
               {/* Card decorative background */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none" />
@@ -157,35 +157,36 @@ export function LandingHero({ onScrollToDashboard, onScrollToBranch, topper }: L
                 <div>
                   <div className="flex items-center gap-2 mb-1">
                     <span className="text-xl leading-none">💼</span>
-                    <span className="text-xs font-bold text-indigo-100 uppercase tracking-widest pl-0.5">Highest Package</span>
+                    <span className="text-xs font-bold text-fuchsia-100 uppercase tracking-widest pl-0.5">Highest Package</span>
                   </div>
                   <h3 className={`${playfair.className} text-2xl font-bold text-white tracking-tight`}>
                     Chirag Sehgal
                   </h3>
-                  <div className="text-sm font-medium text-indigo-100/80 mt-0.5">
+                  <div className="text-sm font-medium text-fuchsia-100/80 mt-0.5">
                     CO Branch • 2K22/CO/145
                   </div>
                 </div>
-                <div className="flex shrink-0 w-12 h-12 rounded-2xl bg-white/20 items-center justify-center border border-white/20 text-white font-bold shadow-sm backdrop-blur-md">
-                  <Briefcase className="w-5 h-5" />
+                <div className="flex shrink-0 w-12 h-12 rounded-2xl bg-white items-center justify-center border border-white/20 shadow-sm overflow-hidden p-1.5">
+                  {/* Using Next.js Image or standard img for Meesho logo */}
+                  <img src="https://logo.clearbit.com/meesho.com" alt="Meesho" className="w-full h-full object-contain rounded-xl" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
                 </div>
               </div>
 
               <div className="flex items-end justify-between gap-4 mt-6 relative z-10">
                 <div>
-                  <div className="text-[11px] font-semibold text-indigo-200 uppercase tracking-wider mb-1">Offer</div>
+                  <div className="text-[11px] font-semibold text-fuchsia-200 uppercase tracking-wider mb-1">Offer</div>
                   <div className="flex items-baseline gap-1.5">
                     <div className="text-4xl font-black text-white tracking-tight">
                       60
                     </div>
-                    <div className="text-xl font-bold text-indigo-200 tracking-tight">
+                    <div className="text-xl font-bold text-fuchsia-200 tracking-tight">
                       LPA
                     </div>
                   </div>
                 </div>
                 
                 <div className="text-right">
-                  <div className="text-[11px] font-semibold text-indigo-200 uppercase tracking-wider mb-1">Company</div>
+                  <div className="text-[11px] font-semibold text-fuchsia-200 uppercase tracking-wider mb-1">Company</div>
                   <div className="text-xl font-bold text-white tracking-tight">
                     Meesho
                   </div>
