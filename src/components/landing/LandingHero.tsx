@@ -91,12 +91,13 @@ export function LandingHero({ onScrollToDashboard, onScrollToBranch, topper }: L
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
-            className="relative lg:ml-auto w-full max-w-md mx-auto lg:mx-0"
+            className="relative lg:ml-auto w-full max-w-md mx-auto lg:mx-0 flex flex-col gap-5 sm:gap-6 pt-8 sm:pt-12 lg:pt-0"
           >
-            {/* Soft decorative glow behind the card */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 bg-blue-400/20 dark:bg-cyan-500/10 blur-[80px] rounded-full pointer-events-none" />
+            {/* Soft decorative glow behind the cards */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-blue-400/20 dark:bg-cyan-500/10 blur-[80px] rounded-full pointer-events-none" />
 
-            <div className="relative bg-white/70 dark:bg-[#1E293B]/70 backdrop-blur-xl border border-white/50 dark:border-slate-700/50 rounded-2xl shadow-[0_8px_30px_rgb(0,0,0,0.06)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.15)] p-6 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300">
+            {/* TOP PERFORMER CARD */}
+            <div className="relative bg-white/80 dark:bg-[#1E293B]/80 backdrop-blur-xl border border-white/50 dark:border-slate-700/50 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.06)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.15)] p-6 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300 transform sm:rotate-[-2deg] sm:hover:rotate-0 origin-bottom-right z-10">
               <div className="flex items-start justify-between mb-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
@@ -110,7 +111,7 @@ export function LandingHero({ onScrollToDashboard, onScrollToBranch, topper }: L
                     {topper?.rollNumber || "Roll No"} • {topper?.branch || "Branch"}
                   </div>
                 </div>
-                <div className="flex shrink-0 w-12 h-12 rounded-xl bg-yellow-50 dark:bg-yellow-500/10 items-center justify-center border border-yellow-100 dark:border-yellow-500/30 text-yellow-600 dark:text-yellow-400 font-bold text-lg">
+                <div className="flex shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-yellow-50 to-amber-100 dark:from-yellow-500/20 dark:to-amber-500/10 items-center justify-center border border-yellow-200 dark:border-yellow-500/30 text-yellow-700 dark:text-yellow-400 font-bold text-lg shadow-sm">
                   #1
                 </div>
               </div>
@@ -142,40 +143,53 @@ export function LandingHero({ onScrollToDashboard, onScrollToBranch, topper }: L
               </div>
             </div>
             
-            {/* Absolute positioned small pill */}
+            {/* HIGHEST PACKAGE CARD */}
             <motion.div 
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5, duration: 0.4 }}
-              className="absolute -bottom-5 -right-5 bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700 rounded-xl p-3 shadow-md backdrop-blur-md flex items-center gap-3"
+              transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
+              className="relative bg-gradient-to-br from-indigo-600 to-blue-700 dark:from-indigo-900/90 dark:to-blue-900/80 backdrop-blur-xl border border-indigo-500/50 dark:border-indigo-500/30 rounded-[2rem] shadow-[0_8px_30px_rgba(79,70,229,0.25)] p-6 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(79,70,229,0.35)] transition-all duration-300 transform sm:rotate-[2deg] sm:hover:rotate-0 origin-top-left z-20 sm:-mt-12 overflow-hidden"
             >
-              <div className="w-8 h-8 rounded-full bg-emerald-100 dark:bg-emerald-500/20 flex items-center justify-center border border-emerald-200 dark:border-emerald-500/30">
-                <Trophy className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+              {/* Card decorative background */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none" />
+              
+              <div className="flex items-start justify-between mb-4 relative z-10">
+                <div>
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-xl leading-none">💼</span>
+                    <span className="text-xs font-bold text-indigo-100 uppercase tracking-widest pl-0.5">Highest Package</span>
+                  </div>
+                  <h3 className={`${playfair.className} text-2xl font-bold text-white tracking-tight`}>
+                    Chirag Sehgal
+                  </h3>
+                  <div className="text-sm font-medium text-indigo-100/80 mt-0.5">
+                    CO Branch • 2K22/CO/145
+                  </div>
+                </div>
+                <div className="flex shrink-0 w-12 h-12 rounded-2xl bg-white/20 items-center justify-center border border-white/20 text-white font-bold shadow-sm backdrop-blur-md">
+                  <Briefcase className="w-5 h-5" />
+                </div>
               </div>
-              <div className="pr-2">
-                <div className="text-[10px] font-semibold text-slate-400 dark:text-slate-500 uppercase">Current Leader</div>
-                <div className="text-sm font-bold text-slate-800 dark:text-slate-200">Across DTU</div>
-              </div>
-            </motion.div>
 
-            {/* Absolute positioned highest package pill */}
-            <motion.div 
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 0.4 }}
-              className="absolute -top-6 -left-6 lg:-left-12 bg-white/90 dark:bg-slate-800/90 border border-slate-100 dark:border-slate-700 rounded-xl p-3 shadow-lg backdrop-blur-md flex items-center gap-3 z-10 hidden sm:flex"
-            >
-              <div className="w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-500/20 flex items-center justify-center border border-indigo-200 dark:border-indigo-500/30">
-                <Briefcase className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
-              </div>
-              <div className="pr-3">
-                <div className="flex justify-between items-center mb-0.5">
-                  <div className="text-[10px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Highest Package</div>
+              <div className="flex items-end justify-between gap-4 mt-6 relative z-10">
+                <div>
+                  <div className="text-[11px] font-semibold text-indigo-200 uppercase tracking-wider mb-1">Offer</div>
+                  <div className="flex items-baseline gap-1.5">
+                    <div className="text-4xl font-black text-white tracking-tight">
+                      60
+                    </div>
+                    <div className="text-xl font-bold text-indigo-200 tracking-tight">
+                      LPA
+                    </div>
+                  </div>
                 </div>
-                <div className="text-sm font-extrabold text-slate-800 dark:text-slate-200 leading-none mb-1">
-                  Chirag Sehgal <span className="text-indigo-600 dark:text-indigo-400 ml-1">60 LPA</span>
+                
+                <div className="text-right">
+                  <div className="text-[11px] font-semibold text-indigo-200 uppercase tracking-wider mb-1">Company</div>
+                  <div className="text-xl font-bold text-white tracking-tight">
+                    Meesho
+                  </div>
                 </div>
-                <div className="text-xs font-semibold text-slate-500">Meesho • CO Branch</div>
               </div>
             </motion.div>
 
