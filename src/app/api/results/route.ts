@@ -1,7 +1,7 @@
 export const dynamic = 'force-dynamic';
 import { NextResponse } from 'next/server';
-import fs from 'fs';
-import path from 'path';
+
+import resultsData from '../../../../public/data/results.json';
 
 export async function GET(request: Request) {
   try {
@@ -13,9 +13,9 @@ export async function GET(request: Request) {
     const sort = searchParams.get('sort') || 'rank_asc';
 
     // Load Data
-    const dataPath = path.join(process.cwd(), 'public', 'data', 'results.json');
-    const fileContents = fs.readFileSync(dataPath, 'utf8');
-    let data = JSON.parse(fileContents);
+    
+    
+    let data = resultsData;
 
     // Filter
     if (q) {
