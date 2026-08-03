@@ -27,6 +27,13 @@ export async function GET(request: Request) {
     let maxCgpa = -1;
     let topper = null;
     
+    let maxSems = 0;
+    branchData.forEach((s: any) => {
+      if (s.sgpa) {
+        maxSems = Math.max(maxSems, Object.keys(s.sgpa).length);
+      }
+    });
+    
     let maxImprovement = -999;
     let mostImproved = null;
     
@@ -69,7 +76,10 @@ export async function GET(request: Request) {
 
         const mean = semSgpas.reduce((a, b) => a + b, 0) / semSgpas.length;
         const variance = semSgpas.reduce((a, b) => a + Math.pow(b - mean, 2), 0) / semSgpas.length;
-        if (variance < minVariance) {
+        
+        const hasMissing = Object.values(s.sgpa || {}).some(v => !v || parseFloat(v as string) === 0) || semSgpas.length < maxSems;
+        
+        if (variance < minVariance && !hasMissing) {
           minVariance = variance;
           mostConsistent = s;
         }
