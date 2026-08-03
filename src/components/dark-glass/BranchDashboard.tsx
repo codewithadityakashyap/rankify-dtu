@@ -9,7 +9,6 @@ import { SemesterTrendChart } from '@/components/dark-glass/SemesterTrendChart';
 import { Heatmap } from '@/components/dark-glass/Heatmap';
 import { DropAnalysis } from '@/components/dark-glass/DropAnalysis';
 import { InsightPanel } from '@/components/dark-glass/InsightPanel';
-import { BackButton } from '@/components/dark-glass/BackButton';
 import { Footer } from '@/components/Footer';
 import { ModeToggle } from '@/components/ModeToggle';
 import { PlacementInsights } from '@/components/dark-glass/PlacementInsights';
@@ -66,18 +65,13 @@ export function BranchDashboard({ branch }: { branch: string }) {
       <header className="sticky top-0 z-50 bg-white/80 dark:bg-[#0F172A]/80 backdrop-blur-xl border-b border-slate-200/80 dark:border-slate-800/50 shadow-sm dark:shadow-[0_4px_30px_rgb(0,0,0,0.5)] transition-colors duration-300">
         {/* Title row */}
         <div className="w-full px-4 sm:px-6 h-16 flex items-center justify-between max-w-[1800px] mx-auto">
-          <div className="flex items-center gap-3 sm:gap-5 min-w-0">
-            <BackButton />
-            <div className="min-w-0">
-              <div className="hidden sm:flex items-center gap-1.5 text-xs text-slate-400 dark:text-slate-500 mb-0.5">
-                <span>Home</span>
-                <span className="text-slate-300 dark:text-slate-700">/</span>
-                <span className="text-blue-600 dark:text-cyan-400 font-medium">{branch}</span>
-              </div>
-              <h1 className="text-base sm:text-xl md:text-2xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight truncate">
-                {branch} <span className="text-blue-600 dark:text-cyan-400 font-light">Analytics</span>
-              </h1>
+          <div className="flex items-center gap-4 min-w-0">
+            <div className="w-10 h-10 shrink-0 rounded-xl bg-gradient-to-br from-indigo-600 to-cyan-500 flex items-center justify-center shadow-lg shadow-indigo-500/25 text-white font-bold text-sm tracking-widest">
+              {branch.substring(0, 3)}
             </div>
+            <h1 className="text-lg sm:text-2xl font-extrabold tracking-tight text-slate-900 dark:text-white leading-tight truncate">
+              {branch} <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 dark:from-cyan-400 dark:to-indigo-400 font-medium">Analytics</span>
+            </h1>
           </div>
 
           {/* Desktop tab switcher + theme toggle */}
@@ -97,7 +91,6 @@ export function BranchDashboard({ branch }: { branch: string }) {
                 </button>
               ))}
             </div>
-            <ModeToggle />
           </div>
         </div>
 
