@@ -3,6 +3,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
+import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu";
+import { ChevronDown } from "lucide-react";
 
 // Strict list of branches as requested
 export const STRICT_BRANCHES = [
@@ -55,11 +57,46 @@ export function BranchSelector({
   };
 
   return (
-    <div className={cn("relative w-full overflow-hidden py-4", className)}>
-      {/* Scrollable Container with Hidden Scrollbar */}
+    <div className={cn("relative w-full py-4 flex justify-center", className)}>
+      {/* Mobile Dropdown (Hidden on Desktop) */}
+      <div className="md:hidden w-full max-w-[280px] mx-auto px-2">
+        <DropdownMenu>
+          <DropdownMenuTrigger className="w-full flex items-center justify-between bg-white dark:bg-[#1E293B] px-5 py-3 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm outline-none transition-all active:scale-[0.98] focus-visible:ring-2 focus-visible:ring-blue-500">
+            <span className="font-semibold text-slate-700 dark:text-slate-200 text-base tracking-tight">
+              Branch: <span className="text-blue-600 dark:text-cyan-400 font-bold ml-1">{selectedBranch}</span>
+            </span>
+            <div className="w-8 h-8 rounded-full bg-slate-100 dark:bg-slate-800 flex items-center justify-center">
+              <ChevronDown className="w-4 h-4 text-slate-500 dark:text-slate-400" />
+            </div>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="center" className="w-[264px] max-h-[350px] overflow-y-auto rounded-2xl shadow-2xl border-slate-200/80 dark:border-slate-700/80 p-1.5 backdrop-blur-xl bg-white/95 dark:bg-[#0F172A]/95">
+            {branches.map((branch) => (
+              <DropdownMenuItem 
+                key={branch} 
+                onClick={(e) => {
+                   if (typeof window !== "undefined" && typeof window.navigator !== "undefined" && window.navigator.vibrate) {
+                     try { window.navigator.vibrate(50); } catch (err) {}
+                   }
+                   onSelect(branch);
+                }} 
+                className={cn(
+                  "cursor-pointer font-semibold py-3 px-4 rounded-xl my-0.5 text-[15px] transition-colors",
+                  selectedBranch === branch 
+                    ? "bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-cyan-400" 
+                    : "text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800/60"
+                )}
+              >
+                {branch === 'All' ? '🌟 All Branches' : `📚 ${branch} Analytics`}
+              </DropdownMenuItem>
+            ))}
+          </DropdownMenuContent>
+        </DropdownMenu>
+      </div>
+
+      {/* Desktop Scrollable Pills (Hidden on Mobile) */}
       <div
         ref={scrollContainerRef}
-        className="flex lg:justify-center overflow-x-auto scroll-smooth px-4 lg:px-0 scrollbar-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
+        className="hidden md:flex lg:justify-center w-full overflow-x-auto scroll-smooth px-4 lg:px-0 scrollbar-none [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]"
       >
         <div className="flex items-center gap-1.5 lg:gap-2 bg-slate-200/50 dark:bg-slate-800/50 p-1.5 rounded-full border border-slate-300/50 dark:border-slate-700/50 shadow-inner backdrop-blur-xl">
           {branches.map((branch) => {
