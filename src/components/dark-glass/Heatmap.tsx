@@ -101,8 +101,8 @@ export function Heatmap({ data }: { data: any[] }) {
         </div>
       </div>
 
-      {/* Table area */}
-      <div className="flex-1 overflow-auto rounded-xl" style={{ minHeight: 0 }}>
+      {/* Table area - Desktop Only */}
+      <div className="hidden md:block flex-1 overflow-auto rounded-xl" style={{ minHeight: 0 }}>
         {filtered.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-40 gap-3 text-slate-400 dark:text-slate-500">
             <Search className="w-8 h-8 opacity-30" />
@@ -216,6 +216,59 @@ export function Heatmap({ data }: { data: any[] }) {
               })}
             </tbody>
           </table>
+        )}
+      </div>
+
+      {/* Mobile view - Cards */}
+      <div className="md:hidden flex flex-col gap-3 overflow-auto" style={{ minHeight: 0 }}>
+        {filtered.length === 0 ? (
+          <div className="flex flex-col items-center justify-center h-40 gap-3 text-slate-400 dark:text-slate-500">
+            <Search className="w-8 h-8 opacity-30" />
+            <p className="text-sm">No students match <span className="text-blue-500 dark:text-cyan-400">"{query}"</span></p>
+          </div>
+        ) : (
+          filtered.map((student, idx) => {
+            const isTopByGlobal = student.cgpa >= maxCgpa;
+            return (
+              <motion.div
+                key={student.rollNumber + idx}
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: Math.min(idx * 0.008, 0.4), duration: 0.25 }}
+                className="flex flex-col gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-700/50 bg-slate-50/50 dark:bg-slate-900/40"
+              >
+                <div className="flex justify-between items-start gap-2">
+                  <div className="flex items-center gap-2 overflow-hidden">
+                    <div className="shrink-0"><RankBadge rank={student.branchRank} rowIndex={idx} /></div>
+                    <div className="flex flex-col min-w-0">
+                      <span className={`text-sm font-semibold truncate ${student.branchRank <= 3 ? 'text-amber-600 dark:text-amber-200' : 'text-slate-900 dark:text-slate-100'}`}>
+                        {student.name}
+                      </span>
+                      <span className="text-[10px] text-slate-500 font-mono tracking-wide">{student.rollNumber}</span>
+                    </div>
+                  </div>
+                  <div className="shrink-0 pl-2 border-l border-slate-200 dark:border-slate-700">
+                    <CGPACell value={student.cgpa} isTop={isTopByGlobal} rowIndex={idx} />
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-6 gap-1 mt-1">
+                  {semesters.map((sem, i) => {
+                    const val = student[sem];
+                    return (
+                      <div
+                        key={sem}
+                        className={`flex flex-col items-center justify-center h-10 rounded-md border transition-all duration-300 ${getSgpaStyle(val)}`}
+                      >
+                        <span className="text-[9px] font-semibold opacity-70 mb-0.5">S{i + 1}</span>
+                        <span className="text-xs font-bold leading-none">{val ? val.toFixed(2) : "—"}</span>
+                      </div>
+                    );
+                  })}
+                </div>
+              </motion.div>
+            );
+          })
         )}
       </div>
     </div>
