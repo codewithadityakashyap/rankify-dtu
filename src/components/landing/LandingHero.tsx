@@ -1,9 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { ChevronDown, Trophy, ArrowRight, BarChart3 } from "lucide-react";
+import { ChevronDown, Trophy, ArrowRight, BarChart3, Briefcase } from "lucide-react";
 import { ResponsiveContainer, LineChart, Line, YAxis } from "recharts";
 import { Playfair_Display } from "next/font/google";
+import Link from "next/link";
 
 const playfair = Playfair_Display({ subsets: ["latin"], weight: ["600", "700"] });
 
@@ -53,14 +54,14 @@ export function LandingHero({ onScrollToDashboard, onScrollToBranch, topper }: L
             
             <h1 className="text-[2.75rem] leading-[1.1] sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-6">
               Understand Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-cyan-400 dark:to-blue-500">Rank.</span> <br />
-              Own Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-blue-500 dark:from-blue-400 dark:to-indigo-400">Performance.</span>
+              Secure Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-emerald-500 dark:from-blue-400 dark:to-emerald-400">Future.</span>
             </h1>
             
             <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-xl leading-relaxed">
-              Analyze your academic performance, track rankings, and compare across branches with absolute clarity.
+              Analyze your academic performance, track rankings, and explore top placement statistics across all branches with absolute clarity.
             </p>
 
-            <div className="flex flex-col sm:flex-row w-full sm:w-auto gap-4">
+            <div className="flex flex-col sm:flex-row flex-wrap w-full sm:w-auto gap-4">
               <button 
                 onClick={onScrollToDashboard}
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-500 text-white font-medium transition-all duration-200 shadow-[0_4px_14px_0_rgb(37,99,235,0.39)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.23)] hover:-translate-y-0.5 active:translate-y-0"
@@ -75,6 +76,13 @@ export function LandingHero({ onScrollToDashboard, onScrollToBranch, topper }: L
                 <BarChart3 className="w-4 h-4 mr-1 text-slate-400 dark:text-slate-500" />
                 <span>View Branch Insights</span>
               </button>
+              <Link 
+                href="/placement"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 font-medium transition-all duration-200 shadow-sm border border-indigo-200/50 dark:border-indigo-700/50 hover:-translate-y-0.5 active:translate-y-0"
+              >
+                <Briefcase className="w-4 h-4 mr-1" />
+                <span>View Placement Statistics</span>
+              </Link>
             </div>
           </motion.div>
 
@@ -147,6 +155,27 @@ export function LandingHero({ onScrollToDashboard, onScrollToBranch, topper }: L
               <div className="pr-2">
                 <div className="text-[10px] font-semibold text-slate-400 dark:text-slate-500 uppercase">Current Leader</div>
                 <div className="text-sm font-bold text-slate-800 dark:text-slate-200">Across DTU</div>
+              </div>
+            </motion.div>
+
+            {/* Absolute positioned highest package pill */}
+            <motion.div 
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.7, duration: 0.4 }}
+              className="absolute -top-6 -left-6 lg:-left-12 bg-white/90 dark:bg-slate-800/90 border border-slate-100 dark:border-slate-700 rounded-xl p-3 shadow-lg backdrop-blur-md flex items-center gap-3 z-10 hidden sm:flex"
+            >
+              <div className="w-10 h-10 rounded-full bg-indigo-100 dark:bg-indigo-500/20 flex items-center justify-center border border-indigo-200 dark:border-indigo-500/30">
+                <Briefcase className="w-4 h-4 text-indigo-600 dark:text-indigo-400" />
+              </div>
+              <div className="pr-3">
+                <div className="flex justify-between items-center mb-0.5">
+                  <div className="text-[10px] font-semibold text-slate-400 dark:text-slate-500 uppercase tracking-wider">Highest Package</div>
+                </div>
+                <div className="text-sm font-extrabold text-slate-800 dark:text-slate-200 leading-none mb-1">
+                  Chirag Sehgal <span className="text-indigo-600 dark:text-indigo-400 ml-1">60 LPA</span>
+                </div>
+                <div className="text-xs font-semibold text-slate-500">Meesho • CO Branch</div>
               </div>
             </motion.div>
 
