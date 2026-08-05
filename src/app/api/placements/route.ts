@@ -60,7 +60,7 @@ export async function GET(request: Request) {
       maxCgpa: cgpas[cgpas.length - 1] || 0,
       branches,
       roles,
-      students: c.students.map((s) => ({ name: s.name, cgpa: s.cgpa, branch: s.branch, role: s.role || 'Unknown', ctc: s.ctc })),
+      students: c.students.map((s) => ({ name: s.name, cgpa: s.cgpa, branch: s.branch, role: s.role || 'Unknown', ctc: s.ctc, duration: s.duration || '' })),
     };
   }).sort((a, b) => b.hired - a.hired);
 
@@ -98,7 +98,7 @@ function normalizeType(t: string): string {
 interface PlacementRecord {
   rollNumber: string; name: string; cgpa: number;
   company: string; role?: string; ctc: number;
-  type: string; branch: string;
+  type: string; branch: string; duration?: string;
 }
 interface CompanyAgg {
   name: string; type: string; hired: number;

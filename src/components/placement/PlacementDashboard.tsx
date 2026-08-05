@@ -12,7 +12,7 @@ import logosMap from '@/data/logos.json';
 // Types
 // ─────────────────────────────────────────────────────────────────────────────
 interface StudentMini {
-  name: string; rollNumber: string; cgpa: number; branch: string; role: string; ctc: number;
+  name: string; rollNumber: string; cgpa: number; branch: string; role: string; ctc: number; duration?: string;
 }
 interface Company {
   name: string; type: string; hired: number;

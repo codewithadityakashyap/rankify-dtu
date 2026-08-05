@@ -52,7 +52,7 @@ async function getData() {
         avgCgpa: cgpas.length ? round2(cgpas.reduce((a: number, b: number) => a + b, 0) / cgpas.length) : 0,
         minCgpa: cgpas[0] || 0, maxCgpa: cgpas[cgpas.length - 1] || 0,
         branches, roles,
-        students: students.map((s: any) => ({ name: s.name, rollNumber: s.rollNumber, cgpa: s.cgpa, branch: s.branch, role: s.role || 'Unknown', ctc: s.ctc })),
+        students: students.map((s: any) => ({ name: s.name, rollNumber: s.rollNumber, cgpa: s.cgpa, branch: s.branch, role: s.role || 'Unknown', ctc: s.ctc, duration: s.duration || '' })),
       };
     }).sort((a, b) => b.hired - a.hired);
 
