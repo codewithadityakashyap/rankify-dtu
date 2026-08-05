@@ -19,7 +19,7 @@ interface LandingHeroProps {
 const getTrendData = (topper: any) => {
   if (!topper) return [];
   const sems = Object.keys(topper).filter(k => k.startsWith('sem')).sort();
-  if (sems.length === 0) return Array.from({length: 4}, (_, i) => ({ val: 9 + Math.random() })); // Fallback line if pure object
+  if (sems.length === 0) return Array.from({ length: 4 }, (_, i) => ({ val: 9 + Math.random() })); // Fallback line if pure object
   return sems.map(s => ({ val: topper[s] }));
 };
 
@@ -30,15 +30,15 @@ export function LandingHero({ onScrollToDashboard, onScrollToBranch, topper }: L
     <section className="relative pt-16 pb-20 lg:pt-24 lg:pb-28 overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-[linear-gradient(to_bottom,#F8FAFC,#EEF2FF)] dark:bg-[linear-gradient(to_bottom,#0F172A,#0B1120)] -z-10" />
-      
+
       {/* Optional ultra-subtle pattern/noise */}
       <div className="absolute inset-0 opacity-[0.015] dark:opacity-[0.03] mix-blend-overlay pointer-events-none -z-10" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E\")" }}></div>
 
       <div className="container mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-8 items-center">
-          
+
           {/* Left Text Column */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, ease: "easeOut" }}
@@ -51,32 +51,32 @@ export function LandingHero({ onScrollToDashboard, onScrollToBranch, topper }: L
               </span>
               Live Data Intelligence
             </div>
-            
+
             <h1 className="text-[2.75rem] leading-[1.1] sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-6">
               Understand Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600 dark:from-cyan-400 dark:to-blue-500">Rank.</span> <br />
               Secure Your <span className="text-transparent bg-clip-text bg-gradient-to-r from-indigo-600 to-emerald-500 dark:from-blue-400 dark:to-emerald-400">Future.</span>
             </h1>
-            
+
             <p className="text-lg sm:text-xl text-slate-600 dark:text-slate-400 mb-8 max-w-xl leading-relaxed">
               Analyze your academic performance, track rankings, and explore top placement statistics across all branches with absolute clarity.
             </p>
 
             <div className="flex flex-col sm:flex-row flex-wrap w-full sm:w-auto gap-4">
-              <button 
+              <button
                 onClick={onScrollToDashboard}
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-700 dark:bg-blue-600 dark:hover:bg-blue-500 text-white font-medium transition-all duration-200 shadow-[0_4px_14px_0_rgb(37,99,235,0.39)] hover:shadow-[0_6px_20px_rgba(37,99,235,0.23)] hover:-translate-y-0.5 active:translate-y-0"
               >
                 <span>Explore Dashboard</span>
                 <ArrowRight className="w-4 h-4 ml-1" />
               </button>
-              <button 
+              <button
                 onClick={onScrollToBranch}
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-medium transition-all duration-200 shadow-sm border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700 hover:-translate-y-0.5 active:translate-y-0"
               >
                 <BarChart3 className="w-4 h-4 mr-1 text-slate-400 dark:text-slate-500" />
                 <span>View Branch Insights</span>
               </button>
-              <Link 
+              <Link
                 href="/placement"
                 className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-indigo-50 hover:bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 font-medium transition-all duration-200 shadow-sm border border-indigo-200/50 dark:border-indigo-700/50 hover:-translate-y-0.5 active:translate-y-0"
               >
@@ -87,7 +87,7 @@ export function LandingHero({ onScrollToDashboard, onScrollToBranch, topper }: L
           </motion.div>
 
           {/* Right Visual Column */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
@@ -123,16 +123,16 @@ export function LandingHero({ onScrollToDashboard, onScrollToBranch, topper }: L
                     {topper?.cgpa ? parseFloat(topper.cgpa).toFixed(3) : "Wait."}
                   </div>
                 </div>
-                
+
                 <div className="w-32 h-16 opacity-80">
                   <ResponsiveContainer width="100%" height="100%">
-                    <LineChart data={trendData.length > 0 ? trendData : [{val: 9}, {val: 9.5}, {val: 9.8}]}>
+                    <LineChart data={trendData.length > 0 ? trendData : [{ val: 9 }, { val: 9.5 }, { val: 9.8 }]}>
                       <YAxis domain={['dataMin - 0.5', 'dataMax + 0.1']} hide />
-                      <Line 
-                        type="monotone" 
-                        dataKey="val" 
-                        stroke="#2563EB" 
-                        strokeWidth={3} 
+                      <Line
+                        type="monotone"
+                        dataKey="val"
+                        stroke="#2563EB"
+                        strokeWidth={3}
                         dot={false}
                         animationDuration={2000}
                         style={{ filter: "drop-shadow(0px 4px 6px rgba(37, 99, 235, 0.3))" }}
@@ -142,9 +142,9 @@ export function LandingHero({ onScrollToDashboard, onScrollToBranch, topper }: L
                 </div>
               </div>
             </div>
-            
+
             {/* HIGHEST PACKAGE CARD */}
-            <motion.div 
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
@@ -152,7 +152,7 @@ export function LandingHero({ onScrollToDashboard, onScrollToBranch, topper }: L
             >
               {/* Card decorative background */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none" />
-              
+
               <div className="flex items-start justify-between mb-4 relative z-10">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
@@ -183,7 +183,7 @@ export function LandingHero({ onScrollToDashboard, onScrollToBranch, topper }: L
                     </div>
                   </div>
                 </div>
-                
+
                 <div className="text-right">
                   <div className="text-[11px] font-semibold text-[#F49400]/80 uppercase tracking-wider mb-1">Company</div>
                   <div className="text-xl font-bold text-white tracking-tight">

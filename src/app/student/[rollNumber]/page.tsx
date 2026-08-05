@@ -100,7 +100,7 @@ export default async function StudentProfilePage({ params }: { params: { rollNum
   };
 
   return (
-    <div className="container mx-auto px-4 py-8 max-w-4xl min-h-screen">
+    <div className="container mx-auto px-2 sm:px-4 py-6 sm:py-8 max-w-4xl min-h-screen">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
@@ -108,7 +108,7 @@ export default async function StudentProfilePage({ params }: { params: { rollNum
       
       <BackButton />
       
-      <div className="bg-card rounded-2xl shadow-sm border p-6 md:p-8">
+      <div className="bg-card rounded-2xl shadow-sm border p-3 sm:p-6 md:p-8">
         <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b">
           <div>
             <h1 className="text-3xl md:text-4xl font-bold font-sans text-foreground tracking-tight">{student.name}</h1>
