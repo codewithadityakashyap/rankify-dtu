@@ -17,7 +17,7 @@ const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID ?? 'G-XXXXXXXXXX';
 // ───────────────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://rankify-dtu.netlify.app'),
+  metadataBase: new URL('https://rankify-dtu.vercel.app'),
   title: {
     default: 'Rankify DTU | Delhi Technological University Results & Placements',
     template: '%s | Rankify DTU'
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_IN',
-    url: 'https://rankify-dtu.netlify.app',
+    url: 'https://rankify-dtu.vercel.app',
     title: 'Rankify DTU | Next-Gen Placement & Result Analytics',
     description: 'Explore DTU 2026 batch placement data, company-wise hiring trends, compensation insights, and student performance analytics.',
     siteName: 'Rankify DTU',
@@ -93,8 +93,8 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "Rankify DTU",
-              "url": "https://rankify-dtu.netlify.app",
-              "logo": "https://rankify-dtu.netlify.app/logo.png",
+              "url": "https://rankify-dtu.vercel.app",
+              "logo": "https://rankify-dtu.vercel.app/logo.png",
               "description": "Comprehensive academic and placement analytics dashboard for Delhi Technological University (DTU).",
               "sameAs": [
                 "https://github.com/adityakashyaptxt",

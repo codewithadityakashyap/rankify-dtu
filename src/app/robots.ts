@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: '/api/',
     },
-    sitemap: 'https://rankify-dtu.netlify.app/sitemap.xml',
+    sitemap: 'https://rankify-dtu.vercel.app/sitemap.xml',
   };
 }

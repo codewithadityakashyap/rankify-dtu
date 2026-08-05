@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next';
 import resultsData from '../../src/data/results.json';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://rankify-dtu.netlify.app';
+  const baseUrl = 'https://rankify-dtu.vercel.app';
   
   const staticRoutes = [
     { url: `${baseUrl}/`, lastModified: new Date(), changeFrequency: 'daily', priority: 1 },
