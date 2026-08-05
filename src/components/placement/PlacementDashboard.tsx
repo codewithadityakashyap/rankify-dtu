@@ -12,7 +12,7 @@ import logosMap from '@/data/logos.json';
 // Types
 // ─────────────────────────────────────────────────────────────────────────────
 interface StudentMini {
-  name: string; cgpa: number; branch: string; role: string; ctc: number;
+  name: string; rollNumber: string; cgpa: number; branch: string; role: string; ctc: number;
 }
 interface Company {
   name: string; type: string; hired: number;
@@ -376,6 +376,8 @@ function CompanyDetailPanel({ co, onBack }: { co: Company; onBack: () => void })
 // Global Analytics Section
 // ─────────────────────────────────────────────────────────────────────────────
 function GlobalAnalytics({ companies, stats }: Props) {
+  const [selectedBranch, setSelectedBranch] = useState<string | null>(null);
+
   const topByCtc = [...companies].filter((c) => c.avgCtc > 0)
     .sort((a, b) => b.avgCtc - a.avgCtc).slice(0, 12)
     .map((c) => ({ name: c.name, avgCtc: c.avgCtc }));
@@ -441,6 +443,65 @@ function GlobalAnalytics({ companies, stats }: Props) {
             </Bar>
           </BarChart>
         </ResponsiveContainer>
+      </div>
+
+      {/* Branch Students Directory */}
+      <div className="rounded-xl border border-slate-200 dark:border-slate-700/60 bg-white dark:bg-slate-800/50 p-5 shadow-sm mt-6">
+        <h3 className="text-sm font-bold text-slate-900 dark:text-white mb-4">View Students Placed by Branch</h3>
+        <div className="flex flex-wrap gap-2 mb-6">
+          {branchData.map(b => (
+            <button
+              key={b.branch}
+              onClick={() => setSelectedBranch(selectedBranch === b.branch ? null : b.branch)}
+              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all border ${
+                selectedBranch === b.branch
+                  ? 'bg-blue-600 text-white border-blue-600 shadow-sm'
+                  : 'bg-slate-50 dark:bg-slate-900/40 text-slate-600 dark:text-slate-300 border-slate-200 dark:border-slate-700 hover:border-blue-300 dark:hover:border-blue-700 hover:text-blue-600 dark:hover:text-blue-400'
+              }`}
+            >
+              {b.branch} <span className="opacity-70 ml-1">({b.count})</span>
+            </button>
+          ))}
+        </div>
+
+        {selectedBranch && (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 max-h-[600px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-slate-300 dark:scrollbar-thumb-slate-600">
+            {(() => {
+              const allStudents = companies.flatMap(c => 
+                c.students.map(s => ({ ...s, company: c.name, type: c.type }))
+              );
+              const branchStudents = allStudents
+                .filter(s => s.branch === selectedBranch)
+                .sort((a, b) => b.ctc - a.ctc);
+
+              return branchStudents.map((s, i) => (
+                <div key={i} className="flex flex-col p-3 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/80 shadow-sm hover:shadow-md transition-shadow relative overflow-hidden">
+                  <div className="absolute top-0 left-0 w-1 h-full" style={{ background: TYPE_COLOR[s.type] || '#94A3B8' }} />
+                  <div className="flex justify-between items-start mb-2 pl-2">
+                    <div>
+                      <div className="font-bold text-sm text-slate-900 dark:text-white truncate">{s.name}</div>
+                      <div className="text-[10px] text-slate-500 font-mono mt-0.5">{s.rollNumber}</div>
+                    </div>
+                    <span className="text-xs font-extrabold px-1.5 py-0.5 rounded" style={{ color: cgpaBracket(s.cgpa).color, background: `${cgpaBracket(s.cgpa).color}15` }}>
+                      {s.cgpa}
+                    </span>
+                  </div>
+                  <div className="pl-2 mt-auto">
+                    <div className="flex justify-between items-end">
+                      <div>
+                        <div className="text-xs font-semibold text-slate-700 dark:text-slate-300 truncate">{s.company}</div>
+                        <div className="text-[10px] text-slate-400 truncate max-w-[120px]">{s.role}</div>
+                      </div>
+                      <div className="text-right">
+                        <div className="font-bold text-sm text-emerald-600 dark:text-emerald-400">{s.ctc > 0 ? `${s.ctc} LPA` : 'N/A'}</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              ));
+            })()}
+          </div>
+        )}
       </div>
     </div>
   );

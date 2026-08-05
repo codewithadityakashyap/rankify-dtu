@@ -127,7 +127,7 @@ export function PlacementPredictor({ student, placementData }: PlacementPredicto
             {ineligibleCompanies.map((company, idx) => {
               const cgpaShortfall = company.minCgpa - testCgpa;
               const reason = !company.branches.includes("ALL") && !company.branches.includes(student.branch)
-                ? "Branch not eligible"
+                ? `Requires: ${company.branches.slice(0, 4).join(', ')}${company.branches.length > 4 ? '...' : ''}`
                 : `Need +${cgpaShortfall.toFixed(2)} CGPA`;
 
               return (
