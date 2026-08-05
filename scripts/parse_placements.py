@@ -17,7 +17,7 @@ def normalize_type(t: str) -> str:
     return 'Unknown'
 
 def parse_placements():
-    df = pd.read_excel('data/placementstst.xlsx', header=None)
+    df = pd.read_excel('data/Updated_Placement.xlsx', header=None)
     records = []
 
     for i, row in enumerate(df.iloc[1:].itertuples(), start=1):
@@ -100,8 +100,8 @@ def parse_placements():
             'branch': branch
         })
 
-    os.makedirs('public/data', exist_ok=True)
-    with open('public/data/placements.json', 'w', encoding='utf-8') as f:
+    os.makedirs('src/data', exist_ok=True)
+    with open('src/data/placements.json', 'w', encoding='utf-8') as f:
         json.dump(records, f, indent=2, ensure_ascii=False)
 
     print(f"Parsed {len(records)} placement records.")

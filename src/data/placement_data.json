@@ -1,6 +1,16 @@
 {
   "companies": [
     {
+      "name": "Atlassian",
+      "minCgpa": 9.14,
+      "package": "82.0 LPA",
+      "type": "Tech",
+      "branches": [
+        "IT",
+        "CO"
+      ]
+    },
+    {
       "name": "Meesho",
       "minCgpa": 7.2,
       "package": "60.0 LPA",
@@ -10,21 +20,12 @@
       ]
     },
     {
-      "name": "DE Shaw",
+      "name": "De Shaw",
       "minCgpa": 9.76,
       "package": "57.3 LPA",
       "type": "Tech",
       "branches": [
-        "CSE"
-      ]
-    },
-    {
-      "name": "Cred",
-      "minCgpa": 8.51,
-      "package": "56.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE"
+        "CO"
       ]
     },
     {
@@ -33,10 +34,9 @@
       "package": "56.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
         "SE",
-        "IT",
-        "MCE"
+        "MC",
+        "CO"
       ]
     },
     {
@@ -45,7 +45,18 @@
       "package": "56.0 LPA",
       "type": "Tech",
       "branches": [
-        "ALL"
+        "CO",
+        "MC"
+      ]
+    },
+    {
+      "name": "Cred",
+      "minCgpa": 8.51,
+      "package": "56.0 LPA",
+      "type": "Tech",
+      "branches": [
+        "CO",
+        "EP"
       ]
     },
     {
@@ -54,24 +65,9 @@
       "package": "53.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
         "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
+        "CO",
         "EP"
-      ]
-    },
-    {
-      "name": "Adobe",
-      "minCgpa": 6.9,
-      "package": "52.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT"
       ]
     },
     {
@@ -80,8 +76,16 @@
       "package": "52.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
+        "IT",
+        "CO"
+      ]
+    },
+    {
+      "name": "Adobe",
+      "minCgpa": 6.9,
+      "package": "52.0 LPA",
+      "type": "Tech",
+      "branches": [
         "IT"
       ]
     },
@@ -91,36 +95,28 @@
       "package": "51.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
         "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE"
+        "MC",
+        "EE",
+        "CO"
       ]
     },
     {
-      "name": "Texas Instruments",
-      "minCgpa": 8.86,
+      "name": "Texas Instrumetns",
+      "minCgpa": 8.07,
       "package": "50.5 LPA",
       "type": "Core",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
+        "EC",
         "EE"
       ]
     },
     {
-      "name": "Fast",
+      "name": "Fast Retailing",
       "minCgpa": 9.46,
       "package": "48.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
         "IT"
       ]
     },
@@ -130,12 +126,10 @@
       "package": "46.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
+        "CO",
         "IT",
-        "MCE",
-        "ECE",
-        "EE"
+        "EE",
+        "SE"
       ]
     },
     {
@@ -144,11 +138,11 @@
       "package": "45.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
+        "MC",
+        "CO",
+        "EC",
         "SE",
-        "IT",
-        "MCE",
-        "ECE"
+        "IT"
       ]
     },
     {
@@ -157,19 +151,26 @@
       "package": "45.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE"
+        "CO"
       ]
     },
     {
-      "name": "Tower",
+      "name": "Tower Research Capital",
       "minCgpa": 9.05,
       "package": "44.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE"
+        "CO",
+        "MC"
+      ]
+    },
+    {
+      "name": "Texas Instruments",
+      "minCgpa": 0.0,
+      "package": "40.1 LPA",
+      "type": "Core",
+      "branches": [
+        "MISC"
       ]
     },
     {
@@ -178,24 +179,21 @@
       "package": "40.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
+        "MC",
+        "CO",
+        "EC",
         "SE",
-        "IT",
-        "MCE",
-        "ECE",
         "EE"
       ]
     },
     {
-      "name": "Media",
+      "name": "Media Net",
       "minCgpa": 8.12,
       "package": "39.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE"
+        "CO",
+        "MC"
       ]
     },
     {
@@ -204,21 +202,20 @@
       "package": "37.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT"
+        "IT",
+        "CO"
       ]
     },
     {
       "name": "Goldman Sachs",
       "minCgpa": 8.51,
       "package": "36.5 LPA",
-      "type": "Finance",
+      "type": "Tech",
       "branches": [
-        "CSE",
         "SE",
         "IT",
-        "MCE"
+        "MC",
+        "CO"
       ]
     },
     {
@@ -227,26 +224,29 @@
       "package": "35.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE"
+        "CO"
+      ]
+    },
+    {
+      "name": "Unknown",
+      "minCgpa": 0.0,
+      "package": "33.5 LPA",
+      "type": "Tech",
+      "branches": [
+        "MISC"
       ]
     },
     {
       "name": "Flipkart",
       "minCgpa": 8.53,
-      "package": "32.58 LPA",
+      "package": "32.6 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
+        "MC",
+        "CO",
         "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME",
-        "AE",
-        "CE",
-        "PIE"
+        "PE",
+        "IT"
       ]
     },
     {
@@ -255,25 +255,20 @@
       "package": "32.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
+        "CO",
+        "EC",
         "SE",
         "IT",
-        "MCE",
-        "ECE",
         "EE"
       ]
     },
     {
       "name": "Qualcomm",
       "minCgpa": 8.84,
-      "package": "31.05 LPA",
+      "package": "31.1 LPA",
       "type": "Core",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
+        "EC",
         "EE"
       ]
     },
@@ -283,70 +278,76 @@
       "package": "30.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE"
+        "CO"
+      ]
+    },
+    {
+      "name": "TCIL (PSU)",
+      "minCgpa": 6.59,
+      "package": "30.0 LPA",
+      "type": "Core",
+      "branches": [
+        "EC",
+        "IT",
+        "CO"
+      ]
+    },
+    {
+      "name": "Morgan Stanley",
+      "minCgpa": 8.7,
+      "package": "29.0 LPA",
+      "type": "Tech",
+      "branches": [
+        "MC",
+        "CO"
       ]
     },
     {
       "name": "ARM",
       "minCgpa": 7.98,
       "package": "29.0 LPA",
-      "type": "Tech",
+      "type": "Core",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
         "EE"
-      ]
-    },
-    {
-      "name": "Morgan",
-      "minCgpa": 8.7,
-      "package": "29.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "ALL"
       ]
     },
     {
       "name": "JPMC",
       "minCgpa": 8.1,
       "package": "28.0 LPA",
-      "type": "Tech",
+      "type": "Non Tech",
       "branches": [
         "ALL"
       ]
     },
     {
-      "name": "Silicon",
+      "name": "Silicon Labs",
       "minCgpa": 8.59,
       "package": "28.0 LPA",
-      "type": "Tech",
+      "type": "Core",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE"
+        "EC"
       ]
     },
     {
-      "name": "Urban",
+      "name": "Winzo",
+      "minCgpa": 9.23,
+      "package": "27.5 LPA",
+      "type": "Tech",
+      "branches": [
+        "IT"
+      ]
+    },
+    {
+      "name": "Urban Company",
       "minCgpa": 6.67,
       "package": "27.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
         "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME",
-        "AE",
-        "CE"
+        "MC",
+        "CE",
+        "CO"
       ]
     },
     {
@@ -355,13 +356,21 @@
       "package": "27.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
+        "SE",
+        "CO",
+        "EP"
+      ]
+    },
+    {
+      "name": "Samsung R&D Institute Bangalore (SRIB)",
+      "minCgpa": 8.3,
+      "package": "26.8 LPA",
+      "type": "Tech",
+      "branches": [
         "SE",
         "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP"
+        "MC",
+        "CO"
       ]
     },
     {
@@ -370,124 +379,102 @@
       "package": "26.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE"
+        "CO"
       ]
     },
     {
       "name": "Salescode.ai",
       "minCgpa": 7.46,
       "package": "25.0 LPA",
-      "type": "Tech",
+      "type": "Non Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE"
+        "MC"
       ]
     },
     {
-      "name": "Ethos",
+      "name": "Ethos Life",
       "minCgpa": 7.11,
       "package": "24.7 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
         "IT",
-        "MCE"
+        "MC",
+        "CO"
       ]
     },
     {
-      "name": "NXP",
+      "name": "NXP Semiconductor",
       "minCgpa": 7.67,
       "package": "24.5 LPA",
-      "type": "Tech",
+      "type": "Core",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE"
+        "EC",
+        "EE",
+        "MISC"
       ]
     },
     {
-      "name": "Arisinfra",
+      "name": "Arisinfra Solution Ltd.",
       "minCgpa": 8.29,
       "package": "24.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE"
+        "CO"
       ]
     },
     {
-      "name": "Siemens",
+      "name": "Siemens EDA",
       "minCgpa": 8.53,
       "package": "23.8 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
+        "EC",
         "IT",
-        "MCE",
-        "ECE"
+        "CO"
       ]
     },
     {
-      "name": "Trusave",
+      "name": "Trusave (Bachatt)",
       "minCgpa": 8.64,
-      "package": "23.59 LPA",
+      "package": "23.6 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
         "IT",
-        "MCE",
-        "ECE",
         "EE",
-        "EP",
-        "ME"
+        "ME",
+        "CO"
       ]
     },
     {
-      "name": "KKR",
+      "name": "KKR & Co, Inc",
       "minCgpa": 8.75,
-      "package": "22.88 LPA",
+      "package": "22.9 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
         "SE",
-        "IT"
+        "IT",
+        "CO"
       ]
     },
     {
       "name": "CDOT",
       "minCgpa": 8.76,
-      "package": "22.35 LPA",
-      "type": "Tech",
+      "package": "22.4 LPA",
+      "type": "Core",
       "branches": [
-        "CSE"
+        "MISC",
+        "CO"
       ]
     },
     {
-      "name": "BNY",
+      "name": "BNY Mellon",
       "minCgpa": 7.22,
       "package": "22.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
         "IT",
-        "MCE"
-      ]
-    },
-    {
-      "name": "IXIGO",
-      "minCgpa": 8.22,
-      "package": "22.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE"
+        "MC",
+        "SE"
       ]
     },
     {
@@ -496,75 +483,65 @@
       "package": "22.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE"
+        "CO"
       ]
     },
     {
-      "name": "Minix",
-      "minCgpa": 7.25,
+      "name": "IXIGO",
+      "minCgpa": 8.22,
       "package": "22.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE"
+        "CO"
       ]
     },
     {
-      "name": "BPCL",
-      "minCgpa": 6.13,
-      "package": "20.45 LPA",
-      "type": "Tech",
+      "name": "Minix Fintech",
+      "minCgpa": 7.25,
+      "package": "22.0 LPA",
+      "type": "Core",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME"
+        "EC"
       ]
     },
     {
-      "name": "ClearTax",
-      "minCgpa": 5.83,
-      "package": "20.0 LPA",
+      "name": "Oracle",
+      "minCgpa": 8.15,
+      "package": "21.4 LPA",
       "type": "Tech",
       "branches": [
         "ALL"
       ]
     },
     {
-      "name": "GEP",
-      "minCgpa": 8.3,
-      "package": "20.0 LPA",
-      "type": "Tech",
+      "name": "ZS Associates",
+      "minCgpa": 7.06,
+      "package": "20.7 LPA",
+      "type": "Non Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT"
+        "ALL"
       ]
     },
     {
-      "name": "GROWW",
-      "minCgpa": 7.75,
-      "package": "20.0 LPA",
-      "type": "Tech",
+      "name": "BPCL",
+      "minCgpa": 6.13,
+      "package": "20.4 LPA",
+      "type": "Non Tech",
       "branches": [
-        "CSE",
-        "SE"
+        "EE",
+        "ME",
+        "MISC"
       ]
     },
     {
-      "name": "MRSOOL",
-      "minCgpa": 9.14,
+      "name": "Unify Apps",
+      "minCgpa": 8.58,
       "package": "20.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
+        "CO",
+        "IT",
+        "MC",
         "SE"
       ]
     },
@@ -574,58 +551,30 @@
       "package": "20.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
+        "CO",
         "IT",
-        "MCE"
+        "MC",
+        "SE"
       ]
     },
     {
-      "name": "TBO",
-      "minCgpa": 8.74,
+      "name": "MRSOOL",
+      "minCgpa": 9.14,
       "package": "20.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE"
+        "SE"
       ]
     },
     {
-      "name": "Tech",
-      "minCgpa": 7.76,
+      "name": "GEP",
+      "minCgpa": 8.3,
       "package": "20.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
+        "CO",
         "IT",
-        "MCE",
-        "ECE",
-        "EE"
-      ]
-    },
-    {
-      "name": "Unify",
-      "minCgpa": 8.58,
-      "package": "20.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE"
-      ]
-    },
-    {
-      "name": "Vansun",
-      "minCgpa": 8.09,
-      "package": "20.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE"
+        "SE"
       ]
     },
     {
@@ -634,185 +583,219 @@
       "package": "20.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
         "SE",
         "IT",
-        "MCE"
+        "MC",
+        "CO"
       ]
     },
     {
-      "name": "Alvarez",
-      "minCgpa": 7.65,
-      "package": "19.5 LPA",
+      "name": "TBO",
+      "minCgpa": 8.74,
+      "package": "20.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
+        "CO"
+      ]
+    },
+    {
+      "name": "AlgoSec",
+      "minCgpa": 8.9,
+      "package": "20.0 LPA",
+      "type": "Tech",
+      "branches": [
+        "CO"
+      ]
+    },
+    {
+      "name": "ClearTax",
+      "minCgpa": 5.83,
+      "package": "20.0 LPA",
+      "type": "Tech",
+      "branches": [
+        "CO",
         "SE",
-        "IT",
-        "MCE",
-        "ECE",
+        "BT",
         "EE",
-        "EP",
-        "ME"
+        "EP"
+      ]
+    },
+    {
+      "name": "Vansun Media Tech",
+      "minCgpa": 8.09,
+      "package": "20.0 LPA",
+      "type": "Tech",
+      "branches": [
+        "EC",
+        "IT",
+        "CO"
+      ]
+    },
+    {
+      "name": "GROWW",
+      "minCgpa": 7.75,
+      "package": "20.0 LPA",
+      "type": "Tech",
+      "branches": [
+        "SE",
+        "CO"
+      ]
+    },
+    {
+      "name": "Tech Mahindra",
+      "minCgpa": 7.76,
+      "package": "20.0 LPA",
+      "type": "Tech",
+      "branches": [
+        "IT",
+        "EE",
+        "MISC",
+        "MC"
+      ]
+    },
+    {
+      "name": "Wizcommerce",
+      "minCgpa": 7.61,
+      "package": "20.0 LPA",
+      "type": "Non Tech",
+      "branches": [
+        "EC",
+        "MC"
+      ]
+    },
+    {
+      "name": "Alvarez & Marshal",
+      "minCgpa": 7.65,
+      "package": "19.5 LPA",
+      "type": "Non Tech",
+      "branches": [
+        "SE",
+        "CO",
+        "ME",
+        "MC"
       ]
     },
     {
       "name": "Sandisk",
       "minCgpa": 8.77,
       "package": "19.5 LPA",
-      "type": "Tech",
+      "type": "Core",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE"
+        "EC",
+        "CO"
       ]
     },
     {
-      "name": "Tata",
-      "minCgpa": 7.92,
+      "name": "Tata AIG Insurance",
+      "minCgpa": 8.24,
       "package": "19.5 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME"
+        "IT"
       ]
     },
     {
       "name": "Optum",
-      "minCgpa": 8.36,
-      "package": "19.21 LPA",
+      "minCgpa": 4.85,
+      "package": "19.2 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
+        "CO",
+        "EC",
         "SE",
         "IT",
-        "MCE",
-        "ECE",
         "EE"
       ]
     },
     {
       "name": "Hyperverge",
       "minCgpa": 7.67,
-      "package": "18.57 LPA",
+      "package": "18.6 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE"
+        "EC",
+        "SE"
       ]
     },
     {
-      "name": "EXL",
-      "minCgpa": 6.91,
+      "name": "EXL Digital",
+      "minCgpa": 7.42,
       "package": "18.5 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
+        "CO",
         "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME",
-        "AE",
-        "CE",
-        "PIE",
-        "CHE"
-      ]
-    },
-    {
-      "name": "World",
-      "minCgpa": 9.11,
-      "package": "18.15 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
         "SE",
-        "IT"
+        "MC"
       ]
     },
     {
-      "name": "Barco",
-      "minCgpa": 8.04,
+      "name": "World Wide Technology",
+      "minCgpa": 9.11,
+      "package": "18.1 LPA",
+      "type": "Non Tech",
+      "branches": [
+        "IT",
+        "MISC"
+      ]
+    },
+    {
+      "name": "Saas Labs",
+      "minCgpa": 8.71,
       "package": "18.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE"
+        "IT",
+        "CO"
       ]
     },
     {
       "name": "BlackRock",
       "minCgpa": 8.22,
       "package": "18.0 LPA",
-      "type": "Tech",
+      "type": "Non Tech",
       "branches": [
-        "CSE",
-        "SE",
+        "MC",
+        "ME",
+        "CO",
         "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME"
+        "EE"
       ]
     },
     {
-      "name": "ICICI",
+      "name": "Jubilant Foodworks",
+      "minCgpa": 0.0,
+      "package": "18.0 LPA",
+      "type": "Tech",
+      "branches": [
+        "CO"
+      ]
+    },
+    {
+      "name": "ICICI Bank Ltd",
       "minCgpa": 6.18,
       "package": "18.0 LPA",
-      "type": "Tech",
+      "type": "Non Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME",
-        "AE",
-        "CE"
+        "ALL"
       ]
     },
     {
-      "name": "Jubilant",
-      "minCgpa": 8.27,
-      "package": "18.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE"
-      ]
-    },
-    {
-      "name": "Myntra",
+      "name": "Myntra (off-campus)",
       "minCgpa": 8.68,
       "package": "18.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE"
+        "CO"
       ]
     },
     {
-      "name": "Saas",
-      "minCgpa": 8.71,
+      "name": "Barco Electronics",
+      "minCgpa": 8.04,
       "package": "18.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT"
+        "CO"
       ]
     },
     {
@@ -821,107 +804,97 @@
       "package": "18.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE"
+        "MC"
       ]
     },
     {
-      "name": "Trinity",
+      "name": "Trinity Life Sciences",
       "minCgpa": 7.79,
       "package": "17.4 LPA",
-      "type": "Tech",
+      "type": "Non Tech",
       "branches": [
-        "CSE"
+        "CO"
       ]
     },
     {
-      "name": "Future",
-      "minCgpa": 6.24,
-      "package": "17.0 LPA",
+      "name": "ION Group",
+      "minCgpa": 7.92,
+      "package": "17.3 LPA",
       "type": "Tech",
       "branches": [
-        "ALL"
+        "MC"
       ]
     },
     {
       "name": "Renesas",
       "minCgpa": 7.72,
       "package": "17.0 LPA",
-      "type": "Tech",
+      "type": "Core",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
+        "EC",
         "EE"
       ]
     },
     {
-      "name": "Proc",
-      "minCgpa": 7.79,
-      "package": "16.74 LPA",
-      "type": "Tech",
+      "name": "Future First",
+      "minCgpa": 6.24,
+      "package": "17.0 LPA",
+      "type": "Non Tech",
       "branches": [
         "ALL"
       ]
     },
     {
-      "name": "Publicis",
+      "name": "Publicis Sapient",
       "minCgpa": 8.76,
-      "package": "16.67 LPA",
+      "package": "16.7 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
         "SE",
-        "IT",
-        "MCE"
+        "CO",
+        "MC"
       ]
     },
     {
-      "name": "Car",
-      "minCgpa": 7.5,
-      "package": "16.5 LPA",
-      "type": "Tech",
+      "name": "Proc DNA",
+      "minCgpa": 7.79,
+      "package": "16.7 LPA",
+      "type": "Non Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE"
+        "ALL"
       ]
     },
     {
       "name": "PhonePe",
       "minCgpa": 7.92,
       "package": "16.5 LPA",
-      "type": "Tech",
+      "type": "Non Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
+        "EC",
         "EE",
+        "MC",
         "EP"
       ]
     },
     {
-      "name": "Addverb",
+      "name": "Car Dekho",
+      "minCgpa": 7.5,
+      "package": "16.5 LPA",
+      "type": "Non Tech",
+      "branches": [
+        "CO",
+        "MC"
+      ]
+    },
+    {
+      "name": "Addverb Technologies",
       "minCgpa": 8.52,
-      "package": "16.05205 LPA",
+      "package": "16.1 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME",
-        "AE"
+        "EC",
+        "AE",
+        "MC"
       ]
     },
     {
@@ -930,14 +903,7 @@
       "package": "16.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME"
+        "ALL"
       ]
     },
     {
@@ -946,39 +912,39 @@
       "package": "16.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE"
+        "MC",
+        "CO"
       ]
     },
     {
-      "name": "Bain & Company",
+      "name": "Bain",
       "minCgpa": 6.71,
       "package": "15.6 LPA",
-      "type": "Consulting",
+      "type": "Non Tech",
       "branches": [
         "ALL"
       ]
     },
     {
-      "name": "Samsung",
-      "minCgpa": 6.6,
+      "name": "Samsung Research Institute Noida",
+      "minCgpa": 7.92,
       "package": "15.5 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
+        "EC",
         "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME",
-        "AE",
-        "CE",
-        "PIE",
-        "CHE"
+        "MC",
+        "SE"
+      ]
+    },
+    {
+      "name": "Samsung Research Institute Noida (SRIN)",
+      "minCgpa": 1.57,
+      "package": "15.5 LPA",
+      "type": "Tech",
+      "branches": [
+        "IT",
+        "CO"
       ]
     },
     {
@@ -987,47 +953,8 @@
       "package": "15.4 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT"
-      ]
-    },
-    {
-      "name": "Cvent",
-      "minCgpa": 7.77,
-      "package": "15.03 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
         "IT",
-        "MCE"
-      ]
-    },
-    {
-      "name": "Gartner",
-      "minCgpa": 8.1,
-      "package": "15.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE"
-      ]
-    },
-    {
-      "name": "Leena",
-      "minCgpa": 8.2,
-      "package": "15.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE"
+        "CO"
       ]
     },
     {
@@ -1036,38 +963,7 @@
       "package": "15.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE"
-      ]
-    },
-    {
-      "name": "Sirion",
-      "minCgpa": 8.16,
-      "package": "15.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT"
-      ]
-    },
-    {
-      "name": "Thorogood",
-      "minCgpa": 8.71,
-      "package": "15.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME"
+        "ALL"
       ]
     },
     {
@@ -1076,23 +972,82 @@
       "package": "15.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE"
+        "MC",
+        "CO"
       ]
     },
     {
-      "name": "Bharti",
-      "minCgpa": 6.3,
-      "package": "14.75 LPA",
+      "name": "Thorogood",
+      "minCgpa": 8.71,
+      "package": "15.0 LPA",
+      "type": "Non Tech",
+      "branches": [
+        "EC",
+        "ME",
+        "EP"
+      ]
+    },
+    {
+      "name": "Sirion Labs",
+      "minCgpa": 8.16,
+      "package": "15.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
         "SE",
         "IT",
-        "MCE",
-        "ECE"
+        "CO"
+      ]
+    },
+    {
+      "name": "Leena AI",
+      "minCgpa": 8.2,
+      "package": "15.0 LPA",
+      "type": "Tech",
+      "branches": [
+        "EC",
+        "IT",
+        "CO"
+      ]
+    },
+    {
+      "name": "Gartner",
+      "minCgpa": 8.1,
+      "package": "15.0 LPA",
+      "type": "Non Tech",
+      "branches": [
+        "EC",
+        "CO"
+      ]
+    },
+    {
+      "name": "Cvent",
+      "minCgpa": 7.77,
+      "package": "15.0 LPA",
+      "type": "Tech",
+      "branches": [
+        "MC",
+        "CO"
+      ]
+    },
+    {
+      "name": "BlinkIt",
+      "minCgpa": 5.75,
+      "package": "15.0 LPA",
+      "type": "Non Tech",
+      "branches": [
+        "CH",
+        "ME",
+        "BT"
+      ]
+    },
+    {
+      "name": "Bharti Airtel Ltd",
+      "minCgpa": 6.3,
+      "package": "14.8 LPA",
+      "type": "Tech",
+      "branches": [
+        "EC",
+        "CO"
       ]
     },
     {
@@ -1101,62 +1056,57 @@
       "package": "14.5 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE"
+        "CO",
+        "MC",
+        "SE"
       ]
     },
     {
-      "name": "ZS Associates",
+      "name": "ZS Associates (Jaipur)",
       "minCgpa": 6.8,
-      "package": "14.15 LPA",
-      "type": "Consulting",
+      "package": "14.2 LPA",
+      "type": "Non Tech",
       "branches": [
-        "ALL"
+        "CH",
+        "ME",
+        "EC",
+        "SE",
+        "AE"
       ]
     },
     {
       "name": "Axxela",
       "minCgpa": 8.05,
       "package": "14.1 LPA",
-      "type": "Tech",
+      "type": "Non Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
+        "CO",
+        "MC",
         "EP"
       ]
     },
     {
-      "name": "AdvantageClub.ai",
-      "minCgpa": 7.69,
+      "name": "Schlumberger",
+      "minCgpa": 6.68,
       "package": "14.0 LPA",
-      "type": "Tech",
+      "type": "Core",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME"
+        "AE",
+        "ME",
+        "SE"
       ]
     },
     {
-      "name": "Fareportal",
-      "minCgpa": 8.16,
+      "name": "AdvantageClub.ai",
+      "minCgpa": 4.95,
       "package": "14.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
+        "ME",
+        "CO",
+        "MISC",
         "SE",
-        "IT",
-        "MCE"
+        "PE"
       ]
     },
     {
@@ -1165,173 +1115,86 @@
       "package": "14.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE"
+        "EC"
       ]
     },
     {
-      "name": "Schlumberger",
-      "minCgpa": 6.68,
+      "name": "Fareportal",
+      "minCgpa": 8.16,
       "package": "14.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME",
-        "AE"
+        "MISC",
+        "MC"
       ]
     },
     {
       "name": "ExxonMobil",
       "minCgpa": 7.13,
-      "package": "13.49 LPA",
+      "package": "13.5 LPA",
       "type": "Core",
       "branches": [
-        "CSE",
-        "SE",
+        "CH",
         "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
         "ME",
-        "AE",
-        "CE",
-        "PIE",
-        "CHE"
+        "CO"
       ]
     },
     {
       "name": "Micron",
       "minCgpa": 6.61,
-      "package": "13.17 LPA",
-      "type": "Tech",
+      "package": "13.2 LPA",
+      "type": "Core",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME",
-        "AE",
-        "CE",
-        "PIE"
+        "MISC",
+        "PE"
       ]
     },
     {
-      "name": "MSIL",
-      "minCgpa": 6.93,
-      "package": "12.85 LPA",
+      "name": "PayTM",
+      "minCgpa": 7.79,
+      "package": "13.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME",
-        "AE",
-        "CE",
-        "PIE",
-        "CHE",
-        "ENE"
+        "ALL"
       ]
     },
     {
       "name": "Maruti Suzuki",
       "minCgpa": 6.44,
-      "package": "12.85 LPA",
+      "package": "12.8 LPA",
       "type": "Core",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME",
-        "AE",
-        "CE",
-        "PIE"
+        "ALL"
       ]
     },
     {
-      "name": "Viscadia",
+      "name": "MSIL (Maruti Suzuki)",
+      "minCgpa": 6.93,
+      "package": "12.8 LPA",
+      "type": "Core",
+      "branches": [
+        "EN"
+      ]
+    },
+    {
+      "name": "Viscadia Pvt Ltd.",
       "minCgpa": 7.69,
       "package": "12.2 LPA",
-      "type": "Tech",
+      "type": "Non Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
         "EE",
-        "EP",
         "ME"
       ]
     },
     {
-      "name": "Amdocs",
-      "minCgpa": 5.74,
+      "name": "Infoorigin",
+      "minCgpa": 9.27,
       "package": "12.0 LPA",
-      "type": "Tech",
+      "type": "Non Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME",
-        "AE",
-        "CE",
-        "PIE",
-        "CHE",
-        "ENE"
-      ]
-    },
-    {
-      "name": "Astrotalk",
-      "minCgpa": 6.5,
-      "package": "12.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME",
-        "AE",
-        "CE",
-        "PIE"
-      ]
-    },
-    {
-      "name": "IndiaMART",
-      "minCgpa": 7.61,
-      "package": "12.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE"
+        "MISC",
+        "MC"
       ]
     },
     {
@@ -1340,32 +1203,27 @@
       "package": "12.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
+        "EC",
         "IT",
-        "MCE",
-        "ECE"
+        "CO"
       ]
     },
     {
-      "name": "Nagarro",
-      "minCgpa": 7.14,
+      "name": "Policy Bazaar",
+      "minCgpa": 8.21,
       "package": "12.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME",
-        "AE",
-        "CE",
-        "PIE",
-        "CHE",
-        "ENE"
+        "ALL"
+      ]
+    },
+    {
+      "name": "Amdocs",
+      "minCgpa": 4.3,
+      "package": "12.0 LPA",
+      "type": "Tech",
+      "branches": [
+        "ALL"
       ]
     },
     {
@@ -1374,11 +1232,17 @@
       "package": "12.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE"
+        "EC",
+        "SE"
+      ]
+    },
+    {
+      "name": "Nagarro",
+      "minCgpa": 7.14,
+      "package": "12.0 LPA",
+      "type": "Tech",
+      "branches": [
+        "ALL"
       ]
     },
     {
@@ -1387,57 +1251,118 @@
       "package": "12.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME",
-        "AE",
-        "CE",
-        "PIE",
-        "CHE"
+        "CH",
+        "EP"
       ]
     },
     {
-      "name": "ZENARATE",
-      "minCgpa": 7.11,
-      "package": "11.78 LPA",
+      "name": "IndiaMART",
+      "minCgpa": 7.61,
+      "package": "12.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
+        "CO",
+        "SE"
+      ]
+    },
+    {
+      "name": "McKinsey",
+      "minCgpa": 7.91,
+      "package": "12.0 LPA",
+      "type": "Non Tech",
+      "branches": [
+        "EC",
         "EE"
       ]
     },
     {
-      "name": "MPS",
+      "name": "Astrotalk",
+      "minCgpa": 6.5,
+      "package": "12.0 LPA",
+      "type": "Non Tech",
+      "branches": [
+        "PE"
+      ]
+    },
+    {
+      "name": "ZENARATE INDIA Pvt Ltd.",
+      "minCgpa": 7.11,
+      "package": "11.8 LPA",
+      "type": "Tech",
+      "branches": [
+        "MC",
+        "EE",
+        "CO"
+      ]
+    },
+    {
+      "name": "Niva Bupa",
+      "minCgpa": 7.45,
+      "package": "11.5 LPA",
+      "type": "Non Tech",
+      "branches": [
+        "EP",
+        "CO",
+        "BT"
+      ]
+    },
+    {
+      "name": "MPS Limited",
       "minCgpa": 8.02,
       "package": "11.5 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
         "SE",
-        "IT"
+        "IT",
+        "CO"
       ]
     },
     {
-      "name": "Oracle",
-      "minCgpa": 7.71,
-      "package": "11.06 LPA",
+      "name": "Accenture",
+      "minCgpa": 4.58,
+      "package": "11.2 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
+        "ALL"
+      ]
+    },
+    {
+      "name": "Oracle - WAITLIST",
+      "minCgpa": 7.71,
+      "package": "11.1 LPA",
+      "type": "Tech",
+      "branches": [
         "IT",
-        "MCE",
-        "ECE",
+        "SE"
+      ]
+    },
+    {
+      "name": "National Australia Bank",
+      "minCgpa": 6.99,
+      "package": "11.0 LPA",
+      "type": "Tech",
+      "branches": [
+        "ALL"
+      ]
+    },
+    {
+      "name": "Swiggy",
+      "minCgpa": 7.84,
+      "package": "11.0 LPA",
+      "type": "Non Tech",
+      "branches": [
+        "ALL"
+      ]
+    },
+    {
+      "name": "OYO",
+      "minCgpa": 8.22,
+      "package": "11.0 LPA",
+      "type": "Non Tech",
+      "branches": [
+        "EC",
         "EE",
+        "SE",
         "EP"
       ]
     },
@@ -1445,49 +1370,20 @@
       "name": "Axtria",
       "minCgpa": 7.19,
       "package": "11.0 LPA",
-      "type": "Tech",
+      "type": "Non Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT"
-      ]
-    },
-    {
-      "name": "National",
-      "minCgpa": 6.99,
-      "package": "11.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
         "IT",
-        "MCE",
-        "ECE",
-        "EE"
+        "CO"
       ]
     },
     {
-      "name": "OYO",
-      "minCgpa": 8.22,
+      "name": "IBM Consulting",
+      "minCgpa": 7.17,
       "package": "11.0 LPA",
-      "type": "Tech",
+      "type": "Unknown",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP"
-      ]
-    },
-    {
-      "name": "Accenture",
-      "minCgpa": 5.43,
-      "package": "10.5 LPA",
-      "type": "Tech",
-      "branches": [
-        "ALL"
+        "MISC",
+        "CO"
       ]
     },
     {
@@ -1496,178 +1392,111 @@
       "package": "10.5 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
         "SE",
-        "IT",
-        "MCE"
+        "MC"
       ]
     },
     {
-      "name": "AiDash",
-      "minCgpa": 7.06,
-      "package": "10.0 LPA",
+      "name": "Signify Innovations(formerly Philips Lighting)",
+      "minCgpa": 7.64,
+      "package": "10.3 LPA",
+      "type": "Core",
+      "branches": [
+        "ME",
+        "PE"
+      ]
+    },
+    {
+      "name": "OLX",
+      "minCgpa": 7.83,
+      "package": "10.1 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE"
+        "CO"
       ]
     },
     {
-      "name": "Atlassian",
-      "minCgpa": 9.14,
-      "package": "85.0 LPA",
-      "type": "Tech",
+      "name": "GoDaddy",
+      "minCgpa": 7.42,
+      "package": "10.1 LPA",
+      "type": "Non Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT"
+        "EC"
       ]
     },
     {
-      "name": "BlinkIt",
-      "minCgpa": 5.75,
+      "name": "Spinny",
+      "minCgpa": 6.92,
       "package": "10.0 LPA",
-      "type": "Tech",
+      "type": "Core",
       "branches": [
         "ALL"
       ]
     },
     {
-      "name": "Cisco",
-      "minCgpa": 7.39,
+      "name": "Orange Business",
+      "minCgpa": 7.54,
       "package": "10.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
+        "EC",
         "IT",
-        "MCE"
-      ]
-    },
-    {
-      "name": "Edu-Versity",
-      "minCgpa": 5.07,
-      "package": "10.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME",
-        "AE",
-        "CE",
-        "PIE"
-      ]
-    },
-    {
-      "name": "Eightfold",
-      "minCgpa": 8.53,
-      "package": "10.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE"
+        "CO"
       ]
     },
     {
       "name": "Evalueserve",
       "minCgpa": 8.11,
       "package": "10.0 LPA",
-      "type": "Tech",
+      "type": "Non Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
+        "EC",
         "EE",
-        "EP",
         "ME"
       ]
     },
     {
-      "name": "FNZ",
-      "minCgpa": 7.59,
+      "name": "KPMG",
+      "minCgpa": 6.07,
       "package": "10.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
         "SE",
-        "IT",
-        "MCE",
-        "ECE",
+        "MC",
+        "CO"
+      ]
+    },
+    {
+      "name": "FNZ",
+      "minCgpa": 7.58,
+      "package": "10.0 LPA",
+      "type": "Non Tech",
+      "branches": [
+        "MC",
+        "CO",
+        "EC",
+        "SE",
         "EE"
       ]
     },
     {
-      "name": "GoDaddy",
-      "minCgpa": 7.42,
+      "name": "YUM INDIA GLOBAL SERVICES",
+      "minCgpa": 8.21,
       "package": "10.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE"
-      ]
-    },
-    {
-      "name": "HCL",
-      "minCgpa": 6.27,
-      "package": "10.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME",
-        "AE",
-        "CE",
-        "PIE"
-      ]
-    },
-    {
-      "name": "Havells",
-      "minCgpa": 7.41,
-      "package": "10.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT"
-      ]
-    },
-    {
-      "name": "IBM",
-      "minCgpa": 7.17,
-      "package": "10.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
+        "EC",
         "SE"
       ]
     },
     {
-      "name": "ION",
-      "minCgpa": 7.92,
+      "name": "Tyfone",
+      "minCgpa": 7.66,
       "package": "10.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
         "SE",
-        "IT",
-        "MCE"
+        "CO"
       ]
     },
     {
@@ -1676,298 +1505,113 @@
       "package": "10.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
         "IT",
-        "MCE",
-        "ECE",
         "EE",
-        "EP",
         "ME"
-      ]
-    },
-    {
-      "name": "Infoorigin",
-      "minCgpa": 9.27,
-      "package": "10.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE"
-      ]
-    },
-    {
-      "name": "KPMG",
-      "minCgpa": 6.91,
-      "package": "10.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE"
-      ]
-    },
-    {
-      "name": "McKinsey",
-      "minCgpa": 7.91,
-      "package": "10.0 LPA",
-      "type": "Consulting",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE"
-      ]
-    },
-    {
-      "name": "OLX",
-      "minCgpa": 7.83,
-      "package": "10.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE"
-      ]
-    },
-    {
-      "name": "Orange",
-      "minCgpa": 7.54,
-      "package": "10.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE"
-      ]
-    },
-    {
-      "name": "PayTM",
-      "minCgpa": 7.79,
-      "package": "10.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE"
-      ]
-    },
-    {
-      "name": "SEIL",
-      "minCgpa": 6.37,
-      "package": "10.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE"
-      ]
-    },
-    {
-      "name": "SQUAD",
-      "minCgpa": 6.87,
-      "package": "10.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME"
-      ]
-    },
-    {
-      "name": "STM",
-      "minCgpa": 7.84,
-      "package": "10.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE"
-      ]
-    },
-    {
-      "name": "Spinny",
-      "minCgpa": 6.92,
-      "package": "10.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME",
-        "AE",
-        "CE",
-        "PIE",
-        "CHE"
-      ]
-    },
-    {
-      "name": "Swiggy",
-      "minCgpa": 7.84,
-      "package": "10.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME",
-        "AE"
-      ]
-    },
-    {
-      "name": "TCIL",
-      "minCgpa": 6.59,
-      "package": "10.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE"
-      ]
-    },
-    {
-      "name": "UNTHINKABLE",
-      "minCgpa": 7.87,
-      "package": "10.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE"
-      ]
-    },
-    {
-      "name": "Wishlink",
-      "minCgpa": 7.58,
-      "package": "10.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME"
-      ]
-    },
-    {
-      "name": "Wizcommerce",
-      "minCgpa": 7.61,
-      "package": "10.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE"
-      ]
-    },
-    {
-      "name": "Xindus",
-      "minCgpa": 6.13,
-      "package": "10.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "ALL"
-      ]
-    },
-    {
-      "name": "YUM",
-      "minCgpa": 8.21,
-      "package": "10.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE"
       ]
     },
     {
       "name": "indigo",
       "minCgpa": 6.32,
       "package": "10.0 LPA",
+      "type": "Non Tech",
+      "branches": [
+        "EC",
+        "ME",
+        "BT"
+      ]
+    },
+    {
+      "name": "HCL HACK FTE",
+      "minCgpa": 4.72,
+      "package": "10.0 LPA",
       "type": "Tech",
       "branches": [
         "ALL"
       ]
     },
     {
-      "name": "joveo",
-      "minCgpa": 9.25,
+      "name": "Wishlink",
+      "minCgpa": 7.58,
+      "package": "10.0 LPA",
+      "type": "Non Tech",
+      "branches": [
+        "EC",
+        "ME"
+      ]
+    },
+    {
+      "name": "UNTHINKABLE SOLUTIONS",
+      "minCgpa": 7.87,
       "package": "10.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE"
+        "EE"
+      ]
+    },
+    {
+      "name": "SQUAD STACK",
+      "minCgpa": 6.87,
+      "package": "10.0 LPA",
+      "type": "Non Tech",
+      "branches": [
+        "EC",
+        "ME",
+        "CO"
+      ]
+    },
+    {
+      "name": "EXL Service",
+      "minCgpa": 6.91,
+      "package": "9.2 LPA",
+      "type": "Non Tech",
+      "branches": [
+        "CH",
+        "ME",
+        "CO"
       ]
     },
     {
       "name": "EY",
       "minCgpa": 5.92,
       "package": "9.2 LPA",
-      "type": "Tech",
+      "type": "Non Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE"
-      ]
-    },
-    {
-      "name": "Intact",
-      "minCgpa": 7.96,
-      "package": "9.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE"
+        "EC",
+        "MC",
+        "CO"
       ]
     },
     {
       "name": "PWC",
       "minCgpa": 5.95,
       "package": "9.0 LPA",
+      "type": "Non Tech",
+      "branches": [
+        "CH",
+        "ME",
+        "EC",
+        "SE",
+        "IT"
+      ]
+    },
+    {
+      "name": "Samsung Heavy",
+      "minCgpa": 7.22,
+      "package": "9.0 LPA",
+      "type": "Core",
+      "branches": [
+        "ALL"
+      ]
+    },
+    {
+      "name": "Verizon Data Services Pvt Ltd",
+      "minCgpa": 7.64,
+      "package": "9.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
         "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME",
-        "AE",
-        "CE",
-        "PIE",
-        "CHE"
+        "CO"
       ]
     },
     {
@@ -1976,218 +1620,183 @@
       "package": "9.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
         "ME",
         "AE"
       ]
     },
     {
-      "name": "rx",
+      "name": "MAQ software",
+      "minCgpa": 7.23,
+      "package": "9.0 LPA",
+      "type": "Tech",
+      "branches": [
+        "CO",
+        "IT",
+        "MC"
+      ]
+    },
+    {
+      "name": "Intact",
+      "minCgpa": 7.96,
+      "package": "9.0 LPA",
+      "type": "Tech",
+      "branches": [
+        "SE"
+      ]
+    },
+    {
+      "name": "rx logic",
       "minCgpa": 7.67,
       "package": "9.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT"
+        "IT",
+        "MISC",
+        "CO"
       ]
     },
     {
-      "name": "care",
+      "name": "care health",
       "minCgpa": 5.61,
-      "package": "8.65 LPA",
+      "package": "8.7 LPA",
+      "type": "Non Tech",
+      "branches": [
+        "CE",
+        "EE",
+        "BT"
+      ]
+    },
+    {
+      "name": "United Airlines",
+      "minCgpa": 7.02,
+      "package": "8.5 LPA",
       "type": "Tech",
       "branches": [
         "ALL"
       ]
     },
     {
-      "name": "United",
-      "minCgpa": 7.02,
+      "name": "Samsung E&A Pvt Ltd India",
+      "minCgpa": 6.6,
       "package": "8.5 LPA",
-      "type": "Tech",
+      "type": "Core",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
+        "CE",
         "EE",
-        "EP"
+        "ME"
       ]
     },
     {
-      "name": "Axis",
+      "name": "Axis Bank",
       "minCgpa": 5.28,
       "package": "8.2 LPA",
-      "type": "Tech",
+      "type": "Non Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME",
-        "AE",
-        "CE",
-        "PIE"
-      ]
-    },
-    {
-      "name": "Acmegrade",
-      "minCgpa": 5.26,
-      "package": "8.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME",
-        "AE",
-        "CE"
-      ]
-    },
-    {
-      "name": "Bounteous",
-      "minCgpa": 7.82,
-      "package": "8.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE"
-      ]
-    },
-    {
-      "name": "Euler",
-      "minCgpa": 5.09,
-      "package": "8.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME",
-        "AE",
-        "CE"
+        "CO",
+        "PE"
       ]
     },
     {
       "name": "SVS",
       "minCgpa": 6.92,
       "package": "8.0 LPA",
-      "type": "Tech",
+      "type": "Unknown",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
         "EE",
+        "MISC",
         "EP"
       ]
     },
     {
-      "name": "Transorg",
+      "name": "Euler Motors",
+      "minCgpa": 5.09,
+      "package": "8.0 LPA",
+      "type": "Non Tech",
+      "branches": [
+        "ALL"
+      ]
+    },
+    {
+      "name": "Tata Steel Downstream Products Li",
+      "minCgpa": 7.92,
+      "package": "8.0 LPA",
+      "type": "Core",
+      "branches": [
+        "ME"
+      ]
+    },
+    {
+      "name": "Bounteous x Accolit",
+      "minCgpa": 7.82,
+      "package": "8.0 LPA",
+      "type": "Tech",
+      "branches": [
+        "EE"
+      ]
+    },
+    {
+      "name": "Edu-Versity",
+      "minCgpa": 4.1,
+      "package": "8.0 LPA",
+      "type": "Non Tech",
+      "branches": [
+        "ALL"
+      ]
+    },
+    {
+      "name": "Transorg Analytics",
       "minCgpa": 7.56,
       "package": "8.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
         "SE"
       ]
     },
     {
-      "name": "Polestar",
+      "name": "Havells India",
+      "minCgpa": 7.41,
+      "package": "8.0 LPA",
+      "type": "Tech",
+      "branches": [
+        "IT"
+      ]
+    },
+    {
+      "name": "Acmegrade",
+      "minCgpa": 4.12,
+      "package": "8.0 LPA",
+      "type": "Non Tech",
+      "branches": [
+        "ALL"
+      ]
+    },
+    {
+      "name": "Paharpur Cooling Towers Ltd.",
+      "minCgpa": 0.0,
+      "package": "8.0 LPA",
+      "type": "Core",
+      "branches": [
+        "MISC"
+      ]
+    },
+    {
+      "name": "Polestar Analytics",
       "minCgpa": 6.1,
-      "package": "7.85 LPA",
-      "type": "Tech",
+      "package": "7.8 LPA",
+      "type": "Non Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME",
-        "AE",
-        "CE"
-      ]
-    },
-    {
-      "name": "Policy",
-      "minCgpa": 8.21,
-      "package": "7.5 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME",
-        "AE",
+        "EC",
         "CE",
-        "PIE",
-        "CHE"
+        "EE"
       ]
     },
     {
-      "name": "Acme",
-      "minCgpa": 5.36,
-      "package": "7.0 LPA",
-      "type": "Tech",
+      "name": "SEIL (Siemens Energy India Limited",
+      "minCgpa": 6.37,
+      "package": "7.5 LPA",
+      "type": "Core",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME",
-        "AE",
-        "CE"
-      ]
-    },
-    {
-      "name": "Avaada",
-      "minCgpa": 6.9,
-      "package": "7.0 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME",
-        "AE",
-        "CE"
+        "CO"
       ]
     },
     {
@@ -2196,119 +1805,166 @@
       "package": "7.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
+        "CO",
+        "EC",
         "SE",
         "IT",
-        "MCE",
-        "ECE",
         "EE"
       ]
     },
     {
-      "name": "Tak",
-      "minCgpa": 6.86,
+      "name": "Avaada Group",
+      "minCgpa": 6.9,
       "package": "7.0 LPA",
-      "type": "Tech",
+      "type": "Core",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
+        "ME",
+        "CO",
+        "CE",
+        "MISC",
         "EE"
       ]
     },
     {
-      "name": "grant",
+      "name": "Acme Group",
+      "minCgpa": 5.36,
+      "package": "7.0 LPA",
+      "type": "Core",
+      "branches": [
+        "ME",
+        "EC",
+        "CE",
+        "MISC",
+        "EE"
+      ]
+    },
+    {
+      "name": "grant thorton",
       "minCgpa": 6.7,
       "package": "7.0 LPA",
-      "type": "Tech",
+      "type": "Non Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT"
+        "IT",
+        "CO"
       ]
     },
     {
-      "name": "ACESPL",
-      "minCgpa": 6.28,
-      "package": "6.5 LPA",
-      "type": "Tech",
+      "name": "Tak Technologies",
+      "minCgpa": 6.86,
+      "package": "7.0 LPA",
+      "type": "Core",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
+        "EC",
         "EE",
-        "EP",
-        "ME"
+        "MISC"
       ]
     },
     {
       "name": "JCB",
       "minCgpa": 8.7,
       "package": "6.5 LPA",
-      "type": "Tech",
+      "type": "Core",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
         "ME"
       ]
     },
     {
-      "name": "LPA",
-      "minCgpa": 6.5,
+      "name": "ACESPL",
+      "minCgpa": 6.28,
       "package": "6.5 LPA",
-      "type": "Tech",
+      "type": "Core",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
         "EE",
-        "EP",
-        "ME"
+        "ME",
+        "MISC"
       ]
     },
     {
-      "name": "masters",
-      "minCgpa": 5.42,
+      "name": "AiDash",
+      "minCgpa": 7.06,
       "package": "6.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
         "SE",
         "IT",
-        "MCE",
-        "ECE",
+        "EC",
+        "CO"
+      ]
+    },
+    {
+      "name": "TRACTEBEL ENERGY",
+      "minCgpa": 7.07,
+      "package": "6.0 LPA",
+      "type": "Unknown",
+      "branches": [
         "EE",
-        "EP",
-        "ME",
-        "AE",
-        "CE",
-        "PIE",
-        "CHE",
-        "ENE"
+        "ME"
+      ]
+    },
+    {
+      "name": "Xindus",
+      "minCgpa": 6.13,
+      "package": "6.0 LPA",
+      "type": "Non Tech",
+      "branches": [
+        "ALL"
       ]
     },
     {
       "name": "raamtel",
       "minCgpa": 6.77,
       "package": "6.0 LPA",
+      "type": "Core",
+      "branches": [
+        "EC",
+        "MISC"
+      ]
+    },
+    {
+      "name": "masters union",
+      "minCgpa": 4.38,
+      "package": "6.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE"
+        "ALL"
+      ]
+    },
+    {
+      "name": "antino",
+      "minCgpa": 6.89,
+      "package": "6.0 LPA",
+      "type": "Tech",
+      "branches": [
+        "BT"
+      ]
+    },
+    {
+      "name": "we care",
+      "minCgpa": 0.0,
+      "package": "6.0 LPA",
+      "type": "Unknown",
+      "branches": [
+        "MISC"
+      ]
+    },
+    {
+      "name": "keyence",
+      "minCgpa": 6.04,
+      "package": "5.9 LPA",
+      "type": "Non Tech",
+      "branches": [
+        "EE",
+        "MISC"
+      ]
+    },
+    {
+      "name": "SagaciousElevate",
+      "minCgpa": 7.92,
+      "package": "5.5 LPA",
+      "type": "Core",
+      "branches": [
+        "ME",
+        "AE"
       ]
     },
     {
@@ -2317,37 +1973,94 @@
       "package": "5.5 LPA",
       "type": "Tech",
       "branches": [
-        "CSE"
+        "CO"
       ]
     },
     {
-      "name": "SagaciousElevate",
-      "minCgpa": 7.92,
-      "package": "5.5 LPA",
-      "type": "Tech",
-      "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE",
-        "EE",
-        "EP",
-        "ME",
-        "AE"
-      ]
-    },
-    {
-      "name": "west",
+      "name": "west coast",
       "minCgpa": 7.37,
       "package": "5.0 LPA",
+      "type": "Core",
+      "branches": [
+        "EC"
+      ]
+    },
+    {
+      "name": "HCL",
+      "minCgpa": 6.31,
+      "package": "2.0 LPA",
       "type": "Tech",
       "branches": [
-        "CSE",
-        "SE",
-        "IT",
-        "MCE",
-        "ECE"
+        "CO",
+        "MISC",
+        "SE"
+      ]
+    },
+    {
+      "name": "joveo",
+      "minCgpa": 9.25,
+      "package": "0.0 LPA",
+      "type": "Tech",
+      "branches": [
+        "CO"
+      ]
+    },
+    {
+      "name": "EIL",
+      "minCgpa": 8.47,
+      "package": "0.0 LPA",
+      "type": "Non Tech",
+      "branches": [
+        "CE",
+        "MISC"
+      ]
+    },
+    {
+      "name": "Eightfold",
+      "minCgpa": 8.53,
+      "package": "0.0 LPA",
+      "type": "Tech",
+      "branches": [
+        "CO"
+      ]
+    },
+    {
+      "name": "Cisco",
+      "minCgpa": 7.39,
+      "package": "0.0 LPA",
+      "type": "Tech",
+      "branches": [
+        "MC",
+        "CO"
+      ]
+    },
+    {
+      "name": "STM SW",
+      "minCgpa": 7.84,
+      "package": "0.0 LPA",
+      "type": "Tech",
+      "branches": [
+        "CO"
+      ]
+    },
+    {
+      "name": "Times Internet",
+      "minCgpa": 6.29,
+      "package": "0.0 LPA",
+      "type": "Non Tech",
+      "branches": [
+        "EC",
+        "CO",
+        "PE"
+      ]
+    },
+    {
+      "name": "IGUS",
+      "minCgpa": 0.0,
+      "package": "0.0 LPA",
+      "type": "Unknown",
+      "branches": [
+        "MISC"
       ]
     }
   ]

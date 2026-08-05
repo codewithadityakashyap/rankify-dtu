@@ -176,7 +176,7 @@ export function LandingHero({ onScrollToDashboard, onScrollToBranch, topper }: L
                   <div className="text-[11px] font-semibold text-[#F49400]/80 uppercase tracking-wider mb-1">Offer</div>
                   <div className="flex items-baseline gap-1.5">
                     <div className="text-4xl font-black text-white tracking-tight">
-                      85
+                      82
                     </div>
                     <div className="text-xl font-bold text-[#F49400] tracking-tight">
                       LPA
