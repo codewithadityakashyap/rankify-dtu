@@ -160,14 +160,14 @@ export function LandingHero({ onScrollToDashboard, onScrollToBranch, topper }: L
                     <span className="text-xs font-bold text-[#F49400] uppercase tracking-widest pl-0.5">Highest Package</span>
                   </div>
                   <h3 className={`${playfair.className} text-2xl font-bold text-white tracking-tight`}>
-                    Chirag Sehgal
+                    Ayush Gupta
                   </h3>
                   <div className="text-sm font-medium text-white/70 mt-0.5">
-                    CO Branch • 2K22/CO/145
+                    CO Branch • 2K22/CO/127
                   </div>
                 </div>
                 <div className="absolute top-6 right-6 flex shrink-0 w-16 h-16 rounded-2xl bg-white/5 items-center justify-center border border-white/10 shadow-sm overflow-hidden">
-                  <img src="/meesho-logo.png" alt="Meesho" className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
+                  <img src="/logos/atlassian.png" alt="Atlassian" className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
                 </div>
               </div>
 
@@ -176,7 +176,7 @@ export function LandingHero({ onScrollToDashboard, onScrollToBranch, topper }: L
                   <div className="text-[11px] font-semibold text-[#F49400]/80 uppercase tracking-wider mb-1">Offer</div>
                   <div className="flex items-baseline gap-1.5">
                     <div className="text-4xl font-black text-white tracking-tight">
-                      60
+                      85
                     </div>
                     <div className="text-xl font-bold text-[#F49400] tracking-tight">
                       LPA
@@ -187,7 +187,7 @@ export function LandingHero({ onScrollToDashboard, onScrollToBranch, topper }: L
                 <div className="text-right">
                   <div className="text-[11px] font-semibold text-[#F49400]/80 uppercase tracking-wider mb-1">Company</div>
                   <div className="text-xl font-bold text-white tracking-tight">
-                    Meesho
+                    Atlassian
                   </div>
                 </div>
               </div>
