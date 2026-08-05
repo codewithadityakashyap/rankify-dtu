@@ -68,8 +68,8 @@ const nextConfig: NextConfig = {
           (() => {
             const isDev = process.env.NODE_ENV !== 'production';
             const scriptSrc = isDev
-              ? "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com"
-              : "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com";
+              ? "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://va.vercel-scripts.com"
+              : "script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://ssl.google-analytics.com https://va.vercel-scripts.com";
             return {
               key: 'Content-Security-Policy',
               value: [
@@ -78,7 +78,7 @@ const nextConfig: NextConfig = {
                 "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
                 "font-src 'self' https://fonts.gstatic.com",
                 "img-src 'self' data: blob: https://www.google-analytics.com https://www.googletagmanager.com https://hits.seeyoufarm.com",
-                "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com",
+                "connect-src 'self' https://www.google-analytics.com https://analytics.google.com https://www.googletagmanager.com https://va.vercel-scripts.com",
                 "object-src 'none'",
                 "frame-src 'none'",
                 "frame-ancestors 'none'",
