@@ -19,6 +19,8 @@ def generate_placements():
             if match:
                 cgpa = float(match.group(1))
         company = str(row['Company']).strip() if pd.notna(row['Company']) else 'Unknown'
+        if company == 'Texas Instrumetns':
+            company = 'Texas Instruments'
         role = str(row['Role']).strip() if pd.notna(row['Role']) else 'Unknown'
         branch = str(row['Branch']).strip() if pd.notna(row['Branch']) else 'Unknown'
         type_ = str(row['Type']).strip() if pd.notna(row['Type']) else 'Unknown'
