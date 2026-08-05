@@ -85,6 +85,24 @@ export default function RootLayout({
             </Script>
           </>
         )}
+        <Script
+          id="organization-schema"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "Rankify DTU",
+              "url": "https://rankify-dtu.netlify.app",
+              "logo": "https://rankify-dtu.netlify.app/logo.png",
+              "description": "Comprehensive academic and placement analytics dashboard for Delhi Technological University (DTU).",
+              "sameAs": [
+                "https://github.com/adityakashyaptxt",
+                "https://linkedin.com/in/adityakashyaptxt"
+              ]
+            })
+          }}
+        />
       </head>
       <body className={`${inter.variable} font-sans antialiased min-h-screen bg-background text-foreground`}>
         <ThemeProvider

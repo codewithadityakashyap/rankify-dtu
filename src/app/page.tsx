@@ -69,7 +69,7 @@ export default function Dashboard() {
       branch,
       sort,
       page: page.toString(),
-      limit: '15'
+      limit: '30'
     });
     fetch(`/api/results?${params}`)
       .then(res => res.json())

@@ -6,6 +6,7 @@ import { useTheme } from "next-themes";
 import { Search, X } from "lucide-react";
 import { CGPACell } from "./CGPACell";
 import { RankBadge } from "./RankBadge";
+import Link from 'next/link';
 
 export function Heatmap({ data }: { data: any[] }) {
   const { resolvedTheme } = useTheme();
@@ -64,8 +65,7 @@ export function Heatmap({ data }: { data: any[] }) {
 
   return (
     <div
-      className="bg-white dark:bg-[#1E293B]/80 backdrop-blur-xl border border-slate-200 dark:border-slate-700/50 rounded-2xl shadow-md dark:shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-6 overflow-hidden w-full relative flex flex-col transition-colors duration-300"
-      style={{ maxHeight: "75vh" }}
+      className="bg-white dark:bg-[#1E293B]/80 backdrop-blur-xl border border-slate-200 dark:border-slate-700/50 rounded-2xl shadow-md dark:shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-4 sm:p-6 overflow-hidden w-full relative flex flex-col transition-colors duration-300 max-h-[85vh] md:max-h-[75vh]"
     >
       {/* Background glow — dark only */}
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-cyan-400/5 pointer-events-none dark:block hidden" />
@@ -178,16 +178,18 @@ export function Heatmap({ data }: { data: any[] }) {
                     </td>
 
                     <td className="px-2 py-0.5">
-                      <div
-                        title={student.name}
-                        className={`text-sm font-medium break-words line-clamp-2 leading-snug transition-colors duration-200 ${
-                          student.branchRank <= 3
-                            ? 'text-amber-600 dark:text-amber-200'
-                            : 'text-slate-700 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-cyan-400'
-                        }`}
-                      >
-                        {student.name}
-                      </div>
+                      <Link href={`/student/${encodeURIComponent(student.rollNumber)}`}>
+                        <div
+                          title={student.name}
+                          className={`text-sm font-medium break-words line-clamp-2 leading-snug transition-colors duration-200 hover:underline cursor-pointer ${
+                            student.branchRank <= 3
+                              ? 'text-amber-600 dark:text-amber-200 hover:text-amber-700 dark:hover:text-amber-300'
+                              : 'text-slate-700 dark:text-slate-300 hover:text-blue-600 dark:hover:text-cyan-400'
+                          }`}
+                        >
+                          {student.name}
+                        </div>
+                      </Link>
                     </td>
 
                     {semesters.map(sem => {
@@ -220,7 +222,7 @@ export function Heatmap({ data }: { data: any[] }) {
       </div>
 
       {/* Mobile view - Cards */}
-      <div className="md:hidden flex flex-col gap-3 overflow-auto" style={{ minHeight: 0 }}>
+      <div className="md:hidden flex flex-col gap-3 flex-1 overflow-auto pr-1" style={{ minHeight: 0 }}>
         {filtered.length === 0 ? (
           <div className="flex flex-col items-center justify-center h-40 gap-3 text-slate-400 dark:text-slate-500">
             <Search className="w-8 h-8 opacity-30" />
@@ -241,10 +243,12 @@ export function Heatmap({ data }: { data: any[] }) {
                   <div className="flex items-center gap-2 overflow-hidden">
                     <div className="shrink-0"><RankBadge rank={student.branchRank} rowIndex={idx} /></div>
                     <div className="flex flex-col min-w-0">
-                      <span className={`text-sm font-semibold truncate ${student.branchRank <= 3 ? 'text-amber-600 dark:text-amber-200' : 'text-slate-900 dark:text-slate-100'}`}>
-                        {student.name}
-                      </span>
-                      <span className="text-[10px] text-slate-500 font-mono tracking-wide">{student.rollNumber}</span>
+                      <Link href={`/student/${encodeURIComponent(student.rollNumber)}`} className="flex flex-col min-w-0 group/link">
+                        <span className={`text-sm font-semibold truncate group-hover/link:underline ${student.branchRank <= 3 ? 'text-amber-600 dark:text-amber-200' : 'text-slate-900 dark:text-slate-100 group-hover/link:text-blue-600 dark:group-hover/link:text-cyan-400'}`}>
+                          {student.name}
+                        </span>
+                        <span className="text-[10px] text-slate-500 font-mono tracking-wide">{student.rollNumber}</span>
+                      </Link>
                     </div>
                   </div>
                   <div className="shrink-0 pl-2 border-l border-slate-200 dark:border-slate-700">

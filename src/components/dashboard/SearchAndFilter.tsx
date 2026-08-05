@@ -24,48 +24,71 @@ export function SearchAndFilter({
   onReset,
   branches
 }: SearchAndFilterProps) {
+  const isFiltered = searchQuery.length > 0 || branch !== 'All' || sort !== 'rank_asc';
+
   return (
-    <div className="flex flex-col md:flex-row gap-4 mb-6 bg-card p-4 rounded-xl border shadow-sm">
-      <div className="relative flex-1">
-        <Search className="absolute left-3 top-3 h-4 w-4 text-muted-foreground" />
-        <Input
-          placeholder="Search roll number or name..."
-          className="pl-9 bg-background border-muted"
-          value={searchQuery}
-          onChange={(e) => setSearchQuery(e.target.value)}
-        />
-      </div>
-      
-      <div className="flex flex-col sm:flex-row gap-3">
-        <Select value={branch} onValueChange={(val) => setBranch(val || '')}>
-          <SelectTrigger className="w-full sm:w-[160px] bg-background">
-            <SelectValue placeholder="Branch" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="All">All Branches</SelectItem>
-            {branches.map((b: string) => (
-              <SelectItem key={b} value={b}>{b}</SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+    <div className="mb-8">
+      <div className="flex flex-col md:flex-row items-center p-1.5 gap-2 bg-card rounded-2xl border shadow-sm w-full transition-all focus-within:ring-2 focus-within:ring-primary/20">
+        
+        {/* Search Input */}
+        <div className="relative flex-1 w-full flex items-center bg-muted/30 rounded-xl px-3 transition-colors focus-within:bg-background h-12">
+          <Search className="h-4 w-4 text-muted-foreground mr-2 shrink-0" />
+          <Input
+            placeholder="Search roll number or name..."
+            className="border-0 shadow-none bg-transparent focus-visible:ring-0 h-full px-0 flex-1 text-[15px] placeholder:text-muted-foreground/70"
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+        </div>
+        
+        {/* Desktop Divider */}
+        <div className="hidden md:block w-px h-8 bg-border/60 mx-1"></div>
+        
+        {/* Filters Container */}
+        <div className="flex w-full md:w-auto items-center gap-1">
+          <Select value={branch} onValueChange={(val) => setBranch(val || 'All')}>
+            <SelectTrigger className="border-0 bg-transparent shadow-none hover:bg-muted/50 font-medium h-12 rounded-xl transition-colors min-w-[140px] focus:ring-0">
+              <SelectValue placeholder="All Branches" />
+            </SelectTrigger>
+            <SelectContent className="rounded-xl shadow-lg">
+              <SelectItem value="All" className="font-medium">All Branches</SelectItem>
+              {branches.map((b: string) => (
+                <SelectItem key={b} value={b}>{b}</SelectItem>
+              ))}
+            </SelectContent>
+          </Select>
 
-        <Select value={sort} onValueChange={(val) => setSort(val || '')}>
-          <SelectTrigger className="w-full sm:w-[180px] bg-background">
-            <SelectValue placeholder="Sort By" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="rank_asc">Rank (Top First)</SelectItem>
-            <SelectItem value="rank_desc">Rank (Bottom First)</SelectItem>
-            <SelectItem value="cgpa_desc">CGPA (High to Low)</SelectItem>
-            <SelectItem value="cgpa_asc">CGPA (Low to High)</SelectItem>
-            <SelectItem value="name_asc">Name (A-Z)</SelectItem>
-          </SelectContent>
-        </Select>
+          <div className="w-px h-6 bg-border/60 mx-1"></div>
 
-        <Button variant="outline" onClick={onReset} className="w-full sm:w-auto flex items-center gap-2">
-          <RotateCcw className="h-4 w-4" />
-          Reset
-        </Button>
+          <Select value={sort} onValueChange={(val) => setSort(val || 'rank_asc')}>
+            <SelectTrigger className="border-0 bg-transparent shadow-none hover:bg-muted/50 font-medium h-12 rounded-xl transition-colors min-w-[160px] focus:ring-0">
+              <SelectValue placeholder="Sort By" />
+            </SelectTrigger>
+            <SelectContent className="rounded-xl shadow-lg">
+              <SelectItem value="rank_asc" className="font-medium">Rank (Top First)</SelectItem>
+              <SelectItem value="rank_desc">Rank (Lowest First)</SelectItem>
+              <SelectItem value="cgpa_desc" className="font-medium">CGPA (High to Low)</SelectItem>
+              <SelectItem value="cgpa_asc">CGPA (Low to High)</SelectItem>
+              <SelectItem value="name_asc">Name (A-Z)</SelectItem>
+            </SelectContent>
+          </Select>
+
+          {/* Reset Button */}
+          {isFiltered && (
+            <div className="flex items-center">
+              <div className="w-px h-6 bg-border/60 mx-1"></div>
+              <Button 
+                variant="ghost" 
+                onClick={onReset} 
+                className="h-12 px-3 text-muted-foreground hover:bg-red-50 hover:text-red-600 dark:hover:bg-red-950/30 rounded-xl transition-colors"
+                title="Reset Filters"
+                aria-label="Reset Filters"
+              >
+                <RotateCcw className="h-4 w-4" />
+              </Button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

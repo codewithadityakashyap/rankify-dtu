@@ -30,7 +30,59 @@ export function ResultsTable({ data, isLoading, page, totalPages, setPage, onRow
 
   return (
     <div className="bg-card rounded-xl border shadow-sm overflow-hidden flex flex-col pt-1">
-      <div className="overflow-x-auto">
+      {/* Mobile Card View */}
+      <div className="md:hidden flex flex-col gap-3 p-3 bg-muted/10">
+        {data.map((student) => {
+          const isTopper = student.overallRank === 1;
+          return (
+            <div 
+              key={student.rollNumber}
+              onClick={() => onRowClick(student)}
+              className={`p-4 cursor-pointer transition-all border rounded-xl shadow-sm bg-card hover:border-primary/40 ${isTopper ? 'border-amber-200/60 shadow-amber-500/5 bg-gradient-to-br from-amber-50/50 to-transparent dark:from-amber-950/20' : ''}`}
+            >
+              <div className="flex justify-between items-start mb-2">
+                <div className="flex flex-col">
+                  <div className="flex items-center gap-1.5">
+                    {isTopper && <Crown className="w-3.5 h-3.5 text-amber-500 -mt-0.5" />}
+                    <span className="font-bold text-[15px] leading-tight line-clamp-1">{student.name}</span>
+                  </div>
+                  <span className="text-[11px] text-muted-foreground font-mono mt-0.5">{student.rollNumber}</span>
+                </div>
+                <div className="text-right flex flex-col items-end pl-2 shrink-0">
+                  <span className="font-bold text-lg text-primary leading-tight">{student.cgpa.toFixed(3)}</span>
+                  <div className="flex items-center gap-1 mt-1">
+                    <Badge variant="outline" className={`text-[9px] px-1.5 py-0 rounded-sm ${isTopper ? 'border-amber-200 text-amber-700 bg-amber-50 dark:border-amber-900 dark:text-amber-400 dark:bg-amber-950/50' : 'bg-muted/50 text-muted-foreground'}`}>
+                      #{student.overallRank}
+                    </Badge>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="flex items-center gap-2 mb-4">
+                <Badge variant="secondary" className="text-[10px] px-2 py-0 h-4">{student.branch}</Badge>
+                <span className="text-[10px] text-muted-foreground font-medium">Branch Rank: #{student.branchRank}</span>
+              </div>
+              
+              <div className="grid grid-cols-6 gap-2 pt-3 border-t border-muted/60">
+                {[1, 2, 3, 4, 5, 6].map(sem => {
+                  const val = student.sgpa?.[`sem${sem}`];
+                  return (
+                    <div key={sem} className="flex flex-col text-center bg-muted/20 rounded-md py-1.5">
+                      <span className="text-[9px] uppercase text-muted-foreground font-bold mb-0.5 tracking-wider">S{sem}</span>
+                      <span className={`text-xs ${val ? 'font-semibold text-foreground' : 'text-muted-foreground/30'}`}>
+                        {val ? val.toFixed(2) : '-'}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
+      </div>
+
+      {/* Desktop Table View */}
+      <div className="hidden md:block overflow-x-auto">
         <Table className="whitespace-nowrap min-w-max">
           <TableHeader className="bg-muted/50">
             <TableRow>
