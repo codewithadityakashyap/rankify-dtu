@@ -126,7 +126,8 @@ export function PlacementPredictor({ student, placementData }: PlacementPredicto
           <div className="space-y-3 max-h-[400px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-muted">
             {ineligibleCompanies.map((company, idx) => {
               const cgpaShortfall = company.minCgpa - testCgpa;
-              const reason = !company.branches.includes("ALL") && !company.branches.includes(student.branch)
+              const normalizedStudentBranch = normalizeBranch(student.branch);
+              const reason = !company.branches.includes("ALL") && !company.branches.includes(normalizedStudentBranch)
                 ? `Requires: ${company.branches.slice(0, 4).join(', ')}${company.branches.length > 4 ? '...' : ''}`
                 : `Need +${cgpaShortfall.toFixed(2)} CGPA`;
 

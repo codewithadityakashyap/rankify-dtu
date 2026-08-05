@@ -205,19 +205,19 @@ export default async function StudentProfilePage({ params }: { params: { rollNum
                         <table className="w-full text-sm text-left">
                           <thead className="bg-background text-muted-foreground font-semibold border-b">
                             <tr>
-                              <th className="px-2 sm:px-5 py-2 sm:py-3 whitespace-nowrap text-xs sm:text-sm">Subject Code</th>
-                              <th className="px-2 sm:px-5 py-2 sm:py-3 w-full text-xs sm:text-sm">Subject Name</th>
-                              <th className="px-2 sm:px-5 py-2 sm:py-3 text-center whitespace-nowrap text-xs sm:text-sm">Credits</th>
-                              <th className="px-2 sm:px-5 py-2 sm:py-3 text-center whitespace-nowrap text-xs sm:text-sm">Grade</th>
+                              <th className="px-1 sm:px-5 py-2 sm:py-3 whitespace-nowrap text-[10px] sm:text-sm">Subject Code</th>
+                              <th className="px-1 sm:px-5 py-2 sm:py-3 w-full text-xs sm:text-sm">Subject Name</th>
+                              <th className="px-1 sm:px-5 py-2 sm:py-3 text-center whitespace-nowrap text-[10px] sm:text-sm">Credits</th>
+                              <th className="px-1 sm:px-5 py-2 sm:py-3 text-center whitespace-nowrap text-[10px] sm:text-sm">Grade</th>
                             </tr>
                           </thead>
                           <tbody className="bg-card">
                             {semData.subjects.map((sub: any, idx: number) => (
                               <tr key={idx} className="border-b last:border-0 hover:bg-muted/30 transition-colors">
-                                <td className="px-2 sm:px-5 py-2 sm:py-3 font-mono text-[10px] sm:text-xs text-muted-foreground whitespace-nowrap">{sub.code}</td>
-                                <td className="px-2 sm:px-5 py-2 sm:py-3 text-xs sm:text-sm font-medium min-w-[100px] sm:min-w-[140px] max-w-[200px] sm:max-w-none break-words whitespace-normal leading-snug">{sub.name}</td>
-                                <td className="px-2 sm:px-5 py-2 sm:py-3 text-center text-xs sm:text-sm text-muted-foreground">{sub.credits}</td>
-                                <td className="px-2 sm:px-5 py-2 sm:py-3 text-center text-xs sm:text-sm font-bold text-primary">{sub.grade}</td>
+                                <td className="px-1 sm:px-5 py-2 sm:py-3 font-mono text-[9px] sm:text-xs text-muted-foreground whitespace-nowrap">{sub.code}</td>
+                                <td className="px-1 sm:px-5 py-2 sm:py-3 text-[10px] sm:text-sm font-medium min-w-[80px] sm:min-w-[140px] max-w-[140px] sm:max-w-none break-words whitespace-normal leading-snug">{sub.name}</td>
+                                <td className="px-1 sm:px-5 py-2 sm:py-3 text-center text-[10px] sm:text-sm text-muted-foreground">{sub.credits}</td>
+                                <td className="px-1 sm:px-5 py-2 sm:py-3 text-center text-[10px] sm:text-sm font-bold text-primary">{sub.grade}</td>
                               </tr>
                             ))}
                           </tbody>
