@@ -1,8 +1,13 @@
 export const dynamic = 'force-dynamic';
+import { validateRequestOrigin } from '@/lib/security';
 import { NextResponse } from 'next/server';
-import transcriptsData from '../../../../public/data/transcripts.json';
+import transcriptsData from '../../../../src/data/transcripts.json';
 
 export async function GET(request: Request) {
+  // SECURITY CHECK
+  if (!validateRequestOrigin(request as any)) {
+    return NextResponse.json({ error: 'Unauthorized Access' }, { status: 403 });
+  }
   try {
     const { searchParams } = new URL(request.url);
     const rollNumber = searchParams.get('rollNumber');

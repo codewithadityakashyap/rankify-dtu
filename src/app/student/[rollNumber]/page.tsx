@@ -1,13 +1,13 @@
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
-import resultsData from '../../../../public/data/results.json';
-import transcriptsData from '../../../../public/data/transcripts.json';
+import resultsData from '../../../../src/data/results.json';
+import transcriptsData from '../../../../src/data/transcripts.json';
 import { Award, TrendingUp, BookOpen, ChevronLeft } from 'lucide-react';
 import { Badge } from '@/components/ui/badge';
 import { BackButton } from '@/components/BackButton';
 import { CGPAPredictor } from '@/components/dashboard/CGPAPredictor';
 import { PlacementPredictor } from '@/components/dashboard/PlacementPredictor';
-import placementData from '../../../../public/data/placement_data.json';
+import placementData from '../../../../src/data/placement_data.json';
 
 // Using JSON-LD structured data
 export async function generateMetadata({ params }: { params: { rollNumber: string } }): Promise<Metadata> {

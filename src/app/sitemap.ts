@@ -1,5 +1,5 @@
 import { MetadataRoute } from 'next';
-import resultsData from '../../public/data/results.json';
+import resultsData from '../../src/data/results.json';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://rankify-dtu.netlify.app';

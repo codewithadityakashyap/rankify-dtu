@@ -16,7 +16,7 @@ async function getData() {
     // Fallback: read directly from file system (for server components)
     const fs = (await import('fs')).default;
     const path = (await import('path')).default;
-    const raw = fs.readFileSync(path.join(process.cwd(), 'public', 'data', 'placements.json'), 'utf-8');
+    const raw = fs.readFileSync(path.join(process.cwd(), 'src', 'data', 'placements.json'), 'utf-8');
     const data: any[] = JSON.parse(raw);
 
     function normalizeType(t: string) {

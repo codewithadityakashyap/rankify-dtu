@@ -1,10 +1,15 @@
 import fs from 'fs';
+import { validateRequestOrigin } from '@/lib/security';
 import path from 'path';
 export const dynamic = 'force-dynamic';
 import { NextResponse } from 'next/server';
 
-export async function GET() {
-  const filePath = path.join(process.cwd(), 'public', 'data', 'placements.json');
+export async function GET(request: Request) {
+  // SECURITY CHECK
+  if (!validateRequestOrigin(request as any)) {
+    return NextResponse.json({ error: 'Unauthorized Access' }, { status: 403 });
+  }
+  const filePath = path.join(process.cwd(), 'src', 'data', 'placements.json');
   if (!fs.existsSync(filePath)) {
     return NextResponse.json({ error: 'Placement data not found' }, { status: 404 });
   }

@@ -109,7 +109,7 @@ students.forEach(s => {
 // Restore sort by overall rank
 students.sort((a, b) => a.overallRank - b.overallRank);
 
-const outputDir = path.join(__dirname, '../public/data');
+const outputDir = path.join(__dirname, '../src/data');
 if (!fs.existsSync(outputDir)) {
   fs.mkdirSync(outputDir, { recursive: true });
 }

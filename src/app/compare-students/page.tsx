@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import { BackButton } from '@/components/BackButton';
 import { CompareStudentsClient } from '@/components/compare/CompareStudentsClient';
-import resultsData from '../../../public/data/results.json';
-import transcriptsData from '../../../public/data/transcripts.json';
+import resultsData from '../../../src/data/results.json';
+import transcriptsData from '../../../src/data/transcripts.json';
 
 export const metadata: Metadata = {
   title: 'Compare Students - DTU Result & Placement Analytics',

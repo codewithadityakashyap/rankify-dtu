@@ -1,8 +1,8 @@
 import { Metadata } from 'next';
 import { BackButton } from '@/components/BackButton';
 import { CompareBranchesClient } from '@/components/compare/CompareBranchesClient';
-import resultsData from '../../../public/data/results.json';
-import placementData from '../../../public/data/placement_data.json';
+import resultsData from '../../../src/data/results.json';
+import placementData from '../../../src/data/placement_data.json';
 
 export const metadata: Metadata = {
   title: 'Compare Branches - DTU Result & Placement Analytics',

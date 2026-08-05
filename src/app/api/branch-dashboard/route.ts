@@ -1,9 +1,14 @@
 export const dynamic = 'force-dynamic';
+import { validateRequestOrigin } from '@/lib/security';
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 
 export async function GET(request: Request) {
+  // SECURITY CHECK
+  if (!validateRequestOrigin(request as any)) {
+    return NextResponse.json({ error: 'Unauthorized Access' }, { status: 403 });
+  }
   try {
     const { searchParams } = new URL(request.url);
     const branchQuery = searchParams.get('branch')?.toUpperCase();
@@ -12,7 +17,7 @@ export async function GET(request: Request) {
       return NextResponse.json({ error: 'Branch parameter is required' }, { status: 400 });
     }
 
-    const dataPath = path.join(process.cwd(), 'public', 'data', 'results.json');
+    const dataPath = path.join(process.cwd(), 'src', 'data', 'results.json');
     const fileContents = fs.readFileSync(dataPath, 'utf8');
     const data = JSON.parse(fileContents);
 

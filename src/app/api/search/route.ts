@@ -1,9 +1,14 @@
 export const dynamic = 'force-dynamic';
+import { validateRequestOrigin } from '@/lib/security';
 import { NextResponse } from 'next/server';
-import resultsData from '../../../../public/data/results.json';
-import placementsData from '../../../../public/data/placements.json';
+import resultsData from '../../../../src/data/results.json';
+import placementsData from '../../../../src/data/placements.json';
 
 export async function GET(request: Request) {
+  // SECURITY CHECK
+  if (!validateRequestOrigin(request as any)) {
+    return NextResponse.json({ error: 'Unauthorized Access' }, { status: 403 });
+  }
   try {
     const { searchParams } = new URL(request.url);
     const q = searchParams.get('q')?.toLowerCase() || '';

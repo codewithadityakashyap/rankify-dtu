@@ -1,15 +1,21 @@
 export const dynamic = 'force-dynamic';
 import { NextResponse } from 'next/server';
+import { validateRequestOrigin } from '@/lib/security';
 
-import resultsData from '../../../../public/data/results.json';
+import resultsData from '../../../../src/data/results.json';
 
 export async function GET(request: Request) {
+  // SECURITY CHECK
+  if (!validateRequestOrigin(request as any)) {
+    return NextResponse.json({ error: 'Unauthorized Access' }, { status: 403 });
+  }
   try {
     const { searchParams } = new URL(request.url);
     const q = searchParams.get('q')?.toLowerCase() || '';
     const branch = searchParams.get('branch');
     const page = parseInt(searchParams.get('page') || '1');
-    const limit = parseInt(searchParams.get('limit') || '10');
+    const requestedLimit = parseInt(searchParams.get('limit') || '10');
+    const limit = Math.min(requestedLimit, 50); // Hard limit to prevent scraping
     const sort = searchParams.get('sort') || 'rank_asc';
 
     // Load Data

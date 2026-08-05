@@ -1,8 +1,8 @@
 const fs = require('fs');
 const path = require('path');
 
-const transcriptsPath = path.join(__dirname, '../public/data/transcripts.json');
-const resultsPath = path.join(__dirname, '../public/data/results.json');
+const transcriptsPath = path.join(__dirname, '../src/data/transcripts.json');
+const resultsPath = path.join(__dirname, '../src/data/results.json');
 
 const transcripts = JSON.parse(fs.readFileSync(transcriptsPath, 'utf8'));
 let results = JSON.parse(fs.readFileSync(resultsPath, 'utf8'));
