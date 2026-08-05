@@ -110,8 +110,8 @@ export default function RootLayout({
       <body className={`${inter.variable} font-sans antialiased min-h-screen bg-background text-foreground`}>
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
-          enableSystem
+          defaultTheme="light"
+          enableSystem={false}
           disableTransitionOnChange
         >
           <Header />
