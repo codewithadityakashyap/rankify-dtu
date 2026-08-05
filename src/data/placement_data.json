@@ -6,8 +6,8 @@
       "package": "82.0 LPA",
       "type": "Tech",
       "branches": [
-        "CO",
-        "IT"
+        "IT",
+        "CO"
       ]
     },
     {
@@ -66,8 +66,8 @@
       "type": "Tech",
       "branches": [
         "SE",
-        "CO",
-        "EP"
+        "EP",
+        "CO"
       ]
     },
     {
@@ -96,8 +96,8 @@
       "type": "Tech",
       "branches": [
         "SE",
-        "MC",
         "EE",
+        "MC",
         "CO"
       ]
     },
@@ -107,9 +107,9 @@
       "package": "50.5 LPA",
       "type": "Core",
       "branches": [
-        "EC",
+        "MISC",
         "EE",
-        "MISC"
+        "EC"
       ]
     },
     {
@@ -128,9 +128,9 @@
       "type": "Tech",
       "branches": [
         "SE",
-        "CO",
+        "IT",
         "EE",
-        "IT"
+        "CO"
       ]
     },
     {
@@ -139,8 +139,8 @@
       "package": "45.0 LPA",
       "type": "Tech",
       "branches": [
-        "EC",
         "MC",
+        "EC",
         "SE",
         "IT",
         "CO"
@@ -171,10 +171,10 @@
       "package": "40.0 LPA",
       "type": "Tech",
       "branches": [
-        "EC",
         "MC",
-        "EE",
+        "EC",
         "SE",
+        "EE",
         "CO"
       ]
     },
@@ -205,8 +205,8 @@
       "type": "Tech",
       "branches": [
         "SE",
-        "MC",
         "IT",
+        "MC",
         "CO"
       ]
     },
@@ -234,11 +234,11 @@
       "package": "32.6 LPA",
       "type": "Tech",
       "branches": [
+        "PE",
         "MC",
-        "CO",
         "SE",
         "IT",
-        "PE"
+        "CO"
       ]
     },
     {
@@ -248,10 +248,10 @@
       "type": "Tech",
       "branches": [
         "EC",
-        "CO",
-        "EE",
         "SE",
-        "IT"
+        "IT",
+        "EE",
+        "CO"
       ]
     },
     {
@@ -260,8 +260,8 @@
       "package": "31.1 LPA",
       "type": "Core",
       "branches": [
-        "EC",
-        "EE"
+        "EE",
+        "EC"
       ]
     },
     {
@@ -279,9 +279,9 @@
       "package": "30.0 LPA",
       "type": "Core",
       "branches": [
+        "IT",
         "EC",
-        "CO",
-        "IT"
+        "CO"
       ]
     },
     {
@@ -336,9 +336,9 @@
       "package": "27.0 LPA",
       "type": "Tech",
       "branches": [
-        "MC",
         "CE",
         "IT",
+        "MC",
         "CO"
       ]
     },
@@ -348,8 +348,8 @@
       "package": "27.0 LPA",
       "type": "Tech",
       "branches": [
-        "EP",
         "SE",
+        "EP",
         "CO"
       ]
     },
@@ -360,8 +360,8 @@
       "type": "Tech",
       "branches": [
         "SE",
-        "MC",
         "IT",
+        "MC",
         "CO"
       ]
     },
@@ -389,8 +389,8 @@
       "package": "24.7 LPA",
       "type": "Tech",
       "branches": [
-        "MC",
         "IT",
+        "MC",
         "CO"
       ]
     },
@@ -400,9 +400,9 @@
       "package": "24.5 LPA",
       "type": "Core",
       "branches": [
-        "EC",
+        "MISC",
         "EE",
-        "MISC"
+        "EC"
       ]
     },
     {
@@ -420,9 +420,9 @@
       "package": "23.8 LPA",
       "type": "Tech",
       "branches": [
+        "IT",
         "EC",
-        "CO",
-        "IT"
+        "CO"
       ]
     },
     {
@@ -431,10 +431,10 @@
       "package": "23.6 LPA",
       "type": "Tech",
       "branches": [
+        "ME",
         "IT",
-        "CO",
         "EE",
-        "ME"
+        "CO"
       ]
     },
     {
@@ -454,8 +454,8 @@
       "package": "22.4 LPA",
       "type": "Core",
       "branches": [
-        "CO",
-        "MISC"
+        "MISC",
+        "CO"
       ]
     },
     {
@@ -465,8 +465,8 @@
       "type": "Tech",
       "branches": [
         "SE",
-        "MC",
-        "IT"
+        "IT",
+        "MC"
       ]
     },
     {
@@ -507,7 +507,7 @@
     },
     {
       "name": "ZS Associates",
-      "minCgpa": 7.06,
+      "minCgpa": 6.8,
       "package": "20.7 LPA",
       "type": "Non Tech",
       "branches": [
@@ -520,8 +520,8 @@
       "package": "20.4 LPA",
       "type": "Non Tech",
       "branches": [
-        "EE",
         "ME",
+        "EE",
         "MISC"
       ]
     },
@@ -532,8 +532,8 @@
       "type": "Tech",
       "branches": [
         "SE",
-        "MC",
         "IT",
+        "MC",
         "CO"
       ]
     },
@@ -544,8 +544,8 @@
       "type": "Tech",
       "branches": [
         "SE",
-        "MC",
         "IT",
+        "MC",
         "CO"
       ]
     },
@@ -565,8 +565,8 @@
       "type": "Tech",
       "branches": [
         "SE",
-        "CO",
-        "IT"
+        "IT",
+        "CO"
       ]
     },
     {
@@ -576,9 +576,9 @@
       "type": "Tech",
       "branches": [
         "SE",
+        "IT",
         "MC",
-        "CO",
-        "IT"
+        "CO"
       ]
     },
     {
@@ -605,11 +605,11 @@
       "package": "20.0 LPA",
       "type": "Tech",
       "branches": [
-        "EE",
-        "EP",
         "SE",
-        "CO",
-        "BT"
+        "BT",
+        "EP",
+        "EE",
+        "CO"
       ]
     },
     {
@@ -618,9 +618,9 @@
       "package": "20.0 LPA",
       "type": "Tech",
       "branches": [
-        "EC",
+        "IT",
         "CO",
-        "IT"
+        "EC"
       ]
     },
     {
@@ -639,10 +639,10 @@
       "package": "20.0 LPA",
       "type": "Tech",
       "branches": [
-        "MC",
-        "EE",
+        "MISC",
         "IT",
-        "MISC"
+        "EE",
+        "MC"
       ]
     },
     {
@@ -651,8 +651,8 @@
       "package": "20.0 LPA",
       "type": "Non Tech",
       "branches": [
-        "EC",
-        "MC"
+        "MC",
+        "EC"
       ]
     },
     {
@@ -662,9 +662,9 @@
       "type": "Non Tech",
       "branches": [
         "SE",
+        "ME",
         "MC",
-        "CO",
-        "ME"
+        "CO"
       ]
     },
     {
@@ -693,10 +693,10 @@
       "type": "Tech",
       "branches": [
         "EC",
-        "CO",
-        "EE",
         "SE",
-        "IT"
+        "IT",
+        "EE",
+        "CO"
       ]
     },
     {
@@ -716,8 +716,8 @@
       "type": "Tech",
       "branches": [
         "SE",
-        "MC",
         "IT",
+        "MC",
         "CO"
       ]
     },
@@ -727,8 +727,8 @@
       "package": "18.1 LPA",
       "type": "Non Tech",
       "branches": [
-        "IT",
-        "MISC"
+        "MISC",
+        "IT"
       ]
     },
     {
@@ -737,8 +737,8 @@
       "package": "18.0 LPA",
       "type": "Tech",
       "branches": [
-        "CO",
-        "IT"
+        "IT",
+        "CO"
       ]
     },
     {
@@ -748,9 +748,9 @@
       "type": "Non Tech",
       "branches": [
         "MC",
-        "CO",
-        "EE",
         "IT",
+        "EE",
+        "CO",
         "ME"
       ]
     },
@@ -823,8 +823,8 @@
       "package": "17.0 LPA",
       "type": "Core",
       "branches": [
-        "EC",
-        "EE"
+        "EE",
+        "EC"
       ]
     },
     {
@@ -862,10 +862,10 @@
       "package": "16.5 LPA",
       "type": "Non Tech",
       "branches": [
-        "EC",
+        "EE",
         "EP",
         "MC",
-        "EE"
+        "EC"
       ]
     },
     {
@@ -924,9 +924,9 @@
       "type": "Tech",
       "branches": [
         "SE",
-        "EC",
         "IT",
-        "MC"
+        "MC",
+        "EC"
       ]
     },
     {
@@ -945,8 +945,8 @@
       "package": "15.4 LPA",
       "type": "Tech",
       "branches": [
-        "CO",
-        "IT"
+        "IT",
+        "CO"
       ]
     },
     {
@@ -974,9 +974,9 @@
       "package": "15.0 LPA",
       "type": "Non Tech",
       "branches": [
+        "ME",
         "EP",
-        "EC",
-        "ME"
+        "EC"
       ]
     },
     {
@@ -996,8 +996,8 @@
       "package": "15.0 LPA",
       "type": "Tech",
       "branches": [
-        "EC",
         "IT",
+        "EC",
         "CO"
       ]
     },
@@ -1007,8 +1007,8 @@
       "package": "15.0 LPA",
       "type": "Non Tech",
       "branches": [
-        "EC",
-        "CO"
+        "CO",
+        "EC"
       ]
     },
     {
@@ -1027,8 +1027,8 @@
       "package": "15.0 LPA",
       "type": "Non Tech",
       "branches": [
-        "CH",
         "ME",
+        "CH",
         "BT"
       ]
     },
@@ -1054,19 +1054,6 @@
       ]
     },
     {
-      "name": "ZS Associates (Jaipur)",
-      "minCgpa": 6.8,
-      "package": "14.2 LPA",
-      "type": "Non Tech",
-      "branches": [
-        "EC",
-        "CH",
-        "AE",
-        "SE",
-        "ME"
-      ]
-    },
-    {
       "name": "Axxela",
       "minCgpa": 8.05,
       "package": "14.1 LPA",
@@ -1083,9 +1070,9 @@
       "package": "14.0 LPA",
       "type": "Core",
       "branches": [
-        "AE",
+        "ME",
         "SE",
-        "ME"
+        "AE"
       ]
     },
     {
@@ -1094,11 +1081,11 @@
       "package": "14.0 LPA",
       "type": "Tech",
       "branches": [
-        "CO",
         "MISC",
+        "PE",
         "SE",
-        "ME",
-        "PE"
+        "CO",
+        "ME"
       ]
     },
     {
@@ -1116,8 +1103,8 @@
       "package": "14.0 LPA",
       "type": "Tech",
       "branches": [
-        "MC",
-        "MISC"
+        "MISC",
+        "MC"
       ]
     },
     {
@@ -1126,8 +1113,8 @@
       "package": "13.5 LPA",
       "type": "Core",
       "branches": [
-        "CH",
         "ME",
+        "CH",
         "IT",
         "CO"
       ]
@@ -1175,8 +1162,8 @@
       "package": "12.2 LPA",
       "type": "Non Tech",
       "branches": [
-        "EE",
-        "ME"
+        "ME",
+        "EE"
       ]
     },
     {
@@ -1185,8 +1172,8 @@
       "package": "12.0 LPA",
       "type": "Non Tech",
       "branches": [
-        "MC",
-        "MISC"
+        "MISC",
+        "MC"
       ]
     },
     {
@@ -1263,8 +1250,8 @@
       "package": "12.0 LPA",
       "type": "Non Tech",
       "branches": [
-        "EC",
-        "EE"
+        "EE",
+        "EC"
       ]
     },
     {
@@ -1282,8 +1269,8 @@
       "package": "11.8 LPA",
       "type": "Tech",
       "branches": [
-        "MC",
         "EE",
+        "MC",
         "CO"
       ]
     },
@@ -1293,9 +1280,9 @@
       "package": "11.5 LPA",
       "type": "Non Tech",
       "branches": [
+        "BT",
         "EP",
-        "CO",
-        "BT"
+        "CO"
       ]
     },
     {
@@ -1305,8 +1292,8 @@
       "type": "Tech",
       "branches": [
         "SE",
-        "CO",
-        "IT"
+        "IT",
+        "CO"
       ]
     },
     {
@@ -1353,9 +1340,9 @@
       "type": "Non Tech",
       "branches": [
         "SE",
-        "EC",
         "EE",
-        "EP"
+        "EP",
+        "EC"
       ]
     },
     {
@@ -1374,8 +1361,8 @@
       "package": "11.0 LPA",
       "type": "Unknown",
       "branches": [
-        "CO",
-        "MISC"
+        "MISC",
+        "CO"
       ]
     },
     {
@@ -1431,8 +1418,8 @@
       "package": "10.0 LPA",
       "type": "Tech",
       "branches": [
-        "EC",
         "IT",
+        "EC",
         "CO"
       ]
     },
@@ -1442,9 +1429,9 @@
       "package": "10.0 LPA",
       "type": "Non Tech",
       "branches": [
-        "EC",
+        "ME",
         "EE",
-        "ME"
+        "EC"
       ]
     },
     {
@@ -1464,10 +1451,10 @@
       "package": "10.0 LPA",
       "type": "Non Tech",
       "branches": [
-        "EC",
         "MC",
-        "EE",
+        "EC",
         "SE",
+        "EE",
         "CO"
       ]
     },
@@ -1498,8 +1485,8 @@
       "type": "Tech",
       "branches": [
         "ME",
-        "EE",
-        "IT"
+        "IT",
+        "EE"
       ]
     },
     {
@@ -1508,9 +1495,9 @@
       "package": "10.0 LPA",
       "type": "Non Tech",
       "branches": [
-        "EC",
         "ME",
-        "BT"
+        "BT",
+        "EC"
       ]
     },
     {
@@ -1528,8 +1515,8 @@
       "package": "10.0 LPA",
       "type": "Non Tech",
       "branches": [
-        "EC",
-        "ME"
+        "ME",
+        "EC"
       ]
     },
     {
@@ -1547,9 +1534,9 @@
       "package": "10.0 LPA",
       "type": "Non Tech",
       "branches": [
+        "ME",
         "EC",
-        "CO",
-        "ME"
+        "CO"
       ]
     },
     {
@@ -1558,8 +1545,8 @@
       "package": "9.2 LPA",
       "type": "Non Tech",
       "branches": [
-        "CH",
         "ME",
+        "CH",
         "CO"
       ]
     },
@@ -1569,9 +1556,9 @@
       "package": "9.2 LPA",
       "type": "Non Tech",
       "branches": [
-        "EC",
         "CO",
-        "MC"
+        "MC",
+        "EC"
       ]
     },
     {
@@ -1580,11 +1567,11 @@
       "package": "9.0 LPA",
       "type": "Non Tech",
       "branches": [
-        "EC",
         "CH",
-        "ME",
+        "EC",
         "SE",
-        "IT"
+        "IT",
+        "ME"
       ]
     },
     {
@@ -1612,8 +1599,8 @@
       "package": "9.0 LPA",
       "type": "Tech",
       "branches": [
-        "AE",
-        "ME"
+        "ME",
+        "AE"
       ]
     },
     {
@@ -1622,8 +1609,8 @@
       "package": "9.0 LPA",
       "type": "Tech",
       "branches": [
-        "MC",
         "IT",
+        "MC",
         "CO"
       ]
     },
@@ -1642,9 +1629,9 @@
       "package": "9.0 LPA",
       "type": "Tech",
       "branches": [
-        "CO",
+        "MISC",
         "IT",
-        "MISC"
+        "CO"
       ]
     },
     {
@@ -1673,9 +1660,9 @@
       "package": "8.5 LPA",
       "type": "Core",
       "branches": [
+        "ME",
         "CE",
-        "EE",
-        "ME"
+        "EE"
       ]
     },
     {
@@ -1684,8 +1671,8 @@
       "package": "8.2 LPA",
       "type": "Non Tech",
       "branches": [
-        "CO",
-        "PE"
+        "PE",
+        "CO"
       ]
     },
     {
@@ -1694,9 +1681,9 @@
       "package": "8.0 LPA",
       "type": "Unknown",
       "branches": [
+        "MISC",
         "EP",
-        "EE",
-        "MISC"
+        "EE"
       ]
     },
     {
@@ -1777,9 +1764,9 @@
       "package": "7.8 LPA",
       "type": "Non Tech",
       "branches": [
-        "EC",
         "CE",
-        "EE"
+        "EE",
+        "EC"
       ]
     },
     {
@@ -1798,9 +1785,9 @@
       "type": "Tech",
       "branches": [
         "EC",
-        "EE",
         "SE",
         "IT",
+        "EE",
         "CO"
       ]
     },
@@ -1810,10 +1797,10 @@
       "package": "7.0 LPA",
       "type": "Core",
       "branches": [
-        "CO",
-        "EE",
         "MISC",
         "CE",
+        "EE",
+        "CO",
         "ME"
       ]
     },
@@ -1823,10 +1810,10 @@
       "package": "7.0 LPA",
       "type": "Core",
       "branches": [
-        "EC",
-        "EE",
         "MISC",
         "CE",
+        "EC",
+        "EE",
         "ME"
       ]
     },
@@ -1846,9 +1833,9 @@
       "package": "7.0 LPA",
       "type": "Core",
       "branches": [
-        "EC",
+        "MISC",
         "EE",
-        "MISC"
+        "EC"
       ]
     },
     {
@@ -1866,8 +1853,8 @@
       "package": "6.5 LPA",
       "type": "Core",
       "branches": [
-        "EE",
         "ME",
+        "EE",
         "MISC"
       ]
     },
@@ -1878,9 +1865,9 @@
       "type": "Tech",
       "branches": [
         "SE",
+        "IT",
         "EC",
-        "CO",
-        "IT"
+        "CO"
       ]
     },
     {
@@ -1889,8 +1876,8 @@
       "package": "6.0 LPA",
       "type": "Unknown",
       "branches": [
-        "EE",
-        "ME"
+        "ME",
+        "EE"
       ]
     },
     {
@@ -1908,8 +1895,8 @@
       "package": "6.0 LPA",
       "type": "Core",
       "branches": [
-        "EC",
-        "MISC"
+        "MISC",
+        "EC"
       ]
     },
     {
@@ -1945,8 +1932,8 @@
       "package": "5.9 LPA",
       "type": "Non Tech",
       "branches": [
-        "EE",
-        "MISC"
+        "MISC",
+        "EE"
       ]
     },
     {
@@ -1955,8 +1942,8 @@
       "package": "5.5 LPA",
       "type": "Core",
       "branches": [
-        "AE",
-        "ME"
+        "ME",
+        "AE"
       ]
     },
     {
@@ -1984,8 +1971,8 @@
       "type": "Tech",
       "branches": [
         "SE",
-        "CO",
-        "MISC"
+        "MISC",
+        "CO"
       ]
     },
     {
@@ -2003,8 +1990,8 @@
       "package": "0.0 LPA",
       "type": "Non Tech",
       "branches": [
-        "CE",
-        "MISC"
+        "MISC",
+        "CE"
       ]
     },
     {
@@ -2041,9 +2028,9 @@
       "package": "0.0 LPA",
       "type": "Non Tech",
       "branches": [
+        "PE",
         "EC",
-        "CO",
-        "PE"
+        "CO"
       ]
     },
     {
