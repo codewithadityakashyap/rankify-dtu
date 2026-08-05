@@ -20,8 +20,8 @@ export function CGPAPredictor({ student }: CGPAPredictorProps) {
     student.sgpa.sem8,
   ].filter(val => val !== undefined && val !== null);
   
-  const currentTotal = completedSems.reduce((a, b) => a + b, 0);
-  const currentCgpa = completedSems.length > 0 ? currentTotal / completedSems.length : 0;
+  const currentCgpa = student.cgpa || (completedSems.length > 0 ? completedSems.reduce((a, b) => a + b, 0) / completedSems.length : 0);
+  const currentTotal = currentCgpa * completedSems.length;
   
   const totalSemesters = 8;
   const remainingSemsCount = totalSemesters - completedSems.length;
