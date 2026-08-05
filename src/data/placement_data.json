@@ -6,8 +6,8 @@
       "package": "82.0 LPA",
       "type": "Tech",
       "branches": [
-        "IT",
-        "CO"
+        "CO",
+        "IT"
       ]
     },
     {
@@ -34,9 +34,9 @@
       "package": "56.0 LPA",
       "type": "Tech",
       "branches": [
+        "CO",
         "SE",
-        "MC",
-        "CO"
+        "MC"
       ]
     },
     {
@@ -55,8 +55,8 @@
       "package": "56.0 LPA",
       "type": "Tech",
       "branches": [
-        "CO",
-        "EP"
+        "EP",
+        "CO"
       ]
     },
     {
@@ -65,9 +65,9 @@
       "package": "53.0 LPA",
       "type": "Tech",
       "branches": [
-        "SE",
+        "EP",
         "CO",
-        "EP"
+        "SE"
       ]
     },
     {
@@ -76,8 +76,8 @@
       "package": "52.0 LPA",
       "type": "Tech",
       "branches": [
-        "IT",
-        "CO"
+        "CO",
+        "IT"
       ]
     },
     {
@@ -95,10 +95,10 @@
       "package": "51.0 LPA",
       "type": "Tech",
       "branches": [
+        "CO",
         "SE",
         "MC",
-        "EE",
-        "CO"
+        "EE"
       ]
     },
     {
@@ -127,9 +127,9 @@
       "type": "Tech",
       "branches": [
         "CO",
+        "SE",
         "IT",
-        "EE",
-        "SE"
+        "EE"
       ]
     },
     {
@@ -138,11 +138,11 @@
       "package": "45.0 LPA",
       "type": "Tech",
       "branches": [
-        "MC",
         "CO",
-        "EC",
+        "MC",
         "SE",
-        "IT"
+        "IT",
+        "EC"
       ]
     },
     {
@@ -179,11 +179,11 @@
       "package": "40.0 LPA",
       "type": "Tech",
       "branches": [
-        "MC",
         "CO",
-        "EC",
+        "MC",
         "SE",
-        "EE"
+        "EE",
+        "EC"
       ]
     },
     {
@@ -202,8 +202,8 @@
       "package": "37.0 LPA",
       "type": "Tech",
       "branches": [
-        "IT",
-        "CO"
+        "CO",
+        "IT"
       ]
     },
     {
@@ -213,9 +213,9 @@
       "type": "Tech",
       "branches": [
         "SE",
-        "IT",
+        "CO",
         "MC",
-        "CO"
+        "IT"
       ]
     },
     {
@@ -242,11 +242,11 @@
       "package": "32.6 LPA",
       "type": "Tech",
       "branches": [
-        "MC",
         "CO",
+        "MC",
         "SE",
-        "PE",
-        "IT"
+        "IT",
+        "PE"
       ]
     },
     {
@@ -256,10 +256,10 @@
       "type": "Tech",
       "branches": [
         "CO",
-        "EC",
         "SE",
+        "EE",
         "IT",
-        "EE"
+        "EC"
       ]
     },
     {
@@ -287,9 +287,9 @@
       "package": "30.0 LPA",
       "type": "Core",
       "branches": [
-        "EC",
+        "CO",
         "IT",
-        "CO"
+        "EC"
       ]
     },
     {
@@ -298,8 +298,8 @@
       "package": "29.0 LPA",
       "type": "Tech",
       "branches": [
-        "MC",
-        "CO"
+        "CO",
+        "MC"
       ]
     },
     {
@@ -345,9 +345,9 @@
       "type": "Tech",
       "branches": [
         "IT",
-        "MC",
+        "CO",
         "CE",
-        "CO"
+        "MC"
       ]
     },
     {
@@ -356,9 +356,9 @@
       "package": "27.0 LPA",
       "type": "Tech",
       "branches": [
-        "SE",
+        "EP",
         "CO",
-        "EP"
+        "SE"
       ]
     },
     {
@@ -367,10 +367,10 @@
       "package": "26.8 LPA",
       "type": "Tech",
       "branches": [
+        "CO",
         "SE",
         "IT",
-        "MC",
-        "CO"
+        "MC"
       ]
     },
     {
@@ -397,9 +397,9 @@
       "package": "24.7 LPA",
       "type": "Tech",
       "branches": [
-        "IT",
+        "CO",
         "MC",
-        "CO"
+        "IT"
       ]
     },
     {
@@ -408,9 +408,9 @@
       "package": "24.5 LPA",
       "type": "Core",
       "branches": [
+        "MISC",
         "EC",
-        "EE",
-        "MISC"
+        "EE"
       ]
     },
     {
@@ -428,9 +428,9 @@
       "package": "23.8 LPA",
       "type": "Tech",
       "branches": [
-        "EC",
+        "CO",
         "IT",
-        "CO"
+        "EC"
       ]
     },
     {
@@ -439,10 +439,10 @@
       "package": "23.6 LPA",
       "type": "Tech",
       "branches": [
-        "IT",
-        "EE",
+        "CO",
         "ME",
-        "CO"
+        "IT",
+        "EE"
       ]
     },
     {
@@ -451,9 +451,9 @@
       "package": "22.9 LPA",
       "type": "Tech",
       "branches": [
+        "CO",
         "SE",
-        "IT",
-        "CO"
+        "IT"
       ]
     },
     {
@@ -462,8 +462,8 @@
       "package": "22.4 LPA",
       "type": "Core",
       "branches": [
-        "MISC",
-        "CO"
+        "CO",
+        "MISC"
       ]
     },
     {
@@ -473,8 +473,8 @@
       "type": "Tech",
       "branches": [
         "IT",
-        "MC",
-        "SE"
+        "SE",
+        "MC"
       ]
     },
     {
@@ -528,9 +528,9 @@
       "package": "20.4 LPA",
       "type": "Non Tech",
       "branches": [
-        "EE",
+        "MISC",
         "ME",
-        "MISC"
+        "EE"
       ]
     },
     {
@@ -540,9 +540,9 @@
       "type": "Tech",
       "branches": [
         "CO",
+        "SE",
         "IT",
-        "MC",
-        "SE"
+        "MC"
       ]
     },
     {
@@ -552,9 +552,9 @@
       "type": "Tech",
       "branches": [
         "CO",
+        "SE",
         "IT",
-        "MC",
-        "SE"
+        "MC"
       ]
     },
     {
@@ -573,8 +573,8 @@
       "type": "Tech",
       "branches": [
         "CO",
-        "IT",
-        "SE"
+        "SE",
+        "IT"
       ]
     },
     {
@@ -584,9 +584,9 @@
       "type": "Tech",
       "branches": [
         "SE",
-        "IT",
+        "CO",
         "MC",
-        "CO"
+        "IT"
       ]
     },
     {
@@ -613,11 +613,11 @@
       "package": "20.0 LPA",
       "type": "Tech",
       "branches": [
+        "EP",
         "CO",
         "SE",
-        "BT",
         "EE",
-        "EP"
+        "BT"
       ]
     },
     {
@@ -626,9 +626,9 @@
       "package": "20.0 LPA",
       "type": "Tech",
       "branches": [
-        "EC",
+        "CO",
         "IT",
-        "CO"
+        "EC"
       ]
     },
     {
@@ -637,8 +637,8 @@
       "package": "20.0 LPA",
       "type": "Tech",
       "branches": [
-        "SE",
-        "CO"
+        "CO",
+        "SE"
       ]
     },
     {
@@ -647,10 +647,10 @@
       "package": "20.0 LPA",
       "type": "Tech",
       "branches": [
-        "IT",
-        "EE",
         "MISC",
-        "MC"
+        "MC",
+        "IT",
+        "EE"
       ]
     },
     {
@@ -659,8 +659,8 @@
       "package": "20.0 LPA",
       "type": "Non Tech",
       "branches": [
-        "EC",
-        "MC"
+        "MC",
+        "EC"
       ]
     },
     {
@@ -669,9 +669,9 @@
       "package": "19.5 LPA",
       "type": "Non Tech",
       "branches": [
-        "SE",
         "CO",
         "ME",
+        "SE",
         "MC"
       ]
     },
@@ -681,8 +681,8 @@
       "package": "19.5 LPA",
       "type": "Core",
       "branches": [
-        "EC",
-        "CO"
+        "CO",
+        "EC"
       ]
     },
     {
@@ -701,10 +701,10 @@
       "type": "Tech",
       "branches": [
         "CO",
-        "EC",
         "SE",
+        "EE",
         "IT",
-        "EE"
+        "EC"
       ]
     },
     {
@@ -713,8 +713,8 @@
       "package": "18.6 LPA",
       "type": "Tech",
       "branches": [
-        "EC",
-        "SE"
+        "SE",
+        "EC"
       ]
     },
     {
@@ -723,8 +723,8 @@
       "package": "18.5 LPA",
       "type": "Tech",
       "branches": [
-        "CO",
         "IT",
+        "CO",
         "SE",
         "MC"
       ]
@@ -735,8 +735,8 @@
       "package": "18.1 LPA",
       "type": "Non Tech",
       "branches": [
-        "IT",
-        "MISC"
+        "MISC",
+        "IT"
       ]
     },
     {
@@ -745,8 +745,8 @@
       "package": "18.0 LPA",
       "type": "Tech",
       "branches": [
-        "IT",
-        "CO"
+        "CO",
+        "IT"
       ]
     },
     {
@@ -755,11 +755,11 @@
       "package": "18.0 LPA",
       "type": "Non Tech",
       "branches": [
+        "CO",
         "MC",
         "ME",
-        "CO",
-        "IT",
-        "EE"
+        "EE",
+        "IT"
       ]
     },
     {
@@ -850,8 +850,8 @@
       "package": "16.7 LPA",
       "type": "Tech",
       "branches": [
-        "SE",
         "CO",
+        "SE",
         "MC"
       ]
     },
@@ -871,9 +871,9 @@
       "type": "Non Tech",
       "branches": [
         "EC",
-        "EE",
+        "EP",
         "MC",
-        "EP"
+        "EE"
       ]
     },
     {
@@ -892,9 +892,9 @@
       "package": "16.1 LPA",
       "type": "Tech",
       "branches": [
-        "EC",
         "AE",
-        "MC"
+        "MC",
+        "EC"
       ]
     },
     {
@@ -912,8 +912,8 @@
       "package": "16.0 LPA",
       "type": "Tech",
       "branches": [
-        "MC",
-        "CO"
+        "CO",
+        "MC"
       ]
     },
     {
@@ -931,10 +931,10 @@
       "package": "15.5 LPA",
       "type": "Tech",
       "branches": [
-        "EC",
-        "IT",
         "MC",
-        "SE"
+        "SE",
+        "IT",
+        "EC"
       ]
     },
     {
@@ -943,8 +943,8 @@
       "package": "15.5 LPA",
       "type": "Tech",
       "branches": [
-        "IT",
-        "CO"
+        "CO",
+        "IT"
       ]
     },
     {
@@ -953,8 +953,8 @@
       "package": "15.4 LPA",
       "type": "Tech",
       "branches": [
-        "IT",
-        "CO"
+        "CO",
+        "IT"
       ]
     },
     {
@@ -972,8 +972,8 @@
       "package": "15.0 LPA",
       "type": "Tech",
       "branches": [
-        "MC",
-        "CO"
+        "CO",
+        "MC"
       ]
     },
     {
@@ -982,9 +982,9 @@
       "package": "15.0 LPA",
       "type": "Non Tech",
       "branches": [
-        "EC",
+        "EP",
         "ME",
-        "EP"
+        "EC"
       ]
     },
     {
@@ -993,9 +993,9 @@
       "package": "15.0 LPA",
       "type": "Tech",
       "branches": [
+        "CO",
         "SE",
-        "IT",
-        "CO"
+        "IT"
       ]
     },
     {
@@ -1004,9 +1004,9 @@
       "package": "15.0 LPA",
       "type": "Tech",
       "branches": [
-        "EC",
+        "CO",
         "IT",
-        "CO"
+        "EC"
       ]
     },
     {
@@ -1015,8 +1015,8 @@
       "package": "15.0 LPA",
       "type": "Non Tech",
       "branches": [
-        "EC",
-        "CO"
+        "CO",
+        "EC"
       ]
     },
     {
@@ -1025,8 +1025,8 @@
       "package": "15.0 LPA",
       "type": "Tech",
       "branches": [
-        "MC",
-        "CO"
+        "CO",
+        "MC"
       ]
     },
     {
@@ -1046,8 +1046,8 @@
       "package": "14.8 LPA",
       "type": "Tech",
       "branches": [
-        "EC",
-        "CO"
+        "CO",
+        "EC"
       ]
     },
     {
@@ -1057,8 +1057,8 @@
       "type": "Tech",
       "branches": [
         "CO",
-        "MC",
-        "SE"
+        "SE",
+        "MC"
       ]
     },
     {
@@ -1069,9 +1069,9 @@
       "branches": [
         "CH",
         "ME",
-        "EC",
         "SE",
-        "AE"
+        "AE",
+        "EC"
       ]
     },
     {
@@ -1080,9 +1080,9 @@
       "package": "14.1 LPA",
       "type": "Non Tech",
       "branches": [
+        "EP",
         "CO",
-        "MC",
-        "EP"
+        "MC"
       ]
     },
     {
@@ -1091,9 +1091,9 @@
       "package": "14.0 LPA",
       "type": "Core",
       "branches": [
+        "SE",
         "AE",
-        "ME",
-        "SE"
+        "ME"
       ]
     },
     {
@@ -1102,10 +1102,10 @@
       "package": "14.0 LPA",
       "type": "Tech",
       "branches": [
-        "ME",
-        "CO",
         "MISC",
+        "CO",
         "SE",
+        "ME",
         "PE"
       ]
     },
@@ -1135,9 +1135,9 @@
       "type": "Core",
       "branches": [
         "CH",
-        "IT",
+        "CO",
         "ME",
-        "CO"
+        "IT"
       ]
     },
     {
@@ -1183,8 +1183,8 @@
       "package": "12.2 LPA",
       "type": "Non Tech",
       "branches": [
-        "EE",
-        "ME"
+        "ME",
+        "EE"
       ]
     },
     {
@@ -1203,9 +1203,9 @@
       "package": "12.0 LPA",
       "type": "Tech",
       "branches": [
-        "EC",
+        "CO",
         "IT",
-        "CO"
+        "EC"
       ]
     },
     {
@@ -1232,8 +1232,8 @@
       "package": "12.0 LPA",
       "type": "Tech",
       "branches": [
-        "EC",
-        "SE"
+        "SE",
+        "EC"
       ]
     },
     {
@@ -1290,9 +1290,9 @@
       "package": "11.8 LPA",
       "type": "Tech",
       "branches": [
+        "CO",
         "MC",
-        "EE",
-        "CO"
+        "EE"
       ]
     },
     {
@@ -1312,9 +1312,9 @@
       "package": "11.5 LPA",
       "type": "Tech",
       "branches": [
+        "CO",
         "SE",
-        "IT",
-        "CO"
+        "IT"
       ]
     },
     {
@@ -1332,8 +1332,8 @@
       "package": "11.1 LPA",
       "type": "Tech",
       "branches": [
-        "IT",
-        "SE"
+        "SE",
+        "IT"
       ]
     },
     {
@@ -1360,10 +1360,10 @@
       "package": "11.0 LPA",
       "type": "Non Tech",
       "branches": [
-        "EC",
-        "EE",
+        "EP",
         "SE",
-        "EP"
+        "EC",
+        "EE"
       ]
     },
     {
@@ -1372,8 +1372,8 @@
       "package": "11.0 LPA",
       "type": "Non Tech",
       "branches": [
-        "IT",
-        "CO"
+        "CO",
+        "IT"
       ]
     },
     {
@@ -1382,8 +1382,8 @@
       "package": "11.0 LPA",
       "type": "Unknown",
       "branches": [
-        "MISC",
-        "CO"
+        "CO",
+        "MISC"
       ]
     },
     {
@@ -1439,9 +1439,9 @@
       "package": "10.0 LPA",
       "type": "Tech",
       "branches": [
-        "EC",
+        "CO",
         "IT",
-        "CO"
+        "EC"
       ]
     },
     {
@@ -1450,9 +1450,9 @@
       "package": "10.0 LPA",
       "type": "Non Tech",
       "branches": [
+        "ME",
         "EC",
-        "EE",
-        "ME"
+        "EE"
       ]
     },
     {
@@ -1461,9 +1461,9 @@
       "package": "10.0 LPA",
       "type": "Tech",
       "branches": [
+        "CO",
         "SE",
-        "MC",
-        "CO"
+        "MC"
       ]
     },
     {
@@ -1472,11 +1472,11 @@
       "package": "10.0 LPA",
       "type": "Non Tech",
       "branches": [
-        "MC",
         "CO",
-        "EC",
+        "MC",
         "SE",
-        "EE"
+        "EE",
+        "EC"
       ]
     },
     {
@@ -1485,8 +1485,8 @@
       "package": "10.0 LPA",
       "type": "Tech",
       "branches": [
-        "EC",
-        "SE"
+        "SE",
+        "EC"
       ]
     },
     {
@@ -1495,8 +1495,8 @@
       "package": "10.0 LPA",
       "type": "Tech",
       "branches": [
-        "SE",
-        "CO"
+        "CO",
+        "SE"
       ]
     },
     {
@@ -1505,9 +1505,9 @@
       "package": "10.0 LPA",
       "type": "Tech",
       "branches": [
+        "ME",
         "IT",
-        "EE",
-        "ME"
+        "EE"
       ]
     },
     {
@@ -1516,9 +1516,9 @@
       "package": "10.0 LPA",
       "type": "Non Tech",
       "branches": [
-        "EC",
         "ME",
-        "BT"
+        "BT",
+        "EC"
       ]
     },
     {
@@ -1536,8 +1536,8 @@
       "package": "10.0 LPA",
       "type": "Non Tech",
       "branches": [
-        "EC",
-        "ME"
+        "ME",
+        "EC"
       ]
     },
     {
@@ -1555,9 +1555,9 @@
       "package": "10.0 LPA",
       "type": "Non Tech",
       "branches": [
-        "EC",
+        "CO",
         "ME",
-        "CO"
+        "EC"
       ]
     },
     {
@@ -1567,8 +1567,8 @@
       "type": "Non Tech",
       "branches": [
         "CH",
-        "ME",
-        "CO"
+        "CO",
+        "ME"
       ]
     },
     {
@@ -1577,9 +1577,9 @@
       "package": "9.2 LPA",
       "type": "Non Tech",
       "branches": [
-        "EC",
+        "CO",
         "MC",
-        "CO"
+        "EC"
       ]
     },
     {
@@ -1589,10 +1589,10 @@
       "type": "Non Tech",
       "branches": [
         "CH",
-        "ME",
-        "EC",
         "SE",
-        "IT"
+        "ME",
+        "IT",
+        "EC"
       ]
     },
     {
@@ -1610,8 +1610,8 @@
       "package": "9.0 LPA",
       "type": "Tech",
       "branches": [
-        "SE",
-        "CO"
+        "CO",
+        "SE"
       ]
     },
     {
@@ -1630,8 +1630,8 @@
       "package": "9.0 LPA",
       "type": "Tech",
       "branches": [
-        "CO",
         "IT",
+        "CO",
         "MC"
       ]
     },
@@ -1650,9 +1650,9 @@
       "package": "9.0 LPA",
       "type": "Tech",
       "branches": [
-        "IT",
         "MISC",
-        "CO"
+        "CO",
+        "IT"
       ]
     },
     {
@@ -1662,8 +1662,8 @@
       "type": "Non Tech",
       "branches": [
         "CE",
-        "EE",
-        "BT"
+        "BT",
+        "EE"
       ]
     },
     {
@@ -1682,8 +1682,8 @@
       "type": "Core",
       "branches": [
         "CE",
-        "EE",
-        "ME"
+        "ME",
+        "EE"
       ]
     },
     {
@@ -1702,9 +1702,9 @@
       "package": "8.0 LPA",
       "type": "Unknown",
       "branches": [
-        "EE",
+        "EP",
         "MISC",
-        "EP"
+        "EE"
       ]
     },
     {
@@ -1806,10 +1806,10 @@
       "type": "Tech",
       "branches": [
         "CO",
-        "EC",
         "SE",
+        "EE",
         "IT",
-        "EE"
+        "EC"
       ]
     },
     {
@@ -1818,11 +1818,11 @@
       "package": "7.0 LPA",
       "type": "Core",
       "branches": [
-        "ME",
-        "CO",
-        "CE",
         "MISC",
-        "EE"
+        "CO",
+        "ME",
+        "EE",
+        "CE"
       ]
     },
     {
@@ -1831,11 +1831,11 @@
       "package": "7.0 LPA",
       "type": "Core",
       "branches": [
-        "ME",
-        "EC",
-        "CE",
         "MISC",
-        "EE"
+        "ME",
+        "EE",
+        "CE",
+        "EC"
       ]
     },
     {
@@ -1844,8 +1844,8 @@
       "package": "7.0 LPA",
       "type": "Non Tech",
       "branches": [
-        "IT",
-        "CO"
+        "CO",
+        "IT"
       ]
     },
     {
@@ -1854,9 +1854,9 @@
       "package": "7.0 LPA",
       "type": "Core",
       "branches": [
+        "MISC",
         "EC",
-        "EE",
-        "MISC"
+        "EE"
       ]
     },
     {
@@ -1874,9 +1874,9 @@
       "package": "6.5 LPA",
       "type": "Core",
       "branches": [
-        "EE",
+        "MISC",
         "ME",
-        "MISC"
+        "EE"
       ]
     },
     {
@@ -1885,10 +1885,10 @@
       "package": "6.0 LPA",
       "type": "Tech",
       "branches": [
+        "CO",
         "SE",
         "IT",
-        "EC",
-        "CO"
+        "EC"
       ]
     },
     {
@@ -1897,8 +1897,8 @@
       "package": "6.0 LPA",
       "type": "Unknown",
       "branches": [
-        "EE",
-        "ME"
+        "ME",
+        "EE"
       ]
     },
     {
@@ -1916,8 +1916,8 @@
       "package": "6.0 LPA",
       "type": "Core",
       "branches": [
-        "EC",
-        "MISC"
+        "MISC",
+        "EC"
       ]
     },
     {
@@ -1953,8 +1953,8 @@
       "package": "5.9 LPA",
       "type": "Non Tech",
       "branches": [
-        "EE",
-        "MISC"
+        "MISC",
+        "EE"
       ]
     },
     {
@@ -1992,8 +1992,8 @@
       "type": "Tech",
       "branches": [
         "CO",
-        "MISC",
-        "SE"
+        "SE",
+        "MISC"
       ]
     },
     {
@@ -2011,8 +2011,8 @@
       "package": "0.0 LPA",
       "type": "Non Tech",
       "branches": [
-        "CE",
-        "MISC"
+        "MISC",
+        "CE"
       ]
     },
     {
@@ -2030,8 +2030,8 @@
       "package": "0.0 LPA",
       "type": "Tech",
       "branches": [
-        "MC",
-        "CO"
+        "CO",
+        "MC"
       ]
     },
     {

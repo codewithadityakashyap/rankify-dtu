@@ -49,6 +49,7 @@ def generate_placements():
             'company': company,
             'role': role,
             'roleDetails': role_details,
+            'duration': duration,
             'ctc': ctc,
             'type': type_,
             'branch': branch

@@ -345,6 +345,7 @@ function CompanyDetailPanel({ co, onBack }: { co: Company; onBack: () => void })
                 <th className="text-left pb-2 font-semibold">Role</th>
                 <th className="text-left pb-2 font-semibold">CGPA</th>
                 <th className="text-left pb-2 font-semibold">CTC</th>
+                <th className="text-left pb-2 font-semibold">Duration</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-slate-100 dark:divide-slate-800">
@@ -360,7 +361,8 @@ function CompanyDetailPanel({ co, onBack }: { co: Company; onBack: () => void })
                         {s.cgpa}
                       </span>
                     </td>
-                    <td className="py-2 text-slate-700 dark:text-slate-300 font-medium">{ctcLabel(s.ctc)}</td>
+                    <td className="py-2 pr-4 text-slate-700 dark:text-slate-300 font-medium">{ctcLabel(s.ctc)}</td>
+                    <td className="py-2 text-slate-500 dark:text-slate-400 text-xs font-semibold uppercase tracking-wider">{s.duration || '-'}</td>
                   </tr>
                 );
               })}
