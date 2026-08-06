@@ -109,24 +109,24 @@ export function BranchDashboard({ branch }: { branch: string }) {
             </div>
           </div>
         </div>
-
-        {/* Mobile tab switcher — scrollable pill row */}
-        <div className="md:hidden flex overflow-x-auto gap-2 px-4 pb-3 scrollbar-none">
-          {tabs.map(tab => (
-            <button
-              key={tab.id}
-              onClick={() => setActiveTab(tab.id)}
-              className={`shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 whitespace-nowrap ${
-                activeTab === tab.id
-                  ? 'bg-indigo-600 text-white shadow-[0_0_12px_rgba(99,102,241,0.4)]'
-                  : 'bg-slate-200 dark:bg-slate-800/80 text-slate-600 dark:text-slate-400 border border-slate-300 dark:border-slate-700'
-              }`}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
       </header>
+
+      {/* Mobile tab switcher — scrollable pill row (Moved out of sticky header) */}
+      <div className="md:hidden flex overflow-x-auto gap-2 px-4 py-3 border-b border-slate-200/80 dark:border-slate-800/50 bg-transparent scrollbar-none">
+        {tabs.map(tab => (
+          <button
+            key={tab.id}
+            onClick={() => setActiveTab(tab.id)}
+            className={`shrink-0 px-4 py-1.5 rounded-full text-xs font-semibold transition-all duration-200 whitespace-nowrap ${
+              activeTab === tab.id
+                ? 'bg-indigo-600 text-white shadow-[0_0_12px_rgba(99,102,241,0.4)]'
+                : 'bg-slate-200 dark:bg-slate-800/80 text-slate-600 dark:text-slate-400 border border-slate-300 dark:border-slate-700'
+            }`}
+          >
+            {tab.label}
+          </button>
+        ))}
+      </div>
 
       {/* ── Main Content ── */}
       <main className="w-full max-w-[1800px] mx-auto px-3 sm:px-6 py-5 sm:py-8 relative z-10">

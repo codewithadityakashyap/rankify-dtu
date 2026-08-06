@@ -14,6 +14,12 @@ export function GlobalSearch() {
   const [loading, setLoading] = React.useState(false);
   const router = useRouter();
 
+  React.useEffect(() => {
+    if (!open) {
+      setTimeout(() => setQuery(''), 150); // slight delay to allow smooth close animation
+    }
+  }, [open]);
+
   // Toggle the menu when ⌘K is pressed
   React.useEffect(() => {
     const down = (e: KeyboardEvent) => {
