@@ -12,7 +12,7 @@ import { InsightPanel } from '@/components/dark-glass/InsightPanel';
 import { BackButton } from '@/components/dark-glass/BackButton';
 import { Footer } from '@/components/Footer';
 import { PlacementInsights } from '@/components/dark-glass/PlacementInsights';
-import { ReappearBranchStats } from '@/components/dark-glass/ReappearBranchStats';
+
 import { useRouter } from 'next/navigation';
 import { ChevronDown } from 'lucide-react';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
@@ -188,7 +188,7 @@ export function BranchDashboard({ branch }: { branch: string }) {
             )}
             {(activeTab === 'overview' || activeTab === 'leaderboard') && (
               <div className="w-full h-full xl:col-span-1">
-                <ReappearBranchStats branch={branch} />
+
               </div>
             )}
           </div>
