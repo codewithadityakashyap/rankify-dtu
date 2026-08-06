@@ -63,6 +63,12 @@ export function Header() {
             >
               Subject Analysis
             </Link>
+            <Link
+              href="/report-discrepancy"
+              className="inline-flex items-center gap-1.5 text-sm font-semibold text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 transition-colors"
+            >
+              Report Discrepancy
+            </Link>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors focus:outline-none">
@@ -111,6 +117,9 @@ export function Header() {
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <Link href="/subjects" className="w-full cursor-pointer">Subject Analysis</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/report-discrepancy" className="w-full cursor-pointer text-orange-500">Report Discrepancy</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <Link href="/compare-students" className="w-full cursor-pointer">Compare Students</Link>
