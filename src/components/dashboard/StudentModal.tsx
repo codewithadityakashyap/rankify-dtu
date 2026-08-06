@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from '@/components/ui/dialog';
 import { Badge } from '@/components/ui/badge';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
-import { FileDown, Award, TrendingUp, Loader2, BookOpen } from 'lucide-react';
+import { FileDown, Award, TrendingUp, Loader2, BookOpen, AlertTriangle, CheckCircle, ShieldAlert } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Accordion, AccordionItem, AccordionTrigger, AccordionContent } from '@/components/ui/accordion';
 import jsPDF from 'jspdf';
@@ -183,6 +183,55 @@ export function StudentModal({ student, open, onOpenChange }: { student: any, op
               </Badge>
             ))}
           </div>
+
+          {student.reappearInfo && (
+            <div className="mb-4">
+              <h4 className="text-sm font-bold text-foreground mb-3 flex items-center gap-2 border-t pt-6">
+                <ShieldAlert className="w-4 h-4 text-primary" />
+                Academic Status
+              </h4>
+              <div className={`p-4 rounded-xl border ${student.reappearInfo.status === 'Has Active Backlogs' ? 'bg-red-500/10 border-red-500/20' : student.reappearInfo.status === 'Cleared Through Revised Results' ? 'bg-orange-500/10 border-orange-500/20' : 'bg-emerald-500/10 border-emerald-500/20'}`}>
+                <div className="flex items-center gap-2 mb-3">
+                  {student.reappearInfo.status === 'Has Active Backlogs' ? (
+                    <AlertTriangle className="w-5 h-5 text-red-500" />
+                  ) : (
+                    <CheckCircle className="w-5 h-5 text-emerald-500" />
+                  )}
+                  <span className={`font-bold ${student.reappearInfo.status === 'Has Active Backlogs' ? 'text-red-600 dark:text-red-400' : student.reappearInfo.status === 'Cleared Through Revised Results' ? 'text-orange-600 dark:text-orange-400' : 'text-emerald-600 dark:text-emerald-400'}`}>
+                    {student.reappearInfo.status}
+                  </span>
+                </div>
+                {student.reappearInfo.status === 'Has Active Backlogs' && student.reappearInfo.failedSubjects.length > 0 && (
+                  <div className="space-y-2 mt-2">
+                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">Failed Subjects</div>
+                    {student.reappearInfo.failedSubjects.map((sub: any, idx: number) => (
+                      <div key={idx} className="flex justify-between items-center bg-background/50 p-2 rounded-md border border-red-500/10">
+                        <div className="flex flex-col">
+                          <span className="font-mono text-xs font-bold text-slate-700 dark:text-slate-300">{sub.code}</span>
+                          <span className="text-[11px] text-muted-foreground">{sub.name}</span>
+                        </div>
+                        <Badge variant="outline" className="text-red-500 border-red-500/30">F Grade</Badge>
+                      </div>
+                    ))}
+                  </div>
+                )}
+                {student.reappearInfo.status === 'Cleared Through Revised Results' && student.reappearInfo.clearedSubjects && student.reappearInfo.clearedSubjects.length > 0 && (
+                  <div className="space-y-2 mt-2">
+                    <div className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-1">Cleared Subjects</div>
+                    {student.reappearInfo.clearedSubjects.map((sub: any, idx: number) => (
+                      <div key={idx} className="flex justify-between items-center bg-background/50 p-2 rounded-md border border-orange-500/10">
+                        <div className="flex flex-col">
+                          <span className="font-mono text-xs font-bold text-slate-700 dark:text-slate-300">{sub.code}</span>
+                          <span className="text-[11px] text-muted-foreground">{sub.name}</span>
+                        </div>
+                        <Badge variant="outline" className="text-emerald-500 border-emerald-500/30 font-bold">Cleared</Badge>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
 
           <div className="pt-2">
             <h4 className="text-sm font-bold text-foreground mb-3 flex items-center gap-2 border-t pt-6">

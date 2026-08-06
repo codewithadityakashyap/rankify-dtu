@@ -108,7 +108,7 @@ export function PlacementStatsChart() {
               </defs>
 
               <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={gridColor} />
-              <XAxis dataKey="branch" axisLine={false} tickLine={false} tick={{ fill: tickColor, fontSize: 12, fontWeight: 500 }} dy={10} />
+              <XAxis dataKey="branch" axisLine={false} tickLine={false} tick={{ fill: tickColor, fontSize: 9, fontWeight: 500 }} dy={10} interval="preserveStartEnd" />
               <YAxis yAxisId="left" axisLine={false} tickLine={false} tick={{ fill: tickColor, fontSize: 12 }} dx={-10} domain={[0, 'auto']} />
 
               <Tooltip cursor={{ fill: isDark ? 'rgba(34, 211, 238, 0.05)' : 'rgba(99, 102, 241, 0.05)' }} content={<CustomTooltip />} />

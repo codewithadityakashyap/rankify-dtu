@@ -35,7 +35,7 @@ export function Analytics({ branchDistribution, branchAverages = [] }: Analytics
                 <ResponsiveContainer width="100%" height="100%">
                   <BarChart data={data} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" className="dark:stroke-[#1E293B]" />
-                    <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fontSize: 11, fill: '#64748b'}} dy={10} />
+                    <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{fontSize: 9, fill: '#64748b'}} dy={10} interval="preserveStartEnd" />
                     <YAxis axisLine={false} tickLine={false} tick={{fontSize: 11, fill: '#64748b'}} dx={-10} />
                     <Tooltip 
                       cursor={{fill: 'rgba(56, 189, 248, 0.05)'}}

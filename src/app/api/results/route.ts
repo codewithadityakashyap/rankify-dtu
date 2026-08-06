@@ -13,6 +13,7 @@ export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
     const q = searchParams.get('q')?.toLowerCase() || '';
     const branch = searchParams.get('branch');
+    const academicStatus = searchParams.get('academicStatus') || 'All';
     const page = parseInt(searchParams.get('page') || '1');
     const requestedLimit = parseInt(searchParams.get('limit') || '10');
     const limit = Math.min(requestedLimit, 50); // Hard limit to prevent scraping
@@ -32,6 +33,14 @@ export async function GET(request: Request) {
     }
     if (branch && branch !== 'All') {
       data = data.filter((s: any) => s.branch.toLowerCase() === branch.toLowerCase());
+    }
+    if (academicStatus !== 'All') {
+      data = data.filter((s: any) => {
+        if (academicStatus === 'No Backlogs') {
+          return !s.reappearInfo || s.reappearInfo.status === 'No Backlogs';
+        }
+        return s.reappearInfo?.status === academicStatus;
+      });
     }
 
     // Sort

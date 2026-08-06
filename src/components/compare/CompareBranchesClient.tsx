@@ -76,7 +76,7 @@ export function CompareBranchesClient({ initialStats }: { initialStats: BranchSt
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={chartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" strokeOpacity={0.5} />
-                <XAxis dataKey="branch" tick={{fontSize: 12, fill: '#94a3b8'}} axisLine={false} tickLine={false} />
+                <XAxis dataKey="branch" tick={{fontSize: 9, fill: '#94a3b8'}} axisLine={false} tickLine={false} interval="preserveStartEnd" />
                 <YAxis domain={[5, 10]} tick={{fontSize: 12, fill: '#94a3b8'}} axisLine={false} tickLine={false} />
                 <Tooltip 
                   cursor={{ fill: 'transparent' }}
@@ -100,7 +100,7 @@ export function CompareBranchesClient({ initialStats }: { initialStats: BranchSt
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={chartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" strokeOpacity={0.5} />
-                <XAxis dataKey="branch" tick={{fontSize: 12, fill: '#94a3b8'}} axisLine={false} tickLine={false} />
+                <XAxis dataKey="branch" tick={{fontSize: 9, fill: '#94a3b8'}} axisLine={false} tickLine={false} interval="preserveStartEnd" />
                 <YAxis tick={{fontSize: 12, fill: '#94a3b8'}} axisLine={false} tickLine={false} />
                 <Tooltip 
                   cursor={{ fill: 'transparent' }}

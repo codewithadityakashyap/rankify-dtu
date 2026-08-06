@@ -12,6 +12,7 @@ import { InsightPanel } from '@/components/dark-glass/InsightPanel';
 import { BackButton } from '@/components/dark-glass/BackButton';
 import { Footer } from '@/components/Footer';
 import { PlacementInsights } from '@/components/dark-glass/PlacementInsights';
+import { ReappearBranchStats } from '@/components/dark-glass/ReappearBranchStats';
 import { useRouter } from 'next/navigation';
 import { ChevronDown } from 'lucide-react';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
@@ -173,16 +174,21 @@ export function BranchDashboard({ branch }: { branch: string }) {
 
         {/* ── Charts Row (Distribution, Trend, Placement) ── */}
         {showCharts && (
-          <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 mb-8 items-stretch">
-            <div className="w-full h-full">
+          <div className="grid grid-cols-1 xl:grid-cols-4 gap-6 mb-8 items-stretch">
+            <div className="w-full h-full xl:col-span-1">
               <DistributionChart data={data?.distribution} />
             </div>
-            <div className="w-full h-full">
+            <div className="w-full h-full xl:col-span-1">
               <SemesterTrendChart data={data?.semTrend} />
             </div>
             {(activeTab === 'overview' || activeTab === 'leaderboard') && (
-              <div className="w-full h-full">
+              <div className="w-full h-full xl:col-span-1">
                 <PlacementInsights branch={branch} />
+              </div>
+            )}
+            {(activeTab === 'overview' || activeTab === 'leaderboard') && (
+              <div className="w-full h-full xl:col-span-1">
+                <ReappearBranchStats branch={branch} />
               </div>
             )}
           </div>

@@ -46,6 +46,7 @@ export default function Dashboard() {
   const [searchQuery, setSearchQuery] = useState('');
   const debouncedSearch = useDebounce(searchQuery, 400);
   const [branch, setBranch] = useState('All');
+  const [academicStatus, setAcademicStatus] = useState('All');
   const [sort, setSort] = useState('rank_asc');
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
@@ -67,6 +68,7 @@ export default function Dashboard() {
     const params = new URLSearchParams({
       q: debouncedSearch,
       branch,
+      academicStatus,
       sort,
       page: page.toString(),
       limit: '30'
@@ -82,16 +84,17 @@ export default function Dashboard() {
         console.error(err);
         setIsLoadingResults(false);
       });
-  }, [debouncedSearch, branch, sort, page]);
+  }, [debouncedSearch, branch, sort, page, academicStatus]);
 
   // Reset page to 1 when filters change
   useEffect(() => {
     setPage(1);
-  }, [debouncedSearch, branch, sort]);
+  }, [debouncedSearch, branch, sort, academicStatus]);
 
   const handleReset = () => {
     setSearchQuery('');
     setBranch('All');
+    setAcademicStatus('All');
     setSort('rank_asc');
     setPage(1);
   };
@@ -167,6 +170,8 @@ export default function Dashboard() {
           setSearchQuery={setSearchQuery}
           branch={branch}
           setBranch={setBranch}
+          academicStatus={academicStatus}
+          setAcademicStatus={setAcademicStatus}
           sort={sort}
           setSort={setSort}
           onReset={handleReset}

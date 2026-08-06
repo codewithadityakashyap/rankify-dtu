@@ -32,7 +32,7 @@ export function DistributionChart({ data }: { data: any[] }) {
               </linearGradient>
             </defs>
             <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={gridColor} />
-            <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fill: tickColor, fontSize: 12, fontWeight: 500 }} dy={12} />
+            <XAxis dataKey="name" axisLine={false} tickLine={false} tick={{ fill: tickColor, fontSize: 9, fontWeight: 500 }} dy={12} interval="preserveStartEnd" />
             <YAxis axisLine={false} tickLine={false} tick={{ fill: tickColor, fontSize: 12 }} />
             <Tooltip
               cursor={{ fill: 'rgba(99, 102, 241, 0.06)' }}

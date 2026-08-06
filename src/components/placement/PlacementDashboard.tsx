@@ -7,6 +7,7 @@ import {
 } from 'recharts';
 import { Search, X, Building2, Users, TrendingUp, Award, ChevronRight, ArrowLeft, Filter } from 'lucide-react';
 import logosMap from '@/data/logos.json';
+import { PlacementCorrelation } from './PlacementCorrelation';
 
 // ─────────────────────────────────────────────────────────────────────────────
 // Types
@@ -62,7 +63,7 @@ function StatCard({ icon: Icon, label, value, sub, color = ACCENT }:
       <div className="flex items-start justify-between gap-3">
         <div className="flex-1 min-w-0">
           <p className="text-xs font-semibold uppercase tracking-widest text-slate-400 dark:text-slate-500 mb-1">{label}</p>
-          <p className="text-lg sm:text-2xl font-extrabold text-slate-900 dark:text-white truncate">{value}</p>
+          <p className="text-base sm:text-lg lg:text-xl font-extrabold text-slate-900 dark:text-white truncate">{value}</p>
           {sub && <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{sub}</p>}
         </div>
         <div className="shrink-0 w-10 h-10 rounded-xl flex items-center justify-center" style={{ background: `${color}18` }}>
@@ -274,7 +275,7 @@ function CompanyDetailPanel({ co, onBack }: { co: Company; onBack: () => void })
             <ResponsiveContainer width="100%" height={220}>
               <BarChart data={branchData} margin={{ top: 0, right: 0, left: -20, bottom: 0 }}>
                 <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f020" />
-                <XAxis dataKey="branch" tick={{ fontSize: 11 }} />
+                <XAxis dataKey="branch" tick={{ fontSize: 9 }} interval="preserveStartEnd" />
                 <YAxis tick={{ fontSize: 11 }} />
                 <Tooltip content={<CustomTooltip />} />
                 <Bar dataKey="count" radius={[4, 4, 0, 0]}>
@@ -319,7 +320,7 @@ function CompanyDetailPanel({ co, onBack }: { co: Company; onBack: () => void })
           <ResponsiveContainer width="100%" height={260}>
             <BarChart data={clusterData} margin={{ top: 0, right: 0, left: -20, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f015" />
-              <XAxis dataKey="bracket" tick={{ fontSize: 11 }} />
+              <XAxis dataKey="bracket" tick={{ fontSize: 9 }} interval="preserveStartEnd" />
               <YAxis tick={{ fontSize: 11 }} />
               <Tooltip content={<CustomTooltip />} />
               <Legend iconSize={10} wrapperStyle={{ fontSize: 11 }} />
@@ -402,7 +403,7 @@ function GlobalAnalytics({ companies, stats }: Props) {
           <ResponsiveContainer width="100%" height={280}>
             <BarChart data={topByCtc} layout="vertical" margin={{ top: 0, right: 20, left: 40, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f015" horizontal={false} />
-              <XAxis type="number" tick={{ fontSize: 11 }} unit=" LPA" />
+              <XAxis type="number" tick={{ fontSize: 9 }} unit=" LPA" />
               <YAxis type="category" dataKey="name" tick={{ fontSize: 11 }} width={80} interval={0} />
               <Tooltip content={<CustomTooltip />} />
               <Bar dataKey="avgCtc" radius={[0, 4, 4, 0]} name="Avg CTC (LPA)">
@@ -419,7 +420,7 @@ function GlobalAnalytics({ companies, stats }: Props) {
           <ResponsiveContainer width="100%" height={280}>
             <BarChart data={topByHiring} layout="vertical" margin={{ top: 0, right: 20, left: 40, bottom: 0 }}>
               <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f015" horizontal={false} />
-              <XAxis type="number" tick={{ fontSize: 11 }} />
+              <XAxis type="number" tick={{ fontSize: 9 }} />
               <YAxis type="category" dataKey="name" tick={{ fontSize: 11 }} width={80} interval={0} />
               <Tooltip content={<CustomTooltip />} />
               <Bar dataKey="students" radius={[0, 4, 4, 0]} name="Students Hired">
@@ -437,7 +438,7 @@ function GlobalAnalytics({ companies, stats }: Props) {
         <ResponsiveContainer width="100%" height={220}>
           <BarChart data={branchData} margin={{ top: 0, right: 10, left: -20, bottom: 0 }}>
             <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f015" />
-            <XAxis dataKey="branch" tick={{ fontSize: 11 }} />
+            <XAxis dataKey="branch" tick={{ fontSize: 9 }} interval="preserveStartEnd" />
             <YAxis tick={{ fontSize: 11 }} />
             <Tooltip content={<CustomTooltip />} />
             <Bar dataKey="count" radius={[4, 4, 0, 0]} name="Students Placed">
@@ -505,6 +506,9 @@ function GlobalAnalytics({ companies, stats }: Props) {
           </div>
         )}
       </div>
+      
+      {/* Correlation Analytics */}
+      <PlacementCorrelation />
     </div>
   );
 }

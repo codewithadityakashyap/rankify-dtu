@@ -8,6 +8,8 @@ interface SearchAndFilterProps {
   setSearchQuery: (val: string) => void;
   branch: string;
   setBranch: (val: string) => void;
+  academicStatus: string;
+  setAcademicStatus: (val: string) => void;
   sort: string;
   setSort: (val: string) => void;
   onReset: () => void;
@@ -19,12 +21,14 @@ export function SearchAndFilter({
   setSearchQuery,
   branch,
   setBranch,
+  academicStatus,
+  setAcademicStatus,
   sort,
   setSort,
   onReset,
   branches
 }: SearchAndFilterProps) {
-  const isFiltered = searchQuery.length > 0 || branch !== 'All' || sort !== 'rank_asc';
+  const isFiltered = searchQuery.length > 0 || branch !== 'All' || academicStatus !== 'All' || sort !== 'rank_asc';
 
   return (
     <div className="mb-8">
@@ -55,6 +59,20 @@ export function SearchAndFilter({
               {branches.map((b: string) => (
                 <SelectItem key={b} value={b}>{b}</SelectItem>
               ))}
+            </SelectContent>
+          </Select>
+
+          <div className="w-px h-6 bg-border/60 mx-1"></div>
+
+          <Select value={academicStatus} onValueChange={(val) => setAcademicStatus(val || 'All')}>
+            <SelectTrigger className="border-0 bg-transparent shadow-none hover:bg-muted/50 font-medium h-12 rounded-xl transition-colors min-w-[140px] focus:ring-0">
+              <SelectValue placeholder="All Status" />
+            </SelectTrigger>
+            <SelectContent className="rounded-xl shadow-lg">
+              <SelectItem value="All" className="font-medium">All Status</SelectItem>
+              <SelectItem value="No Backlogs">No Backlogs</SelectItem>
+              <SelectItem value="Has Active Backlogs">Active Backlogs</SelectItem>
+              <SelectItem value="Cleared Through Revised Results">Cleared Results</SelectItem>
             </SelectContent>
           </Select>
 
