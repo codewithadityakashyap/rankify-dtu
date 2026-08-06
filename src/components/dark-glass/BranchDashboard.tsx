@@ -174,7 +174,7 @@ export function BranchDashboard({ branch }: { branch: string }) {
 
         {/* ── Charts Row (Distribution, Trend, Placement) ── */}
         {showCharts && (
-          <div className="grid grid-cols-1 xl:grid-cols-4 gap-6 mb-8 items-stretch">
+          <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 mb-8 items-stretch">
             <div className="w-full h-full xl:col-span-1">
               <DistributionChart data={data?.distribution} />
             </div>
@@ -184,11 +184,6 @@ export function BranchDashboard({ branch }: { branch: string }) {
             {(activeTab === 'overview' || activeTab === 'leaderboard') && (
               <div className="w-full h-full xl:col-span-1">
                 <PlacementInsights branch={branch} />
-              </div>
-            )}
-            {(activeTab === 'overview' || activeTab === 'leaderboard') && (
-              <div className="w-full h-full xl:col-span-1">
-
               </div>
             )}
           </div>
