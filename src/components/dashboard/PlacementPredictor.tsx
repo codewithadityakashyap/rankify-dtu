@@ -45,10 +45,27 @@ export function PlacementPredictor({ student, placementData }: PlacementPredicto
     return map[branch.toUpperCase()] || branch.toUpperCase();
   };
 
+  const BRANCH_PRIORITY = ['CSE', 'IT', 'SE', 'MCE', 'ECE', 'EE', 'EP', 'ME', 'AE', 'CE', 'PIE', 'CHE', 'ENE', 'BT'];
+
+  const checkBranchEligible = (companyBranches: string[], studentBranch: string) => {
+    if (companyBranches.includes("ALL")) return true;
+    
+    const normalizedStudent = normalizeBranch(studentBranch);
+    const studentIdx = BRANCH_PRIORITY.indexOf(normalizedStudent);
+    if (studentIdx === -1) return false;
+
+    let lowestIdx = -1;
+    for (const b of companyBranches) {
+      const idx = BRANCH_PRIORITY.indexOf(normalizeBranch(b));
+      if (idx > lowestIdx) lowestIdx = idx;
+    }
+
+    return lowestIdx !== -1 && studentIdx <= lowestIdx;
+  };
+
   const isEligible = (company: any) => {
     const cgpaEligible = testCgpa >= company.minCgpa;
-    const normalizedStudentBranch = normalizeBranch(student.branch);
-    const branchEligible = company.branches.includes("ALL") || company.branches.includes(normalizedStudentBranch);
+    const branchEligible = checkBranchEligible(company.branches, student.branch);
     return cgpaEligible && branchEligible;
   };
 
@@ -106,7 +123,7 @@ export function PlacementPredictor({ student, placementData }: PlacementPredicto
                   </div>
                   <div className="text-right">
                     <div className="font-bold text-sm text-emerald-600 dark:text-emerald-400">{company.package}</div>
-                    <div className="text-[10px] text-muted-foreground">Cutoff: {company.minCgpa.toFixed(1)}</div>
+                    <div className="text-[10px] text-muted-foreground">CGPA Cutoff: {company.minCgpa.toFixed(2)}</div>
                   </div>
                 </div>
               ))
@@ -126,9 +143,9 @@ export function PlacementPredictor({ student, placementData }: PlacementPredicto
           <div className="space-y-3 max-h-[400px] overflow-y-auto pr-2 scrollbar-thin scrollbar-thumb-muted">
             {ineligibleCompanies.map((company, idx) => {
               const cgpaShortfall = company.minCgpa - testCgpa;
-              const normalizedStudentBranch = normalizeBranch(student.branch);
-              const reason = !company.branches.includes("ALL") && !company.branches.includes(normalizedStudentBranch)
-                ? `Requires: ${company.branches.slice(0, 4).join(', ')}${company.branches.length > 4 ? '...' : ''}`
+              const isBranchEligible = checkBranchEligible(company.branches, student.branch);
+              const reason = !isBranchEligible
+                ? `Requires: Top ${company.branches.length > 0 ? normalizeBranch(company.branches[0]) : 'Branches'}`
                 : `Need +${cgpaShortfall.toFixed(2)} CGPA`;
 
               return (
@@ -144,7 +161,7 @@ export function PlacementPredictor({ student, placementData }: PlacementPredicto
                   </div>
                   <div className="text-right">
                     <div className="font-bold text-sm text-muted-foreground">{company.package}</div>
-                    <div className="text-[10px] text-muted-foreground">Cutoff: {company.minCgpa.toFixed(1)}</div>
+                    <div className="text-[10px] text-muted-foreground">CGPA Cutoff: {company.minCgpa.toFixed(2)}</div>
                   </div>
                 </div>
               );
