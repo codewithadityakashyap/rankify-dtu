@@ -65,7 +65,7 @@ export function Heatmap({ data }: { data: any[] }) {
 
   return (
     <div
-      className="bg-white dark:bg-[#1E293B]/80 backdrop-blur-xl border border-slate-200 dark:border-slate-700/50 rounded-2xl shadow-md dark:shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-4 sm:p-6 overflow-hidden w-full relative flex flex-col transition-colors duration-300 max-h-[85vh] md:max-h-[75vh]"
+      className="bg-white dark:bg-[#1E293B]/80 backdrop-blur-xl border border-slate-200 dark:border-slate-700/50 rounded-2xl shadow-md dark:shadow-[0_8px_30px_rgb(0,0,0,0.12)] p-4 sm:p-6 overflow-hidden w-full relative flex flex-col transition-colors duration-300 h-[85vh] md:h-[800px]"
     >
       {/* Background glow — dark only */}
       <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/5 via-transparent to-cyan-400/5 pointer-events-none dark:block hidden" />
