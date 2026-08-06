@@ -81,8 +81,13 @@ export function PlacementPredictor({ student, placementData }: PlacementPredicto
               <Briefcase className="w-4 h-4 text-orange-500" />
             </div>
             <div>
-              <h3 className="font-bold text-lg leading-none">Company Eligibility</h3>
-              <p className="text-xs text-muted-foreground mt-1">See which companies you qualify for (Based on 2026 Batch Data)</p>
+              <h3 className="font-bold text-lg leading-none mb-1.5">Company Eligibility</h3>
+              <p className="text-xs text-muted-foreground leading-relaxed max-w-[400px]">
+                Eligibility predictions are estimated based on historical hiring patterns of previously recruited students. 
+                <span className="block mt-0.5 text-[10px] italic opacity-80 border-l-2 border-orange-500/30 pl-2">
+                  *Disclaimer: This is an algorithmic approximation and may not guarantee actual official eligibility.
+                </span>
+              </p>
             </div>
           </div>
           
