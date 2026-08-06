@@ -13,7 +13,7 @@ import {
 
 export function Header() {
   return (
-    <header className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b shadow-sm sticky top-0 z-40 transition-colors">
+    <header className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg border-b border-slate-200/80 dark:border-slate-800/80 shadow-sm sticky top-0 z-50 transition-colors" style={{ transform: 'translateZ(0)' }}>
       <div className="container mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3">
           <img
@@ -35,43 +35,35 @@ export function Header() {
 
         {/* Right side — Links + premium batch badge + theme toggle */}
         <div className="flex items-center gap-2 sm:gap-4">
-          <GlobalSearch />
-          
           {/* Desktop Links */}
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-5 mr-2">
             <Link
               href="/"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors"
+              className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors"
             >
               Home
             </Link>
             <Link
               href="/placement"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors"
+              className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors"
             >
               Placements
             </Link>
             <Link
               href="/blog"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors"
+              className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors"
             >
               Insights
             </Link>
             <Link
               href="/subjects"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors"
+              className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors"
             >
               Subject Analysis
             </Link>
-            <Link
-              href="/report-discrepancy"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-orange-500 hover:text-orange-600 dark:text-orange-400 dark:hover:text-orange-300 transition-colors"
-            >
-              Report Discrepancy
-            </Link>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
-                <button className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors focus:outline-none">
+                <button className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors focus:outline-none">
                   Compare
                 </button>
               </DropdownMenuTrigger>
@@ -84,10 +76,18 @@ export function Header() {
                 </DropdownMenuItem>
               </DropdownMenuContent>
             </DropdownMenu>
+            <Link
+              href="/report-discrepancy"
+              className="inline-flex items-center justify-center px-4 py-1.5 text-xs font-bold text-white bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 rounded-full shadow-md shadow-orange-500/20 hover:shadow-orange-500/40 transition-all duration-300 hover:-translate-y-0.5"
+            >
+              Report Discrepancy
+            </Link>
           </div>
+          
+          <GlobalSearch />
 
           {/* Premium "2027 Batch Results" badge */}
-          <div className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 dark:bg-primary/10 dark:border-primary/40 shadow-sm ml-2">
+          <div className="hidden xl:flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 dark:bg-primary/10 dark:border-primary/40 shadow-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
             <span className="text-xs font-semibold tracking-wide text-primary/90 dark:text-primary whitespace-nowrap">
               2027 Batch
@@ -97,7 +97,7 @@ export function Header() {
           <ModeToggle />
 
           {/* Mobile Menu */}
-          <div className="md:hidden flex items-center">
+          <div className="lg:hidden flex items-center">
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button className="p-2 -mr-2 text-slate-600 dark:text-slate-300">
