@@ -1,6 +1,7 @@
 import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
+import crypto from 'crypto';
 
 export const dynamic = 'force-dynamic';
 
@@ -23,14 +24,11 @@ export async function GET(request: Request) {
       return NextResponse.json({ authorized: false });
     }
 
-    const sessionsPath = path.join(process.cwd(), 'src/data/sessions.json');
-    if (fs.existsSync(sessionsPath)) {
-      const fileData = fs.readFileSync(sessionsPath, 'utf8');
-      const sessions = JSON.parse(fileData || '{}');
-      
-      if (sessions[rollNumber] && sessions[rollNumber].active_tokens.includes(token)) {
-        return NextResponse.json({ authorized: true, rollNumber });
-      }
+    const secret = process.env.AUTH_SECRET || 'dtu_secure_fallback_secret_2026';
+    const expectedToken = crypto.createHmac('sha256', secret).update(rollNumber).digest('hex');
+    
+    if (token === expectedToken) {
+      return NextResponse.json({ authorized: true, rollNumber });
     }
 
     return NextResponse.json({ authorized: false });

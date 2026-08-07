@@ -35,31 +35,9 @@ export async function POST(request: Request) {
       return NextResponse.json({ success: false, error: 'Security Challenge Failed. Incorrect SGPA.' }, { status: 401 });
     }
 
-    // Generate Session Token
-    const sessionToken = crypto.randomUUID();
-
-    const sessionsPath = path.join(process.cwd(), 'src/data/sessions.json');
-    let sessions: any = {};
-
-    if (fs.existsSync(sessionsPath)) {
-      const fileData = fs.readFileSync(sessionsPath, 'utf8');
-      sessions = JSON.parse(fileData || '{}');
-    }
-
-    if (!sessions[cleanedRollNumber]) {
-      sessions[cleanedRollNumber] = { active_tokens: [], max_devices: 3 };
-    }
-
-    // Add new token
-    sessions[cleanedRollNumber].active_tokens.push(sessionToken);
-
-    // Enforce max devices (boot oldest session)
-    const maxDevices = sessions[cleanedRollNumber].max_devices || 3;
-    if (sessions[cleanedRollNumber].active_tokens.length > maxDevices) {
-      sessions[cleanedRollNumber].active_tokens.shift(); // Remove oldest
-    }
-
-    fs.writeFileSync(sessionsPath, JSON.stringify(sessions, null, 2));
+    // Generate Stateless Session Token (HMAC signed)
+    const secret = process.env.AUTH_SECRET || 'dtu_secure_fallback_secret_2026';
+    const sessionToken = crypto.createHmac('sha256', secret).update(cleanedRollNumber).digest('hex');
 
     const response = NextResponse.json({ success: true, rollNumber: cleanedRollNumber });
     
