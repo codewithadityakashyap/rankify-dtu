@@ -52,20 +52,31 @@ export async function GET(request: Request) {
 
     // Analytics stats: Branch-Wise Average CGPA
     const branchStats: Record<string, { total: number, count: number }> = {};
-    const STRICT_BRANCHES = ["AE", "BT", "CE", "CH", "CS", "EC", "EE", "EP", "EN", "IT", "MC", "ME", "PE", "SE"];
+    const BRANCHES = batch === '2029' 
+      ? ["AE", "BT", "CE", "CH", "CS", "CY", "DA", "EC", "EE", "EP", "EN", "IT", "MC", "ME", "PE", "SE", "VL"]
+      : ["AE", "BT", "CE", "CH", "CS", "EC", "EE", "EP", "EN", "IT", "MC", "ME", "PE", "SE"];
     
-    STRICT_BRANCHES.forEach(b => {
+    BRANCHES.forEach(b => {
       branchStats[b] = { total: 0, count: 0 };
     });
+
+    let totalCgpaSum = 0;
+    let totalCgpaCount = 0;
 
     data.forEach((student: any) => {
       const b = student.branch?.toUpperCase();
       const cgpa = parseFloat(student.cgpa);
-      if (b && branchStats[b] && !isNaN(cgpa) && cgpa > 0) {
-        branchStats[b].total += cgpa;
-        branchStats[b].count += 1;
+      if (!isNaN(cgpa) && cgpa > 0) {
+        totalCgpaSum += cgpa;
+        totalCgpaCount += 1;
+        if (b && branchStats[b]) {
+          branchStats[b].total += cgpa;
+          branchStats[b].count += 1;
+        }
       }
     });
+
+    const universityAverageCgpa = totalCgpaCount > 0 ? (totalCgpaSum / totalCgpaCount).toFixed(2) : "0.00";
 
     const branchAverages = Object.entries(branchStats)
       .filter(([_, stats]) => stats.count > 0)
@@ -82,7 +93,8 @@ export async function GET(request: Request) {
       stats: {
         totalStudents: data.length,
         branchDistribution: branchGroups,
-        branchAverages: branchAverages
+        branchAverages: branchAverages,
+        universityAverageCgpa
       }
     });
 

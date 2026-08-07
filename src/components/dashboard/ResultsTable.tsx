@@ -20,8 +20,9 @@ export function ResultsTable({ data, isLoading, page, totalPages, setPage, onRow
     else setSort(`${field}_desc`);
   };
 
-  const is2028 = data.length > 0 && data[0].batch === '2028';
-
+  const batch = data.length > 0 ? data[0].batch : null;
+  const is2028 = batch === '2028';
+  const is2029 = batch === '2029';
   if (isLoading) {
     return <div className="h-64 flex items-center justify-center text-muted-foreground">Loading results...</div>;
   }
@@ -65,8 +66,8 @@ export function ResultsTable({ data, isLoading, page, totalPages, setPage, onRow
                 <span className="text-[10px] text-muted-foreground font-medium">Branch Rank: #{student.branchRank}</span>
               </div>
               
-              <div className={`grid ${is2028 ? 'grid-cols-4' : 'grid-cols-6'} gap-2 pt-3 border-t border-muted/60`}>
-                {[1, 2, 3, 4, 5, 6].filter(sem => !is2028 || sem <= 4).map(sem => {
+              <div className={`grid ${is2029 ? 'grid-cols-4' : (is2028 ? 'grid-cols-4' : 'grid-cols-6')} gap-2 pt-3 border-t border-muted/60`}>
+                {[1, 2, 3, 4, 5, 6].filter(sem => is2029 ? sem <= 1 : (is2028 ? sem <= 4 : true)).map(sem => {
                   const val = student.sgpa?.[`sem${sem}`];
                   return (
                     <div key={sem} className="flex flex-col text-center bg-muted/20 rounded-md py-1.5">
@@ -98,22 +99,26 @@ export function ResultsTable({ data, isLoading, page, totalPages, setPage, onRow
                   Sem 1 <ArrowUpDown className="ml-1 w-3 h-3" />
                 </Button>
               </TableHead>
-              <TableHead className="text-right">
-                <Button variant="ghost" size="sm" onClick={() => handleSort('sem2')} className="h-8 px-2 font-medium -mr-2">
-                  Sem 2 <ArrowUpDown className="ml-1 w-3 h-3" />
-                </Button>
-              </TableHead>
-              <TableHead className="text-right">
-                <Button variant="ghost" size="sm" onClick={() => handleSort('sem3')} className="h-8 px-2 font-medium -mr-2">
-                  Sem 3 <ArrowUpDown className="ml-1 w-3 h-3" />
-                </Button>
-              </TableHead>
-              <TableHead className="text-right">
-                <Button variant="ghost" size="sm" onClick={() => handleSort('sem4')} className="h-8 px-2 font-medium -mr-2">
-                  Sem 4 <ArrowUpDown className="ml-1 w-3 h-3" />
-                </Button>
-              </TableHead>
-              {!is2028 && (
+              {!is2029 && (
+                <>
+                  <TableHead className="text-right">
+                    <Button variant="ghost" size="sm" onClick={() => handleSort('sem2')} className="h-8 px-2 font-medium -mr-2">
+                      Sem 2 <ArrowUpDown className="ml-1 w-3 h-3" />
+                    </Button>
+                  </TableHead>
+                  <TableHead className="text-right">
+                    <Button variant="ghost" size="sm" onClick={() => handleSort('sem3')} className="h-8 px-2 font-medium -mr-2">
+                      Sem 3 <ArrowUpDown className="ml-1 w-3 h-3" />
+                    </Button>
+                  </TableHead>
+                  <TableHead className="text-right">
+                    <Button variant="ghost" size="sm" onClick={() => handleSort('sem4')} className="h-8 px-2 font-medium -mr-2">
+                      Sem 4 <ArrowUpDown className="ml-1 w-3 h-3" />
+                    </Button>
+                  </TableHead>
+                </>
+              )}
+              {!(is2028 || is2029) && (
                 <>
                   <TableHead className="text-right">
                     <Button variant="ghost" size="sm" onClick={() => handleSort('sem5')} className="h-8 px-2 font-medium -mr-2">
@@ -158,10 +163,14 @@ export function ResultsTable({ data, isLoading, page, totalPages, setPage, onRow
                   
                   {/* Exact Semester Columns */}
                   <TableCell className="text-right text-muted-foreground">{student.sgpa?.sem1 ? student.sgpa.sem1.toFixed(3) : '-'}</TableCell>
-                  <TableCell className="text-right text-muted-foreground">{student.sgpa?.sem2 ? student.sgpa.sem2.toFixed(3) : '-'}</TableCell>
-                  <TableCell className="text-right text-muted-foreground">{student.sgpa?.sem3 ? student.sgpa.sem3.toFixed(3) : '-'}</TableCell>
-                  <TableCell className="text-right text-muted-foreground">{student.sgpa?.sem4 ? student.sgpa.sem4.toFixed(3) : '-'}</TableCell>
-                  {!is2028 && (
+                  {!is2029 && (
+                    <>
+                      <TableCell className="text-right text-muted-foreground">{student.sgpa?.sem2 ? student.sgpa.sem2.toFixed(3) : '-'}</TableCell>
+                      <TableCell className="text-right text-muted-foreground">{student.sgpa?.sem3 ? student.sgpa.sem3.toFixed(3) : '-'}</TableCell>
+                      <TableCell className="text-right text-muted-foreground">{student.sgpa?.sem4 ? student.sgpa.sem4.toFixed(3) : '-'}</TableCell>
+                    </>
+                  )}
+                  {!(is2028 || is2029) && (
                     <>
                       <TableCell className="text-right text-muted-foreground">{student.sgpa?.sem5 ? student.sgpa.sem5.toFixed(3) : '-'}</TableCell>
                       <TableCell className="text-right font-medium text-slate-700 dark:text-slate-300">{student.sgpa?.sem6 ? student.sgpa.sem6.toFixed(3) : '-'}</TableCell>

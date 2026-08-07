@@ -31,6 +31,7 @@ export function HeroCards({ topper, mostImproved, mostConsistent, atRiskCount }:
       isTopper: true,
       cgpa: topper?.cgpa ? `${parseFloat(topper.cgpa).toFixed(2)} CGPA` : "N/A",
       name: topper?.name ? toTitleCase(topper.name) : "Computing...",
+      batch: topper?.batch || "2027",
     },
     {
       id: "improved",
@@ -139,9 +140,16 @@ export function HeroCards({ topper, mostImproved, mostConsistent, atRiskCount }:
                   >
                     {card.name}
                   </h3>
-                  <p className="text-sm sm:text-base font-extrabold text-slate-800 dark:text-white drop-shadow-sm mt-0 sm:mt-1">
-                    {card.cgpa}
-                  </p>
+                  <div className="flex items-center gap-2 mt-0 sm:mt-1">
+                    <p className="text-sm sm:text-base font-extrabold text-slate-800 dark:text-white drop-shadow-sm">
+                      {card.cgpa}
+                    </p>
+                    {card.batch && (
+                      <span className="px-1.5 py-0.5 rounded text-[10px] font-bold tracking-wide uppercase bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-300">
+                        Class of {card.batch}
+                      </span>
+                    )}
+                  </div>
                 </div>
               </motion.div>
             );

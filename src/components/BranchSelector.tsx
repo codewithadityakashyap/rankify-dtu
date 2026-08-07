@@ -11,6 +11,10 @@ export const STRICT_BRANCHES = [
   "All", "AE", "BT", "CE", "CH", "CS", "EC", "EE", "EP", "EN", "IT", "MC", "ME", "PE", "SE"
 ];
 
+export const BRANCHES_2029 = [
+  "All", "AE", "BT", "CE", "CH", "CS", "CY", "DA", "EC", "EE", "EP", "EN", "IT", "MC", "ME", "PE", "SE", "VL"
+];
+
 export interface BranchSelectorProps {
   branches?: string[];
   selectedBranch: string;

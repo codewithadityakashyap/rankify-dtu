@@ -21,12 +21,15 @@ export function BatchSelector({ isHeader = false }: { isHeader?: boolean }) {
         const rollMatch = pathname.match(/\/student\/([^/?]+)/);
         if (rollMatch && rollMatch[1]) {
           const decodedRoll = decodeURIComponent(rollMatch[1]).toUpperCase();
-          const isLateralEntry2027 = /^(?:24|2K24)\/BT\/5\d{2}$/.test(decodedRoll);
+          const isLateralEntry2027 = /^(?:24|2K24)\/[A-Z]+\/5\d{2}$/.test(decodedRoll);
+          const isLateralEntry2028 = /^(?:25|2K25)\/[A-Z]+\/8\d{2}$/.test(decodedRoll);
           
           if (decodedRoll.startsWith('23/') || decodedRoll.startsWith('2K23/') || isLateralEntry2027) {
             currentBatch = '2027';
-          } else if (decodedRoll.startsWith('24/') || decodedRoll.startsWith('2K24/')) {
+          } else if (decodedRoll.startsWith('24/') || decodedRoll.startsWith('2K24/') || isLateralEntry2028) {
             currentBatch = '2028';
+          } else if (decodedRoll.startsWith('25/') || decodedRoll.startsWith('2K25/')) {
+            currentBatch = '2029';
           }
         }
       } catch (e) {

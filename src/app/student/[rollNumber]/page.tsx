@@ -7,6 +7,7 @@ import { Badge } from '@/components/ui/badge';
 import { BackButton } from '@/components/BackButton';
 import { CGPAPredictor } from '@/components/dashboard/CGPAPredictor';
 import { PlacementPredictor } from '@/components/dashboard/PlacementPredictor';
+import { HistoricalRankCharts } from '@/components/dashboard/HistoricalRankCharts';
 import placementData from '../../../../src/data/placement_data.json';
 
 // Using JSON-LD structured data
@@ -52,15 +53,21 @@ export default async function StudentProfilePage({ params }: { params: { rollNum
   let isLateralEntry = false;
 
   const rNo = student.rollNumber.toUpperCase();
-  const isLateralEntry2027 = /^(?:24|2K24)\/BT\/5\d{2}$/.test(rNo);
+  const isLateralEntry2027 = /^(?:24|2K24)\/[A-Z]+\/5\d{2}$/.test(rNo);
+  const isLateralEntry2028 = /^(?:25|2K25)\/[A-Z]+\/8\d{2}$/.test(rNo);
 
   if (rNo.startsWith('23/') || rNo.startsWith('2K23/') || isLateralEntry2027) {
     graduationBatch = 'Class of 2027';
     if (isLateralEntry2027) {
       isLateralEntry = true;
     }
-  } else if (rNo.startsWith('24/') || rNo.startsWith('2K24/')) {
+  } else if (rNo.startsWith('24/') || rNo.startsWith('2K24/') || isLateralEntry2028) {
     graduationBatch = 'Class of 2028';
+    if (isLateralEntry2028) {
+      isLateralEntry = true;
+    }
+  } else if (rNo.startsWith('25/') || rNo.startsWith('2K25/')) {
+    graduationBatch = 'Class of 2029';
   } else if (rNo.startsWith('22/') || rNo.startsWith('2K22/')) {
     graduationBatch = 'Class of 2026';
   } else if (rNo.startsWith('21/') || rNo.startsWith('2K21/')) {
@@ -176,6 +183,8 @@ export default async function StudentProfilePage({ params }: { params: { rollNum
               ))}
             </div>
           </div>
+
+          <HistoricalRankCharts historicalRanks={student.historicalRanks} />
 
           <div className="pt-2">
             <CGPAPredictor student={student} />

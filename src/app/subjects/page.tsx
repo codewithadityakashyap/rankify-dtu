@@ -1,4 +1,4 @@
-
+import { Suspense } from 'react';
 import SubjectDashboard from '@/components/subjects/SubjectDashboard';
 import subjectStats from '@/data/subject_stats.json';
 
@@ -10,9 +10,10 @@ export const metadata = {
 export default function SubjectsPage() {
   return (
     <div className="min-h-screen bg-slate-50 dark:bg-[#0F172A] font-sans selection:bg-indigo-500/30">
-
       <main className="w-full">
-        <SubjectDashboard initialData={subjectStats} />
+        <Suspense fallback={<div className="p-8 text-center">Loading subjects...</div>}>
+          <SubjectDashboard initialData={subjectStats as any} />
+        </Suspense>
       </main>
     </div>
   );

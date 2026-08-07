@@ -4,13 +4,16 @@ import { motion } from "framer-motion";
 
 interface StatsStripProps {
   totalStudents: number;
+  avgCgpa?: string;
+  topBranch?: string;
+  batch?: string;
 }
 
-export function StatsStrip({ totalStudents }: StatsStripProps) {
+export function StatsStrip({ totalStudents, avgCgpa = "7.84", topBranch = "IT / COE", batch = "2027" }: StatsStripProps) {
   const stats = [
-    { label: "Total Students Tracked", value: totalStudents > 0 ? `${totalStudents.toLocaleString()}` : "2,500+" },
-    { label: "University Avg CGPA", value: "7.84" },
-    { label: "Top Performing Branch", value: "IT / COE" },
+    { label: `Students Tracked (${batch})`, value: totalStudents > 0 ? `${totalStudents.toLocaleString()}` : "2,500+" },
+    { label: `${batch} Batch Avg CGPA`, value: avgCgpa },
+    { label: "Top Performing Branch", value: topBranch },
     { label: "Placement Rate (2026)", value: "45.1%" },
   ];
 

@@ -5,6 +5,7 @@ import { ChevronDown, Trophy, ArrowRight, BarChart3, Briefcase } from "lucide-re
 import { ResponsiveContainer, LineChart, Line, YAxis } from "recharts";
 import { Playfair_Display } from "next/font/google";
 import Link from "next/link";
+import React from "react";
 
 const playfair = Playfair_Display({ subsets: ["latin"], weight: ["600", "700"] });
 
@@ -24,7 +25,22 @@ const getTrendData = (topper: any) => {
 };
 
 export function LandingHero({ onScrollToDashboard, onScrollToBranch, topper }: LandingHeroProps) {
+  const [offerIdx, setOfferIdx] = React.useState(0);
   const trendData = getTrendData(topper);
+
+  const topOffers = [
+    { name: "Ayush Gupta", branch: "CO Branch", role: "Software Engineer @ Atlassian", link: "https://www.linkedin.com/in/ayushg2004/" },
+    { name: "Ishan Chugh", branch: "IT Branch", role: "Currently Applied Scientist @ Amazon", link: "https://www.linkedin.com/in/ishan127/" },
+    { name: "Harshiv Ganwani", branch: "CO Branch", role: "Software Engineer @ Atlassian", link: "https://www.linkedin.com/in/harshiv-ganwani/" }
+  ];
+
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      setOfferIdx((prev) => (prev + 1) % topOffers.length);
+    }, 4000);
+    return () => clearInterval(interval);
+  }, [topOffers.length]);
+
 
   return (
     <section className="relative pt-6 sm:pt-16 pb-16 sm:pb-20 lg:pt-24 lg:pb-28 overflow-hidden">
@@ -97,7 +113,7 @@ export function LandingHero({ onScrollToDashboard, onScrollToBranch, topper }: L
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-blue-400/20 dark:bg-cyan-500/10 blur-[80px] rounded-full pointer-events-none" />
 
             {/* TOP PERFORMER CARD */}
-            <div className="relative bg-white/80 dark:bg-[#1E293B]/80 backdrop-blur-xl border border-white/50 dark:border-slate-700/50 rounded-[2rem] shadow-[0_8px_30px_rgb(0,0,0,0.06)] dark:shadow-[0_8px_30px_rgb(0,0,0,0.15)] p-6 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgb(0,0,0,0.08)] transition-all duration-300 transform sm:rotate-[-2deg] sm:hover:rotate-0 origin-bottom-right z-10">
+            <div className="relative bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 z-10 p-6">
               <div className="flex items-start justify-between mb-6">
                 <div>
                   <div className="flex items-center gap-2 mb-1">
@@ -107,8 +123,11 @@ export function LandingHero({ onScrollToDashboard, onScrollToBranch, topper }: L
                   <h3 className={`${playfair.className} text-2xl font-bold text-slate-900 dark:text-white tracking-tight truncate max-w-[200px]`} title={topper?.name || "Loading..."}>
                     {topper?.name ? topper.name.toLowerCase().replace(/\b\w/g, (c: string) => c.toUpperCase()) : "University Topper"}
                   </h3>
-                  <div className="text-sm font-medium text-slate-500 dark:text-slate-400 mt-0.5">
-                    {topper?.rollNumber || "Roll No"} • {topper?.branch || "Branch"}
+                  <div className="flex items-center gap-2 text-sm font-medium text-slate-500 dark:text-slate-400 mt-0.5">
+                    <span>{topper?.rollNumber || "Roll No"} • {topper?.branch || "Branch"}</span>
+                    <span className="px-1.5 py-0.5 rounded text-[10px] font-bold tracking-wide uppercase bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">
+                      Class of {topper?.batch || "2027"}
+                    </span>
                   </div>
                 </div>
                 <div className="flex shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-yellow-50 to-amber-100 dark:from-yellow-500/20 dark:to-amber-500/10 items-center justify-center border border-yellow-200 dark:border-yellow-500/30 text-yellow-700 dark:text-yellow-400 font-bold text-lg shadow-sm">
@@ -134,7 +153,7 @@ export function LandingHero({ onScrollToDashboard, onScrollToBranch, topper }: L
                         stroke="#2563EB"
                         strokeWidth={3}
                         dot={false}
-                        animationDuration={2000}
+                        isAnimationActive={false}
                         style={{ filter: "drop-shadow(0px 4px 6px rgba(37, 99, 235, 0.3))" }}
                       />
                     </LineChart>
@@ -148,7 +167,7 @@ export function LandingHero({ onScrollToDashboard, onScrollToBranch, topper }: L
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: 0.3, duration: 0.5, ease: "easeOut" }}
-              className="relative bg-gradient-to-br from-[#5C1758] to-[#3B0E38] backdrop-blur-xl border border-[#F49400]/20 rounded-[2rem] shadow-[0_8px_30px_rgba(92,23,88,0.35)] p-6 hover:-translate-y-1 hover:shadow-[0_12px_40px_rgba(92,23,88,0.45)] transition-all duration-300 transform sm:rotate-[2deg] sm:hover:rotate-0 origin-top-left z-20 sm:-mt-12 overflow-hidden"
+              className="relative bg-gradient-to-br from-[#5C1758] to-[#3B0E38] border border-[#F49400]/20 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1 z-20 overflow-hidden p-6"
             >
               {/* Card decorative background */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-white/5 rounded-full blur-2xl -mr-10 -mt-10 pointer-events-none" />
@@ -159,16 +178,29 @@ export function LandingHero({ onScrollToDashboard, onScrollToBranch, topper }: L
                     <span className="text-xl leading-none">💼</span>
                     <span className="text-xs font-bold text-[#F49400] uppercase tracking-widest pl-0.5">Highest Package</span>
                   </div>
-                  <h3 className={`${playfair.className} text-2xl font-bold text-white tracking-tight`}>
-                    Ayush Gupta
-                  </h3>
-                  <div className="text-sm font-medium text-white/70 mt-0.5">
-                    CO Branch • 2K22/CO/127
+                  <a 
+                    href={topOffers[offerIdx].link}
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className={`${playfair.className} text-2xl font-bold text-white tracking-tight hover:text-[#F49400] transition-colors inline-block`}
+                  >
+                    {topOffers[offerIdx].name}
+                  </a>
+                  <div className="text-sm font-medium text-white/70 mt-0.5 transition-all min-h-[44px]">
+                    {topOffers[offerIdx].branch}
+                    {topOffers[offerIdx].role && (
+                      <div className="text-[#F49400]/90 font-bold text-xs mt-0.5">{topOffers[offerIdx].role}</div>
+                    )}
                   </div>
                 </div>
-                <div className="absolute top-6 right-6 flex shrink-0 w-16 h-16 rounded-2xl bg-white/5 items-center justify-center border border-white/10 shadow-sm overflow-hidden">
+                <a 
+                  href="https://www.linkedin.com/in/ayushg2004/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="absolute top-6 right-6 flex shrink-0 w-16 h-16 rounded-2xl bg-white/5 items-center justify-center border border-white/10 shadow-sm overflow-hidden p-2 hover:scale-105 hover:bg-white/10 transition-all"
+                >
                   <img src="/logos/atlassian.png" alt="Atlassian" className="w-full h-full object-contain" onError={(e) => { e.currentTarget.style.display = 'none'; }} />
-                </div>
+                </a>
               </div>
 
               <div className="flex items-end justify-between gap-4 mt-6 relative z-10">

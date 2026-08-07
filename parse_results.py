@@ -15,7 +15,15 @@ def parse_all_pdfs(directory, sem_key, all_students, subject_map):
     print(f"Found {len(pdf_files)} PDF files.")
     
     for pdf_path in pdf_files:
-        print(f"Processing {os.path.basename(pdf_path)}...")
+        filename = os.path.basename(pdf_path)
+        print(f"Processing {filename}...")
+        
+        file_branch = None
+        for b in ['AE', 'BT', 'CE', 'CH', 'CS', 'CY', 'DA', 'EC', 'EE', 'EN', 'EP', 'IT', 'ME', 'PE', 'SE', 'VL', 'MC']:
+            if f"_{b}_" in filename:
+                file_branch = b
+                break
+        
         try:
             with pdfplumber.open(pdf_path) as pdf:
                 # 1. Extract subject mappings from raw text across all pages
@@ -127,6 +135,8 @@ def parse_all_pdfs(directory, sem_key, all_students, subject_map):
                                     "name": name,
                                     "semesters": {}
                                 }
+                                if file_branch:
+                                    all_students[roll_num]["branch"] = file_branch
                             
                             # Merge logic for reappear results
                             if sem_key in all_students[roll_num]["semesters"]:
@@ -162,6 +172,9 @@ if __name__ == "__main__":
     parse_all_pdfs("data/Result/2028/sem 2 result", "sem2", all_students, subject_map)
     parse_all_pdfs("data/Result/2028/sem 3 resullt", "sem3", all_students, subject_map)
     parse_all_pdfs("data/Result/2028/sem 4 result", "sem4", all_students, subject_map)
+    
+    # Process 2029 Semesters
+    parse_all_pdfs("data/Result/2029/sem 1 result", "sem1", all_students, subject_map)
 
     # Write to JSON
     with open(output_path, 'w') as f:

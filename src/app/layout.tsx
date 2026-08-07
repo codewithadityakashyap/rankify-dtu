@@ -4,6 +4,7 @@ import './globals.css';
 import { ThemeProvider } from '@/components/theme-provider';
 import Script from 'next/script';
 import { Header } from '@/components/Header';
+import AccessGate from '@/components/AccessGate';
 
 const inter = Inter({
   variable: '--font-sans',
@@ -114,6 +115,7 @@ export default function RootLayout({
           enableSystem={false}
           disableTransitionOnChange
         >
+          <AccessGate />
           <Header />
           {children}
         </ThemeProvider>

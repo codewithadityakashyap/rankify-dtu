@@ -17,7 +17,7 @@ import { BatchSelector } from '@/components/dark-glass/BatchSelector';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { ChevronDown } from 'lucide-react';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
-import { STRICT_BRANCHES } from '@/components/BranchSelector';
+import { STRICT_BRANCHES, BRANCHES_2029 } from '@/components/BranchSelector';
 
 type TabType = 'overview' | 'risk' | 'leaderboard';
 
@@ -97,8 +97,8 @@ export function BranchDashboard({ branch }: { branch: string }) {
               </h1>
             </DropdownMenuTrigger>
             <DropdownMenuContent align="start" className="w-48 max-h-[300px] overflow-y-auto">
-              {STRICT_BRANCHES.filter(b => b !== 'All').map(b => (
-                <DropdownMenuItem key={b} onClick={() => router.push(`/branch/${b}`)} className="cursor-pointer font-medium">
+              {(batch === '2029' ? BRANCHES_2029 : STRICT_BRANCHES).filter(b => b !== 'All').map(b => (
+                <DropdownMenuItem key={b} onClick={() => router.push(`/branch/${b}?batch=${batch}`)} className="cursor-pointer font-medium">
                   {b} Analytics
                 </DropdownMenuItem>
               ))}

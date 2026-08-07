@@ -244,9 +244,6 @@ function CompanyDetailPanel({ co, onBack }: { co: Company; onBack: () => void })
                 style={{ color: typeColor, background: `${typeColor}15`, border: `1px solid ${typeColor}30` }}>
                 {co.type}
               </span>
-              <Link href={`/company/${encodeURIComponent(co.name)}`} className="text-xs text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 font-medium hover:underline">
-                View Profile Page →
-              </Link>
             </div>
           </div>
         </div>
