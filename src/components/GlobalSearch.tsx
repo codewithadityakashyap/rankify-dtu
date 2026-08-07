@@ -77,7 +77,7 @@ export function GlobalSearch() {
       >
         <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
         <Search className="h-4 w-4 text-indigo-500 dark:text-indigo-400 shrink-0 group-hover:scale-110 transition-transform duration-300" />
-        <span className="hidden sm:inline-flex relative z-10 bg-gradient-to-r from-slate-800 to-slate-500 dark:from-slate-100 dark:to-slate-400 bg-clip-text text-transparent font-semibold tracking-wide">Explore Data...</span>
+        <span className="inline-flex relative z-10 bg-gradient-to-r from-slate-800 to-slate-500 dark:from-slate-100 dark:to-slate-400 bg-clip-text text-transparent font-semibold tracking-wide text-[13px] sm:text-sm">Search</span>
         <kbd className="hidden lg:inline-flex items-center gap-1 px-1.5 py-0.5 font-mono text-[10px] font-bold text-indigo-600 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-900/40 rounded border border-indigo-100 dark:border-indigo-800 shadow-sm relative z-10">
           <span className="text-xs">⌘</span>K
         </kbd>

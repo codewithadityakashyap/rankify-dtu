@@ -27,7 +27,7 @@ export function LandingHero({ onScrollToDashboard, onScrollToBranch, topper }: L
   const trendData = getTrendData(topper);
 
   return (
-    <section className="relative pt-16 pb-20 lg:pt-24 lg:pb-28 overflow-hidden">
+    <section className="relative pt-6 sm:pt-16 pb-16 sm:pb-20 lg:pt-24 lg:pb-28 overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-[linear-gradient(to_bottom,#F8FAFC,#EEF2FF)] dark:bg-[linear-gradient(to_bottom,#0F172A,#0B1120)] -z-10" />
 

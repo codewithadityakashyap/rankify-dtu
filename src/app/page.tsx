@@ -133,7 +133,7 @@ function DashboardContent() {
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
 
-      <div className="md:hidden w-full px-4 pt-6 pb-2 flex justify-center">
+      <div className="md:hidden w-full px-4 pt-4 pb-0 flex justify-center">
         <Suspense fallback={<div className="w-full h-12 bg-slate-100 dark:bg-slate-800 rounded-xl animate-pulse" />}>
           <BatchSelector isHeader={false} />
         </Suspense>
