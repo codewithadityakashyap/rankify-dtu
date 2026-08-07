@@ -4,33 +4,50 @@ import React, { useState } from 'react';
 import { Search, User, Award, TrendingUp, X } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, BarChart, Bar, RadarChart, PolarGrid, PolarAngleAxis, PolarRadiusAxis, Radar } from 'recharts';
 
-export function CompareStudentsClient({ allStudents, allTranscripts }: { allStudents: any[], allTranscripts?: any }) {
+export function CompareStudentsClient() {
   const [student1, setStudent1] = useState<any>(null);
   const [student2, setStudent2] = useState<any>(null);
   const [search1, setSearch1] = useState('');
   const [search2, setSearch2] = useState('');
+  const [filtered1, setFiltered1] = useState<any[]>([]);
+  const [filtered2, setFiltered2] = useState<any[]>([]);
+  const [transcript1, setTranscript1] = useState<any>(null);
+  const [transcript2, setTranscript2] = useState<any>(null);
 
-  // Very simple client-side search logic
-  const getFilteredStudents = (query: string, exclude: any) => {
-    if (query.length < 2) return [];
-    const lowerQuery = query.toLowerCase();
-    return allStudents
-      .filter(s => s !== exclude)
-      .filter(s => s.name.toLowerCase().includes(lowerQuery) || s.rollNumber.toLowerCase().includes(lowerQuery))
-      .slice(0, 5); // Limit to top 5
-  };
+  React.useEffect(() => {
+    if (search1.length < 2) { setFiltered1([]); return; }
+    fetch(`/api/results?q=${search1}&limit=5`).then(res => res.json()).then(data => {
+      setFiltered1(data.data ? data.data.filter((s:any) => s.rollNumber !== student2?.rollNumber) : []);
+    });
+  }, [search1, student2]);
 
-  const filtered1 = getFilteredStudents(search1, student2);
-  const filtered2 = getFilteredStudents(search2, student1);
+  React.useEffect(() => {
+    if (search2.length < 2) { setFiltered2([]); return; }
+    fetch(`/api/results?q=${search2}&limit=5`).then(res => res.json()).then(data => {
+      setFiltered2(data.data ? data.data.filter((s:any) => s.rollNumber !== student1?.rollNumber) : []);
+    });
+  }, [search2, student1]);
+
+  React.useEffect(() => {
+    if (student1) fetch(`/api/transcript?rollNumber=${student1.rollNumber}`).then(res => res.json()).then(setTranscript1);
+  }, [student1]);
+
+  React.useEffect(() => {
+    if (student2) fetch(`/api/transcript?rollNumber=${student2.rollNumber}`).then(res => res.json()).then(setTranscript2);
+  }, [student2]);
 
   // Chart data generation for SGPA and Rank Trend
+  // Chart data generation for SGPA and CGPA Trend
   const lineChartData = [];
-  const rankChartData = [];
+  const cgpaChartData = [];
   
   if (student1 || student2) {
     for (let i = 1; i <= 8; i++) {
       const s1 = student1 ? student1.sgpa[`sem${i}`] : null;
       const s2 = student2 ? student2.sgpa[`sem${i}`] : null;
+      
+      const c1 = student1?.historicalCgpa ? student1.historicalCgpa[`sem${i}`] : null;
+      const c2 = student2?.historicalCgpa ? student2.historicalCgpa[`sem${i}`] : null;
       
       if (s1 !== undefined || s2 !== undefined) {
         lineChartData.push({
@@ -39,26 +56,10 @@ export function CompareStudentsClient({ allStudents, allTranscripts }: { allStud
           [student2 ? student2.name : 'Student 2']: s2 || null,
         });
 
-        // Compute historical rank for this semester
-        let rank1 = null;
-        let rank2 = null;
-        
-        const allSgpasForSem = allStudents
-          .map(s => s.sgpa[`sem${i}`])
-          .filter(val => val !== undefined && val !== null)
-          .sort((a, b) => b - a);
-
-        if (s1 !== undefined && s1 !== null) {
-          rank1 = allSgpasForSem.indexOf(s1) + 1;
-        }
-        if (s2 !== undefined && s2 !== null) {
-          rank2 = allSgpasForSem.indexOf(s2) + 1;
-        }
-
-        rankChartData.push({
+        cgpaChartData.push({
           name: `Sem ${i}`,
-          [student1 ? student1.name : 'Student 1']: rank1,
-          [student2 ? student2.name : 'Student 2']: rank2,
+          [student1 ? student1.name : 'Student 1']: c1 || null,
+          [student2 ? student2.name : 'Student 2']: c2 || null,
         });
       }
     }
@@ -66,9 +67,9 @@ export function CompareStudentsClient({ allStudents, allTranscripts }: { allStud
 
   // Common subjects logic
   let commonSubjectsBySem: { semester: string, subjects: any[] }[] = [];
-  if (student1 && student2 && allTranscripts) {
-    const t1 = allTranscripts[student1.rollNumber];
-    const t2 = allTranscripts[student2.rollNumber];
+  if (student1 && student2 && transcript1 && transcript2) {
+    const t1 = transcript1;
+    const t2 = transcript2;
     
     if (t1?.semesters && t2?.semesters) {
       const subMap2 = new Map<string, any>();
@@ -234,17 +235,15 @@ export function CompareStudentsClient({ allStudents, allTranscripts }: { allStud
           </div>
 
           <div className="bg-card rounded-xl border p-5 shadow-sm md:col-span-2">
-            <h3 className="font-bold text-lg mb-6 border-b pb-2">University Rank Trend (Lower is better)</h3>
+            <h3 className="font-bold text-lg mb-6 border-b pb-2">Cumulative CGPA Trend (Higher is better)</h3>
             <div className="h-[300px] w-full">
               <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={rankChartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
+                <LineChart data={cgpaChartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                   <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" strokeOpacity={0.5} />
                   <XAxis dataKey="name" tick={{fontSize: 9, fill: '#94a3b8'}} axisLine={false} tickLine={false} interval="preserveStartEnd" />
-                  {/* Reversed Y Axis because rank 1 is best */}
-                  <YAxis reversed domain={['auto', 'auto']} tick={{fontSize: 12, fill: '#94a3b8'}} axisLine={false} tickLine={false} />
+                  <YAxis domain={['auto', 10]} tick={{fontSize: 12, fill: '#94a3b8'}} axisLine={false} tickLine={false} />
                   <Tooltip 
                     contentStyle={{ borderRadius: '8px', border: 'none', boxShadow: '0 4px 6px -1px rgb(0 0 0 / 0.1)' }}
-                    formatter={(value: number) => `#${value}`}
                   />
                   <Legend wrapperStyle={{ paddingTop: '20px', fontSize: '12px' }} />
                   {student1 && <Line type="monotone" dataKey={student1.name} stroke="#f59e0b" strokeWidth={3} dot={{r: 4, fill: '#f59e0b'}} />}

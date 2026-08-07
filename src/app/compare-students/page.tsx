@@ -1,8 +1,6 @@
 import { Metadata } from 'next';
 import { BackButton } from '@/components/BackButton';
 import { CompareStudentsClient } from '@/components/compare/CompareStudentsClient';
-import resultsData from '../../../src/data/results.json';
-import transcriptsData from '../../../src/data/transcripts.json';
 
 export const metadata: Metadata = {
   title: 'Compare Students - DTU Result & Placement Analytics',
@@ -19,7 +17,7 @@ export default function CompareStudentsPage() {
         <p className="text-muted-foreground mt-2">Select two students to compare their academic progression and performance.</p>
       </div>
       
-      <CompareStudentsClient allStudents={resultsData} allTranscripts={transcriptsData} />
+      <CompareStudentsClient />
     </div>
   );
 }
