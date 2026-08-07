@@ -49,9 +49,9 @@ export function SearchAndFilter({
         <div className="hidden md:block w-px h-8 bg-border/60 mx-1"></div>
         
         {/* Filters Container */}
-        <div className="flex w-full md:w-auto items-center gap-1">
+        <div className="flex w-full md:w-auto items-center overflow-x-auto pb-1 md:pb-0 scrollbar-none snap-x border-t md:border-t-0 border-border/40 mt-1 md:mt-0 pt-1 md:pt-0">
           <Select value={branch} onValueChange={(val) => setBranch(val || 'All')}>
-            <SelectTrigger className="border-0 bg-transparent shadow-none hover:bg-muted/50 font-medium h-12 rounded-xl transition-colors min-w-[140px] focus:ring-0">
+            <SelectTrigger className="border-0 bg-transparent shadow-none hover:bg-muted/50 font-medium h-10 rounded-xl transition-colors whitespace-nowrap focus:ring-0 snap-start shrink-0 text-sm">
               <SelectValue placeholder="All Branches" />
             </SelectTrigger>
             <SelectContent className="rounded-xl shadow-lg">
@@ -62,10 +62,10 @@ export function SearchAndFilter({
             </SelectContent>
           </Select>
 
-          <div className="w-px h-6 bg-border/60 mx-1"></div>
+          <div className="w-px h-5 bg-border/60 mx-1 shrink-0"></div>
 
           <Select value={academicStatus} onValueChange={(val) => setAcademicStatus(val || 'All')}>
-            <SelectTrigger className="border-0 bg-transparent shadow-none hover:bg-muted/50 font-medium h-12 rounded-xl transition-colors min-w-[140px] focus:ring-0">
+            <SelectTrigger className="border-0 bg-transparent shadow-none hover:bg-muted/50 font-medium h-10 rounded-xl transition-colors whitespace-nowrap focus:ring-0 snap-start shrink-0 text-sm">
               <SelectValue placeholder="All Status" />
             </SelectTrigger>
             <SelectContent className="rounded-xl shadow-lg">
@@ -76,11 +76,17 @@ export function SearchAndFilter({
             </SelectContent>
           </Select>
 
-          <div className="w-px h-6 bg-border/60 mx-1"></div>
+          <div className="w-px h-5 bg-border/60 mx-1 shrink-0"></div>
 
           <Select value={sort} onValueChange={(val) => setSort(val || 'rank_asc')}>
-            <SelectTrigger className="border-0 bg-transparent shadow-none hover:bg-muted/50 font-medium h-12 rounded-xl transition-colors min-w-[160px] focus:ring-0">
-              <SelectValue placeholder="Sort By" />
+            <SelectTrigger className="border-0 bg-transparent shadow-none hover:bg-muted/50 font-medium h-10 rounded-xl transition-colors whitespace-nowrap focus:ring-0 snap-start shrink-0 text-sm">
+              <SelectValue placeholder="Sort By">
+                {sort === 'rank_asc' && 'Rank (Top First)'}
+                {sort === 'rank_desc' && 'Rank (Lowest First)'}
+                {sort === 'cgpa_desc' && 'CGPA (High to Low)'}
+                {sort === 'cgpa_asc' && 'CGPA (Low to High)'}
+                {sort === 'name_asc' && 'Name (A-Z)'}
+              </SelectValue>
             </SelectTrigger>
             <SelectContent className="rounded-xl shadow-lg">
               <SelectItem value="rank_asc" className="font-medium">Rank (Top First)</SelectItem>
