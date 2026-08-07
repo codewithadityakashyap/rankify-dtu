@@ -13,6 +13,7 @@ export async function GET(request: Request) {
     const { searchParams } = new URL(request.url);
     const q = searchParams.get('q')?.toLowerCase() || '';
     const branch = searchParams.get('branch');
+    const batch = searchParams.get('batch') || '2027';
     const academicStatus = searchParams.get('academicStatus') || 'All';
     const page = parseInt(searchParams.get('page') || '1');
     const requestedLimit = parseInt(searchParams.get('limit') || '10');
@@ -25,6 +26,10 @@ export async function GET(request: Request) {
     let data = resultsData;
 
     // Filter
+    if (batch && batch !== 'All') {
+      data = data.filter((s: any) => s.batch === batch);
+    }
+    
     if (q) {
       data = data.filter((s: any) => 
         s.name.toLowerCase().includes(q) || 

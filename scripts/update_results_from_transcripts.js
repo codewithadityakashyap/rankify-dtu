@@ -25,41 +25,41 @@ for (const [roll, data] of Object.entries(transcripts)) {
     results.push(student);
     resultsMap.set(roll, student);
   }
-  
+
   student.sgpa = {};
-  
+
   let totalGradePoints = 0;
   let totalCredits = 0;
-  
+
   for (const [sem, semData] of Object.entries(data.semesters)) {
     const sgpa = semData.sgpa;
     student.sgpa[sem] = sgpa;
-    
+
     // Calculate total credits for this semester
     let semCredits = 0;
     if (semData.subjects && Array.isArray(semData.subjects)) {
       for (const sub of semData.subjects) {
         if (typeof sub.credits === 'number') {
-           semCredits += sub.credits;
+          semCredits += sub.credits;
         }
       }
     }
-    
+
     // Only include this semester in CGPA if it has a valid SGPA and credits
     if (sgpa > 0 && semCredits > 0) {
       totalGradePoints += (sgpa * semCredits);
       totalCredits += semCredits;
     }
   }
-  
+
   // Calculate cgpa properly with weighted credits
   if (totalCredits > 0) {
     student.cgpa = Number((totalGradePoints / totalCredits).toFixed(3));
   } else {
     student.cgpa = 0;
   }
-  
-  const availableSems = [1,2,3,4,5,6].map(s => student.sgpa['sem'+s]).filter(s => s > 0);
+
+  const availableSems = [1, 2, 3, 4, 5, 6].map(s => student.sgpa['sem' + s]).filter(s => s > 0);
   if (availableSems.length >= 2) {
     const latest = availableSems[availableSems.length - 1];
     const prev = availableSems[availableSems.length - 2];
@@ -67,69 +67,81 @@ for (const [roll, data] of Object.entries(transcripts)) {
   } else {
     student.improvement = 0;
   }
-  
+
   student.latestSgpa = availableSems[availableSems.length - 1] || 0;
 }
 
-// 0. Filter out non-2027 batch students
+// 0. Filter out non-2027/2028 batch students
 const validPrefixes = ['23/', '24/', '2K23/', '2K24/'];
 const isWanted = (roll) => validPrefixes.some(p => roll.toUpperCase().startsWith(p));
 results = results.filter(r => isWanted(r.rollNumber));
 
-// 1. Compute Overall Rank
-results.sort((a, b) => b.cgpa - a.cgpa);
-let overallRank = 1;
-results.forEach((s, idx) => {
-  if (idx > 0 && s.cgpa === results[idx - 1].cgpa) {
-    s.overallRank = results[idx - 1].overallRank;
-  } else {
-    s.overallRank = overallRank;
-  }
-  overallRank++;
-});
-
-// 2. Compute Branch Rank
-const branchGroups = {};
+// Add batch logic
 results.forEach(s => {
-  if (!branchGroups[s.branch]) branchGroups[s.branch] = [];
-  branchGroups[s.branch].push(s);
+  const roll = s.rollNumber.toUpperCase();
+  const isLateralEntry2027 = /^(?:24|2K24)\/BT\/5\d{2}$/.test(roll);
+
+  if (roll.startsWith('23/') || roll.startsWith('2K23/') || isLateralEntry2027) {
+    s.batch = '2027';
+  } else if (roll.startsWith('24/') || roll.startsWith('2K24/')) {
+    s.batch = '2028';
+  } else {
+    s.batch = 'Unknown';
+  }
 });
 
-Object.keys(branchGroups).forEach(branch => {
-  const group = branchGroups[branch];
-  group.sort((a, b) => b.cgpa - a.cgpa);
-  let bRank = 1;
+// Helper to rank within a group based on a value function
+function rankGroup(group, valueFn, rankKey) {
+  group.sort((a, b) => valueFn(b) - valueFn(a));
+  let rank = 1;
   group.forEach((s, idx) => {
-    if (idx > 0 && s.cgpa === group[idx - 1].cgpa) {
-      s.branchRank = group[idx - 1].branchRank;
+    if (idx > 0 && valueFn(s) === valueFn(group[idx - 1])) {
+      s[rankKey] = group[idx - 1][rankKey];
     } else {
-      s.branchRank = bRank;
+      s[rankKey] = rank;
     }
-    bRank++;
+    rank++;
+  });
+}
+
+// Group by batch
+const batchGroups = {};
+results.forEach(s => {
+  if (!batchGroups[s.batch]) batchGroups[s.batch] = [];
+  batchGroups[s.batch].push(s);
+});
+
+// Process ranks per batch
+Object.values(batchGroups).forEach(batchGroup => {
+  // 1. Compute Overall Rank
+  rankGroup(batchGroup, s => s.cgpa, 'overallRank');
+
+  // 2. Compute Branch Rank
+  const branchGroups = {};
+  batchGroup.forEach(s => {
+    if (!branchGroups[s.branch]) branchGroups[s.branch] = [];
+    branchGroups[s.branch].push(s);
+  });
+  Object.values(branchGroups).forEach(bg => {
+    rankGroup(bg, s => s.cgpa, 'branchRank');
+  });
+
+  // 3. Compute Semester Rank (Based on latestSgpa)
+  rankGroup(batchGroup, s => s.latestSgpa, 'semesterRank');
+
+  // Calculate Most Improved within batch
+  batchGroup.sort((a, b) => b.improvement - a.improvement);
+  let bestImprovement = batchGroup[0]?.improvement || 0;
+  batchGroup.forEach(s => {
+    s.isMostImproved = s.improvement === bestImprovement && bestImprovement > 0;
   });
 });
 
-// 3. Compute Semester Rank (Based on latestSgpa)
-results.sort((a, b) => b.latestSgpa - a.latestSgpa);
-let semRank = 1;
-results.forEach((s, idx) => {
-  if (idx > 0 && s.latestSgpa === results[idx - 1].latestSgpa) {
-    s.semesterRank = results[idx - 1].semesterRank;
-  } else {
-    s.semesterRank = semRank;
-  }
-  semRank++;
+// Restore sort by batch then overall rank
+results.sort((a, b) => {
+  if (a.batch !== b.batch) return a.batch.localeCompare(b.batch);
+  return a.overallRank - b.overallRank;
 });
-
-// Calculate Most Improved globally
-results.sort((a, b) => b.improvement - a.improvement);
-let bestImprovement = results[0]?.improvement || 0;
-results.forEach(s => {
-  s.isMostImproved = s.improvement === bestImprovement && bestImprovement > 0;
-});
-
-// Restore sort by overall rank
-results.sort((a, b) => a.overallRank - b.overallRank);
 
 fs.writeFileSync(resultsPath, JSON.stringify(results, null, 2), 'utf8');
 console.log(`Successfully updated ${results.length} students with credit-weighted CGPA in ${resultsPath}`);

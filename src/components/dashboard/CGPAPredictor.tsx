@@ -20,11 +20,18 @@ export function CGPAPredictor({ student }: CGPAPredictorProps) {
     student.sgpa.sem8,
   ].filter(val => val !== undefined && val !== null);
   
+  let highestCompletedSem = 0;
+  for (let i = 1; i <= 8; i++) {
+    if (student.sgpa[`sem${i}`] !== undefined && student.sgpa[`sem${i}`] !== null) {
+      highestCompletedSem = i;
+    }
+  }
+  
   const currentCgpa = student.cgpa || (completedSems.length > 0 ? completedSems.reduce((a, b) => a + b, 0) / completedSems.length : 0);
   const currentTotal = currentCgpa * completedSems.length;
   
   const totalSemesters = 8;
-  const remainingSemsCount = totalSemesters - completedSems.length;
+  const remainingSemsCount = Math.max(0, totalSemesters - highestCompletedSem);
   
   // State for predicted future semesters
   const [predictedSems, setPredictedSems] = useState<number[]>(
@@ -68,7 +75,7 @@ export function CGPAPredictor({ student }: CGPAPredictorProps) {
           <h4 className="text-sm font-semibold border-b pb-2 text-foreground">Future Semesters (Target SGPA)</h4>
           <div className="space-y-4">
             {predictedSems.map((val, idx) => {
-              const semNumber = completedSems.length + idx + 1;
+              const semNumber = highestCompletedSem + idx + 1;
               return (
                 <div key={semNumber} className="flex flex-col sm:flex-row sm:items-center gap-3 bg-muted/20 p-3 rounded-lg border border-border/50">
                   <div className="w-24 shrink-0 font-medium text-sm text-foreground">Semester {semNumber}</div>

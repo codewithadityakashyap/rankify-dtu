@@ -3,6 +3,8 @@
 import Link from 'next/link';
 import { ModeToggle } from '@/components/ModeToggle';
 import { GlobalSearch } from '@/components/GlobalSearch';
+import { Suspense } from 'react';
+import { BatchSelector } from '@/components/dark-glass/BatchSelector';
 import { Menu } from 'lucide-react';
 import {
   DropdownMenu,
@@ -10,39 +12,62 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { useSearchParams } from 'next/navigation';
+
+function BatchAwareLink({ href, children, className }: { href: string; children: React.ReactNode; className?: string }) {
+  const searchParams = useSearchParams();
+  const batch = searchParams?.get('batch');
+  const finalHref = batch && href === '/' ? `/?batch=${batch}` : href;
+
+  return (
+    <Link href={finalHref} className={className}>
+      {children}
+    </Link>
+  );
+}
 
 export function Header() {
+  const logoContent = (
+    <>
+      <img
+        src="/logo.png"
+        alt="Rankify DTU Logo"
+        className="w-8 h-8 sm:w-10 sm:h-10 object-contain rounded-md"
+        onError={(e) => {
+          e.currentTarget.style.display = 'none';
+          e.currentTarget.nextElementSibling?.classList.remove('hidden');
+        }}
+      />
+      <div className="hidden w-8 h-8 sm:w-10 sm:h-10 rounded-md bg-primary text-white flex items-center justify-center font-bold text-lg sm:text-xl">
+        R
+      </div>
+      <h1 className="flex flex-col sm:flex-row sm:items-baseline leading-none sm:leading-normal text-base sm:text-xl font-bold tracking-tight text-slate-900 dark:text-white">
+        <span>Rankify</span>
+        <span className="text-[10px] sm:text-xl text-primary font-bold sm:font-light sm:ml-1 uppercase tracking-wider sm:tracking-normal sm:normal-case mt-0.5 sm:mt-0">
+          DTU
+        </span>
+      </h1>
+    </>
+  );
+
   return (
     <header className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-lg border-b border-slate-200/80 dark:border-slate-800/80 shadow-sm sticky top-0 z-50 transition-colors" style={{ transform: 'translateZ(0)' }}>
       <div className="container mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3">
-          <img
-            src="/logo.png"
-            alt="Rankify DTU Logo"
-            className="w-10 h-10 object-contain rounded-md"
-            onError={(e) => {
-              e.currentTarget.style.display = 'none';
-              e.currentTarget.nextElementSibling?.classList.remove('hidden');
-            }}
-          />
-          <div className="hidden w-10 h-10 rounded-md bg-primary text-white flex items-center justify-center font-bold text-xl">
-            R
-          </div>
-          <h1 className="text-xl font-bold tracking-tight text-slate-900 dark:text-white">
-            Rankify <span className="text-primary font-light">DTU</span>
-          </h1>
-        </Link>
+        <Suspense fallback={<Link href="/" className="flex items-center gap-2 sm:gap-3">{logoContent}</Link>}>
+          <BatchAwareLink href="/" className="flex items-center gap-2 sm:gap-3">
+            {logoContent}
+          </BatchAwareLink>
+        </Suspense>
 
         {/* Right side — Links + premium batch badge + theme toggle */}
         <div className="flex items-center gap-2 sm:gap-4">
           {/* Desktop Links */}
           <div className="hidden lg:flex items-center gap-5 mr-2">
-            <Link
-              href="/"
-              className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors"
-            >
-              Home
-            </Link>
+            <Suspense fallback={<Link href="/" className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">Home</Link>}>
+              <BatchAwareLink href="/" className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors">
+                Home
+              </BatchAwareLink>
+            </Suspense>
             <Link
               href="/placement"
               className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors"
@@ -84,14 +109,15 @@ export function Header() {
             </Link>
           </div>
           
-          <GlobalSearch />
+          <Suspense fallback={<div className="w-8 h-8 sm:w-48 sm:h-9 bg-slate-100 dark:bg-slate-800 rounded-lg animate-pulse" />}>
+            <GlobalSearch />
+          </Suspense>
 
-          {/* Premium "2027 Batch Results" badge */}
-          <div className="hidden xl:flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-primary/30 bg-primary/5 dark:bg-primary/10 dark:border-primary/40 shadow-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-            <span className="text-xs font-semibold tracking-wide text-primary/90 dark:text-primary whitespace-nowrap">
-              2027 Batch
-            </span>
+          {/* Premium Batch Selector */}
+          <div className="flex items-center">
+            <Suspense fallback={<div className="w-20 h-8 animate-pulse bg-slate-200 dark:bg-slate-800 rounded-lg" />}>
+              <BatchSelector isHeader={true} />
+            </Suspense>
           </div>
 
           <ModeToggle />
@@ -107,7 +133,9 @@ export function Header() {
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end" className="w-48">
                 <DropdownMenuItem asChild>
-                  <Link href="/" className="w-full cursor-pointer">Home</Link>
+                  <Suspense fallback={<Link href="/" className="w-full cursor-pointer">Home</Link>}>
+                    <BatchAwareLink href="/" className="w-full cursor-pointer">Home</BatchAwareLink>
+                  </Suspense>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <Link href="/placement" className="w-full cursor-pointer">Placements</Link>

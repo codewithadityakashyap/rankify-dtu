@@ -12,6 +12,7 @@ export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const branchQuery = searchParams.get('branch')?.toUpperCase();
+    const batchQuery = searchParams.get('batch') || '2027';
 
     if (!branchQuery) {
       return NextResponse.json({ error: 'Branch parameter is required' }, { status: 400 });
@@ -21,8 +22,11 @@ export async function GET(request: Request) {
     const fileContents = fs.readFileSync(dataPath, 'utf8');
     const data = JSON.parse(fileContents);
 
-    // Filter strictly for the requested branch
-    const branchData = data.filter((s: any) => s.branch?.toUpperCase() === branchQuery);
+    // Filter strictly for the requested branch and batch
+    const branchData = data.filter((s: any) => 
+      s.branch?.toUpperCase() === branchQuery && 
+      (s.batch === batchQuery || batchQuery === 'All')
+    );
 
     if (branchData.length === 0) {
       return NextResponse.json({ error: `No data found for branch ${branchQuery}` }, { status: 404 });

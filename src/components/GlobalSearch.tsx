@@ -3,7 +3,7 @@
 import * as React from 'react';
 import { Command } from 'cmdk';
 import { Search, Loader2, User, Building, GraduationCap, X } from 'lucide-react';
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { useDebounce } from '@/hooks/use-debounce';
 
 export function GlobalSearch() {
@@ -33,6 +33,9 @@ export function GlobalSearch() {
     return () => document.removeEventListener('keydown', down);
   }, []);
 
+  const searchParams = useSearchParams();
+  const currentBatch = searchParams?.get('batch') || '2027';
+
   React.useEffect(() => {
     async function fetchResults() {
       if (debouncedQuery.length < 2) {
@@ -41,7 +44,7 @@ export function GlobalSearch() {
       }
       setLoading(true);
       try {
-        const res = await fetch(`/api/search?q=${encodeURIComponent(debouncedQuery)}`);
+        const res = await fetch(`/api/search?q=${encodeURIComponent(debouncedQuery)}&batch=${currentBatch}`);
         if (res.ok) {
           const data = await res.json();
           setResults(data);
@@ -70,13 +73,15 @@ export function GlobalSearch() {
     <>
       <button
         onClick={() => setOpen(true)}
-        className="flex items-center gap-2 px-2.5 py-1.5 text-sm text-slate-500 dark:text-slate-400 bg-slate-100/80 dark:bg-slate-800/80 hover:bg-slate-200 dark:hover:bg-slate-700 rounded-lg transition-colors border border-transparent hover:border-slate-300 dark:hover:border-slate-600 shadow-sm"
+        className="group relative flex items-center gap-2 px-3 sm:px-4 py-2 text-sm font-medium text-slate-700 dark:text-slate-200 bg-white dark:bg-slate-900 rounded-xl transition-all duration-300 border border-slate-200 dark:border-slate-700 shadow-md hover:shadow-xl hover:-translate-y-0.5 overflow-hidden ring-1 ring-black/5 dark:ring-white/5"
       >
-        <Search className="h-4 w-4 text-slate-500" />
-        <span className="hidden xl:inline-flex font-medium text-slate-600 dark:text-slate-300">Search students...</span>
-        <kbd className="hidden md:inline-flex items-center gap-1 px-1.5 py-0.5 font-mono text-[10px] font-medium text-slate-500 bg-white dark:bg-slate-900 rounded border border-slate-200 dark:border-slate-700 shadow-sm">
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 via-indigo-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <Search className="h-4 w-4 text-indigo-500 dark:text-indigo-400 shrink-0 group-hover:scale-110 transition-transform duration-300" />
+        <span className="hidden sm:inline-flex relative z-10 bg-gradient-to-r from-slate-800 to-slate-500 dark:from-slate-100 dark:to-slate-400 bg-clip-text text-transparent font-semibold tracking-wide">Explore Data...</span>
+        <kbd className="hidden lg:inline-flex items-center gap-1 px-1.5 py-0.5 font-mono text-[10px] font-bold text-indigo-600 dark:text-indigo-300 bg-indigo-50 dark:bg-indigo-900/40 rounded border border-indigo-100 dark:border-indigo-800 shadow-sm relative z-10">
           <span className="text-xs">⌘</span>K
         </kbd>
+        <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full duration-[1.5s] ease-in-out transition-transform bg-gradient-to-r from-transparent via-white/40 dark:via-white/10 to-transparent skew-x-12 z-0"></div>
       </button>
 
       {open && (
@@ -87,8 +92,8 @@ export function GlobalSearch() {
                 <Search className="h-5 w-5 text-muted-foreground mr-2 shrink-0" />
                 <Command.Input
                   autoFocus
-                  placeholder="Type to search..."
-                  className="flex-1 h-14 bg-transparent outline-none text-foreground placeholder:text-muted-foreground"
+                  placeholder="Type your name, Roll number, or company name..."
+                  className="flex-1 h-12 bg-transparent outline-none text-sm text-foreground placeholder:text-muted-foreground/80"
                   value={query}
                   onValueChange={setQuery}
                 />

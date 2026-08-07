@@ -12,8 +12,9 @@ import { InsightPanel } from '@/components/dark-glass/InsightPanel';
 import { BackButton } from '@/components/dark-glass/BackButton';
 import { Footer } from '@/components/Footer';
 import { PlacementInsights } from '@/components/dark-glass/PlacementInsights';
+import { BatchSelector } from '@/components/dark-glass/BatchSelector';
 
-import { useRouter } from 'next/navigation';
+import { useRouter, useSearchParams } from 'next/navigation';
 import { ChevronDown } from 'lucide-react';
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from '@/components/ui/dropdown-menu';
 import { STRICT_BRANCHES } from '@/components/BranchSelector';
@@ -22,17 +23,31 @@ type TabType = 'overview' | 'risk' | 'leaderboard';
 
 export function BranchDashboard({ branch }: { branch: string }) {
   const router = useRouter();
+  const searchParams = useSearchParams();
+  const batch = searchParams.get('batch') || '2027';
+
   const [data, setData] = useState<any>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [activeTab, setActiveTab] = useState<TabType>('overview');
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`/api/branch-dashboard?branch=${branch}`)
+    fetch(`/api/branch-dashboard?branch=${branch}&batch=${batch}`)
       .then(res => res.json())
-      .then(d => { setData(d); setIsLoading(false); })
+      .then(d => { 
+        setData(d); 
+        setIsLoading(false); 
+        
+        // Auto-scroll to leaderboard for smartphone user efficiency
+        setTimeout(() => {
+          const lb = document.getElementById('branch-leaderboard');
+          if (lb && window.innerWidth < 1024) {
+            lb.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        }, 150);
+      })
       .catch(err => { console.error(err); setIsLoading(false); });
-  }, [branch]);
+  }, [branch, batch]);
 
   if (isLoading) {
     return (
@@ -153,7 +168,7 @@ export function BranchDashboard({ branch }: { branch: string }) {
 
         {/* ── Top Section: Leaderboard + Insight/Drop Analysis ── */}
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-          <div className="lg:col-span-2 space-y-6">
+          <div className="lg:col-span-2 space-y-6 scroll-mt-24" id="branch-leaderboard">
             {(activeTab === 'overview' || activeTab === 'leaderboard') && (
               <Leaderboard data={data?.leaderboard} />
             )}

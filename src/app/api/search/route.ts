@@ -12,6 +12,7 @@ export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const q = searchParams.get('q')?.toLowerCase() || '';
+    const batch = searchParams.get('batch');
 
     if (!q || q.length < 2) {
       return NextResponse.json({ students: [], placements: [] });
@@ -20,6 +21,7 @@ export async function GET(request: Request) {
     // 1. Search Results (Students)
     // Match by Name, Roll Number, Branch, or CGPA
     const matchedStudents = resultsData.filter((s: any) => {
+      if (batch && s.batch !== batch) return false;
       const matchName = s.name.toLowerCase().includes(q);
       const matchRoll = s.rollNumber.toLowerCase().includes(q);
       const matchBranch = s.branch.toLowerCase().includes(q) || s.rollNumber.toLowerCase().includes(`/${q}/`);

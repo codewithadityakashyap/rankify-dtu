@@ -12,10 +12,16 @@ export async function GET(request: Request) {
   try {
     const { searchParams } = new URL(request.url);
     const branch = searchParams.get('branch');
+    const batch = searchParams.get('batch') || '2027';
 
     const dataPath = path.join(process.cwd(), 'src', 'data', 'results.json');
     const fileContents = fs.readFileSync(dataPath, 'utf8');
-    const data = JSON.parse(fileContents);
+    let data = JSON.parse(fileContents);
+
+    // Filter by batch
+    if (batch && batch !== 'All') {
+      data = data.filter((s: any) => s.batch === batch);
+    }
 
     let kpiData = data;
     if (branch && branch !== 'All') {

@@ -50,13 +50,17 @@ export default async function StudentProfilePage({ params }: { params: { rollNum
 
   let graduationBatch = 'Unknown Batch';
   let isLateralEntry = false;
-  
+
   const rNo = student.rollNumber.toUpperCase();
-  if (rNo.startsWith('23/') || rNo.startsWith('2K23/')) {
+  const isLateralEntry2027 = /^(?:24|2K24)\/BT\/5\d{2}$/.test(rNo);
+
+  if (rNo.startsWith('23/') || rNo.startsWith('2K23/') || isLateralEntry2027) {
     graduationBatch = 'Class of 2027';
+    if (isLateralEntry2027) {
+      isLateralEntry = true;
+    }
   } else if (rNo.startsWith('24/') || rNo.startsWith('2K24/')) {
-    graduationBatch = 'Class of 2027';
-    isLateralEntry = true;
+    graduationBatch = 'Class of 2028';
   } else if (rNo.startsWith('22/') || rNo.startsWith('2K22/')) {
     graduationBatch = 'Class of 2026';
   } else if (rNo.startsWith('21/') || rNo.startsWith('2K21/')) {
@@ -105,9 +109,9 @@ export default async function StudentProfilePage({ params }: { params: { rollNum
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
-      
+
       <BackButton />
-      
+
       <div className="bg-card rounded-2xl shadow-sm border p-3 sm:p-6 md:p-8">
         <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 pb-6 border-b">
           <div>
@@ -186,13 +190,13 @@ export default async function StudentProfilePage({ params }: { params: { rollNum
               <BookOpen className="w-5 h-5 text-primary" />
               Detailed Transcript
             </h4>
-            
+
             {transcript && transcript.semesters ? (
               <div className="space-y-6">
                 {Object.keys(transcript.semesters).map((semKey) => {
                   const semData = transcript.semesters[semKey];
                   if (!semData || !semData.subjects) return null;
-                  
+
                   return (
                     <div key={semKey} className="border bg-muted/10 rounded-xl overflow-hidden shadow-sm">
                       <div className="bg-muted/50 px-5 py-4 border-b flex items-center justify-between">

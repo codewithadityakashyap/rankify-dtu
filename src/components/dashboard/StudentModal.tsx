@@ -107,8 +107,12 @@ export function StudentModal({ student, open, onOpenChange }: { student: any, op
           <div className="flex items-start justify-between pr-8">
             <div>
               <DialogTitle className="text-2xl font-bold font-sans text-foreground">{student.name}</DialogTitle>
-              <DialogDescription className="font-mono mt-1 text-muted-foreground">
-                {student.rollNumber} • {student.branch} Core
+              <DialogDescription className="font-mono mt-1 text-muted-foreground flex items-center gap-2">
+                <span>{student.rollNumber}</span>
+                <span>•</span>
+                <Badge variant="outline" className="text-[10px] py-0">{student.batch} Batch</Badge>
+                <span>•</span>
+                <span>{student.branch} Core</span>
               </DialogDescription>
             </div>
             <div className="text-right">

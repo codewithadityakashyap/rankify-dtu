@@ -147,25 +147,24 @@ def parse_all_pdfs(directory, sem_key, all_students, subject_map):
             print(f"Error processing {pdf_path}: {e}")
 
 if __name__ == "__main__":
+    output_path = "src/data/transcripts.json"
     all_students = {}
     subject_map = {}
     
-    # Process Sem 1 (and its reappear results)
-    parse_all_pdfs("data/Result/2027/sem 1 result", "sem1", all_students, subject_map)
-    # Process Sem 2
-    parse_all_pdfs("data/Result/2027/sem 2 result", "sem2", all_students, subject_map)
-    # Process Sem 3
-    parse_all_pdfs("data/Result/2027/sem 3 result", "sem3", all_students, subject_map)
-    # Process Sem 4
-    parse_all_pdfs("data/Result/2027/sem 4 result", "sem4", all_students, subject_map)
-    # Process Sem 5
-    parse_all_pdfs("data/Result/2027/sem 5 result", "sem5", all_students, subject_map)
-    # Process Sem 6 (just in case they exist for 2026/2027)
-    parse_all_pdfs("data/Result/2027/sem 6 result", "sem6", all_students, subject_map)
+    # Load existing transcripts to preserve 2027 data
+    if os.path.exists(output_path):
+        with open(output_path, 'r') as f:
+            all_students = json.load(f)
+            print(f"Loaded {len(all_students)} existing students from {output_path}")
+
+    # Process 2028 Semesters (which also contain 2027 reappears)
+    parse_all_pdfs("data/Result/2028/sem 1 result", "sem1", all_students, subject_map)
+    parse_all_pdfs("data/Result/2028/sem 2 result", "sem2", all_students, subject_map)
+    parse_all_pdfs("data/Result/2028/sem 3 resullt", "sem3", all_students, subject_map)
+    parse_all_pdfs("data/Result/2028/sem 4 result", "sem4", all_students, subject_map)
 
     # Write to JSON
-    output_path = "public/data/transcripts.json"
     with open(output_path, 'w') as f:
         json.dump(all_students, f, indent=2)
     
-    print(f"\nSuccessfully processed {len(all_students)} students. Data saved to {output_path}")
+    print(f"\nSuccessfully processed and merged {len(all_students)} students total. Data saved to {output_path}")
