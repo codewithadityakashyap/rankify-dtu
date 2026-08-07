@@ -71,7 +71,7 @@ export default async function BlogPostPage(props: Props) {
       "name": "Rankify DTU",
       "logo": {
         "@type": "ImageObject",
-        "url": "https://rankify-dtu.netlify.app/logo.png"
+        "url": "https://rankify-dtu.vercel.app/logo.png"
       }
     }
   };

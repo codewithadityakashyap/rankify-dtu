@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useMemo } from 'react';
+import Link from 'next/link';
 import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer,
   Cell, PieChart, Pie, Legend,
@@ -238,10 +239,15 @@ function CompanyDetailPanel({ co, onBack }: { co: Company; onBack: () => void })
           )}
           <div>
             <h2 className="text-2xl font-extrabold text-slate-900 dark:text-white">{co.name}</h2>
-            <span className="inline-block text-xs font-semibold px-2 py-0.5 rounded-full mt-1"
-              style={{ color: typeColor, background: `${typeColor}15`, border: `1px solid ${typeColor}30` }}>
-              {co.type}
-            </span>
+            <div className="flex items-center gap-3 mt-1">
+              <span className="inline-block text-xs font-semibold px-2 py-0.5 rounded-full"
+                style={{ color: typeColor, background: `${typeColor}15`, border: `1px solid ${typeColor}30` }}>
+                {co.type}
+              </span>
+              <Link href={`/company/${encodeURIComponent(co.name)}`} className="text-xs text-blue-500 hover:text-blue-600 dark:hover:text-blue-400 font-medium hover:underline">
+                View Profile Page →
+              </Link>
+            </div>
           </div>
         </div>
         <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">

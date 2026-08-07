@@ -20,7 +20,7 @@ export default function TermsPage() {
 
         <div className="prose prose-slate dark:prose-invert max-w-none">
           <p>
-            Welcome to Rankify DTU! These terms and conditions outline the rules and regulations for the use of Rankify DTU's Website, located at https://rankify-dtu.netlify.app.
+            Welcome to Rankify DTU! These terms and conditions outline the rules and regulations for the use of Rankify DTU's Website, located at https://rankify-dtu.vercel.app.
           </p>
           <p>
             By accessing this website we assume you accept these terms and conditions. Do not continue to use Rankify DTU if you do not agree to take all of the terms and conditions stated on this page.

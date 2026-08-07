@@ -12,7 +12,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { useSearchParams } from 'next/navigation';
+import { useSearchParams, usePathname } from 'next/navigation';
 
 function BatchAwareLink({ href, children, className }: { href: string; children: React.ReactNode; className?: string }) {
   const searchParams = useSearchParams();
@@ -27,6 +27,8 @@ function BatchAwareLink({ href, children, className }: { href: string; children:
 }
 
 export function Header() {
+  const pathname = usePathname();
+  const showBatchSelector = pathname === '/' || pathname.startsWith('/branch');
   const logoContent = (
     <>
       <img
@@ -86,6 +88,12 @@ export function Header() {
             >
               Subject Analysis
             </Link>
+            <Link
+              href="/rank-estimator"
+              className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors"
+            >
+              Rank Estimator
+            </Link>
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button className="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-primary transition-colors focus:outline-none">
@@ -115,9 +123,11 @@ export function Header() {
 
           {/* Premium Batch Selector */}
           <div className="hidden md:flex items-center">
-            <Suspense fallback={<div className="w-20 h-8 animate-pulse bg-slate-200 dark:bg-slate-800 rounded-lg" />}>
-              <BatchSelector isHeader={true} />
-            </Suspense>
+            {showBatchSelector && (
+              <Suspense fallback={<div className="w-20 h-8 animate-pulse bg-slate-200 dark:bg-slate-800 rounded-lg" />}>
+                <BatchSelector isHeader={true} />
+              </Suspense>
+            )}
           </div>
 
           <ModeToggle />
@@ -145,6 +155,9 @@ export function Header() {
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <Link href="/subjects" className="w-full cursor-pointer">Subject Analysis</Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link href="/rank-estimator" className="w-full cursor-pointer">Rank Estimator</Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
                   <Link href="/report-discrepancy" className="w-full cursor-pointer text-orange-500">Report Discrepancy</Link>

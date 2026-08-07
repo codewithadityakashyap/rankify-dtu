@@ -19,13 +19,32 @@ def generate_placements():
             if match:
                 cgpa = float(match.group(1))
         company = str(row['Company']).strip() if pd.notna(row['Company']) else 'Unknown'
-        if company == 'Texas Instrumetns':
-            company = 'Texas Instruments'
-        if company == 'ZS Associates (Jaipur)':
-            company = 'ZS Associates'
+        
+        # Normalize names
+        name_map = {
+            'Texas Instrumetns': 'Texas Instruments',
+            'ZS Associates (Jaipur)': 'ZS Associates',
+            'JPMC': 'JP Morgan Chase',
+            'Goldman': 'Goldman Sachs',
+            'Morgan': 'Morgan Stanley'
+        }
+        company = name_map.get(company, company)
+        
+        type_ = str(row['Type']).strip() if pd.notna(row['Type']) else 'Unknown'
+        
+        # Normalize types
+        type_map = {
+            'IBM Consulting': 'Tech',
+            'McKinsey': 'Non-Tech',
+            'Swiggy': 'Tech',
+            'PayTM': 'Tech',
+            'Cisco': 'Tech',
+            'Atlassian': 'Tech'
+        }
+        if company in type_map:
+            type_ = type_map[company]
         role = str(row['Role']).strip() if pd.notna(row['Role']) else 'Unknown'
         branch = str(row['Branch']).strip() if pd.notna(row['Branch']) else 'Unknown'
-        type_ = str(row['Type']).strip() if pd.notna(row['Type']) else 'Unknown'
         
         # Package might be string with ranges or just number
         ctc_raw = row['Package(LPA)']

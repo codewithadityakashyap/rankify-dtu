@@ -20,7 +20,7 @@ export default function PrivacyPage() {
 
         <div className="prose prose-slate dark:prose-invert max-w-none">
           <p>
-            At Rankify DTU, accessible from https://rankify-dtu.netlify.app, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Rankify DTU and how we use it.
+            At Rankify DTU, accessible from https://rankify-dtu.vercel.app, one of our main priorities is the privacy of our visitors. This Privacy Policy document contains types of information that is collected and recorded by Rankify DTU and how we use it.
           </p>
           <p>
             If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us.

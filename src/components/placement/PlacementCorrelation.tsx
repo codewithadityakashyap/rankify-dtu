@@ -36,7 +36,7 @@ export function PlacementCorrelation() {
       <div className="grid md:grid-cols-2 gap-6">
         <div>
           <p className="text-xs text-slate-500 dark:text-slate-400 mb-4 leading-relaxed">
-            Analysis of the 2027 batch reveals a strong correlation between academic history and placement success. 
+            Analysis of the 2026 batch reveals a strong correlation between academic history and placement success. 
             Students with active backlogs face a significantly lower probability of being placed, while those who have cleared their backlogs through revised results recover a large portion of their employability.
           </p>
           <div className="flex items-start gap-3 p-3 rounded-lg bg-red-50 dark:bg-red-900/10 border border-red-100 dark:border-red-900/30">
