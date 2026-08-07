@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { HeroCards } from '@/components/dark-glass/HeroCards';
 import { Leaderboard } from '@/components/dark-glass/Leaderboard';
@@ -125,6 +125,13 @@ export function BranchDashboard({ branch }: { branch: string }) {
           </div>
         </div>
       </header>
+
+      {/* Mobile Batch Selector */}
+      <div className="md:hidden w-full px-4 pt-4 pb-1 flex justify-center">
+        <Suspense fallback={<div className="w-full h-12 bg-slate-100 dark:bg-slate-800 rounded-xl animate-pulse" />}>
+          <BatchSelector isHeader={false} />
+        </Suspense>
+      </div>
 
       {/* Mobile tab switcher — scrollable pill row (Moved out of sticky header) */}
       <div className="md:hidden flex overflow-x-auto gap-2 px-4 py-3 border-b border-slate-200/80 dark:border-slate-800/50 bg-transparent scrollbar-none">

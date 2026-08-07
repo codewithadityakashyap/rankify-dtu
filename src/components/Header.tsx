@@ -114,7 +114,7 @@ export function Header() {
           </Suspense>
 
           {/* Premium Batch Selector */}
-          <div className="flex items-center">
+          <div className="hidden md:flex items-center">
             <Suspense fallback={<div className="w-20 h-8 animate-pulse bg-slate-200 dark:bg-slate-800 rounded-lg" />}>
               <BatchSelector isHeader={true} />
             </Suspense>

@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useTransition } from 'react';
 import { motion } from 'framer-motion';
 import { useRouter, useSearchParams, usePathname } from 'next/navigation';
 import { Crown, Sparkles, CheckCircle2 } from 'lucide-react';
@@ -11,6 +11,8 @@ export function BatchSelector({ isHeader = false }: { isHeader?: boolean }) {
   const router = useRouter();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const [isPending, startTransition] = useTransition();
+  
   let currentBatch = searchParams.get('batch');
   
   if (!currentBatch) {
@@ -39,7 +41,9 @@ export function BatchSelector({ isHeader = false }: { isHeader?: boolean }) {
     // Reset page to 1 when changing batch if applicable
     if (params.has('page')) params.set('page', '1');
     
-    router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+    startTransition(() => {
+      router.replace(`${pathname}?${params.toString()}`, { scroll: false });
+    });
     
     // Smooth scroll to the branch selector on the homepage
     if (pathname === '/') {

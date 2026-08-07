@@ -1,9 +1,10 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Suspense } from 'react';
 import { KPICards } from '@/components/dashboard/KPICards';
 import { SearchAndFilter } from '@/components/dashboard/SearchAndFilter';
 import { Clock } from 'lucide-react';
+import { BatchSelector } from '@/components/dark-glass/BatchSelector';
 import { ResultsTable } from '@/components/dashboard/ResultsTable';
 import { StudentModal } from '@/components/dashboard/StudentModal';
 import { Analytics } from '@/components/dashboard/Analytics';
@@ -15,8 +16,7 @@ import { LandingHero } from '@/components/landing/LandingHero';
 import { StatsStrip } from '@/components/landing/StatsStrip';
 import { FeaturesSection } from '@/components/landing/FeaturesSection';
 import { TopRecruiters } from '@/components/landing/TopRecruiters';
-import { BatchSelector } from '@/components/dark-glass/BatchSelector';
-import { useRef, Suspense } from 'react';
+import { useRef } from 'react';
 
 // Debounce hook
 function useDebounce<T>(value: T, delay: number): T {
@@ -133,6 +133,11 @@ function DashboardContent() {
   return (
     <div className="flex flex-col min-h-screen bg-background text-foreground">
 
+      <div className="md:hidden w-full px-4 pt-6 pb-2 flex justify-center">
+        <Suspense fallback={<div className="w-full h-12 bg-slate-100 dark:bg-slate-800 rounded-xl animate-pulse" />}>
+          <BatchSelector isHeader={false} />
+        </Suspense>
+      </div>
 
       <LandingHero 
         onScrollToDashboard={scrollToDashboard}

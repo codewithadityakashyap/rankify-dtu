@@ -26,6 +26,7 @@ export function BranchSelector({
 }: BranchSelectorProps) {
   const scrollContainerRef = useRef<HTMLDivElement>(null);
   const [activeTabElement, setActiveTabElement] = useState<HTMLButtonElement | null>(null);
+  const [isPending, startTransition] = React.useTransition();
 
   // Auto-scroll logic for mobile
   useEffect(() => {
@@ -53,7 +54,9 @@ export function BranchSelector({
       }
     }
     setActiveTabElement(el);
-    onSelect(branch);
+    startTransition(() => {
+      onSelect(branch);
+    });
   };
 
   return (
